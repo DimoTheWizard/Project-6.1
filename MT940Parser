@@ -1,4 +1,14 @@
-namespace ConsoleApplication1
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.Text.RegularExpressions;
+using System.Globalization;
+using System.Text.Json;
+
+
+namespace MT940Parser
 {
     class Program
     {
@@ -6,6 +16,10 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
             MT940 mt940 = new MT940(FILENAME);
+            // var jsonString = JsonSerializer.Serialize(yourObject);
+            string output = JsonConvert.SerializeObject(mt940);
+            System.Diagnostics.Debug.WriteLine(output);
+
         }
     }
     public class MT940
