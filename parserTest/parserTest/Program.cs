@@ -21,9 +21,11 @@ namespace MT940Parser
             
             //JSON OBJECT
             var output = "";
-            if(mt940.valid) {
-            output = JsonSerializer.Serialize(mt940);
-            } else {output = "invalid.";}
+            if(mt940.Checker()) {
+                output = JsonSerializer.Serialize(mt940);
+            } else {
+                output = "invalid.";
+            }
             // string output = JsonConvert.SerializeObject(mt940);
 
             //TEST
@@ -56,9 +58,6 @@ namespace MT940Parser
             StreamReader reader = new StreamReader(filename);
             string line = "";
             int transactionCount = 0;
-            int checkCount = 0;
-            Boolean error = false;
-            this.valid = false;
 
             while ((line = reader.ReadLine()) != null)
             {
@@ -72,24 +71,18 @@ namespace MT940Parser
                     {
                         case "20":
                             transactionReferenceNumber = value;
-                            checkCount++;
-                            // if(transactionReferenceNumber.Length != 16){error = true;} 
                             break;
 
                         case "25":
                             accountIdentification = value;
-                            checkCount++;
-                            // if(accountIdentification.Length != 35){error = true;}
                             break;
 
                         case "28C":
                             messageIndexTotal = value;
-                            checkCount++;
                             break;
 
                         case "60F":
                             openingBalance = new Currency(value);
-                            checkCount++;
                             break;
                         case "61":
                             if (++transactionCount == 1)
@@ -103,7 +96,6 @@ namespace MT940Parser
                             break;
 
                         case "62F":
-                            checkCount++;
                             closingBalance = new Currency(value);
                             break;
                         default:
@@ -111,8 +103,11 @@ namespace MT940Parser
                     }
                 }
             }
+        }
 
-            if(checkCount == this.requiredFields && !error) {this.valid = true;}
+        public Boolean Checker() {
+            if((transactionReferenceNumber ?? accountIdentification ?? messageIndexTotal ?? openingBalance ?? closingBalance) == null){ return false;}
+            return true;
         }
 
     }
