@@ -26,7 +26,7 @@ namespace API.Controllers
         public async Task<IActionResult> Post([FromBody] Transaction transaction)
         {
             await _mongoDBService.CreateAsync(transaction);
-            return CreatedAtAction(nameof(Get), new { id = transaction.Id }, transaction);
+            return CreatedAtAction(nameof(Get), transaction);
         }
     }
 }
