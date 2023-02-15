@@ -71,6 +71,7 @@ namespace MT940Parser
                     {
                         case "20":
                             transactionReferenceNumber = value;
+                            Console.WriteLine(transactionReferenceNumber);
                             break;
 
                         case "25":
