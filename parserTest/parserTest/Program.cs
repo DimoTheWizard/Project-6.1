@@ -71,7 +71,6 @@ namespace MT940Parser
                     {
                         case "20":
                             transactionReferenceNumber = value;
-                            Console.WriteLine(transactionReferenceNumber);
                             break;
 
                         case "25":
@@ -107,8 +106,6 @@ namespace MT940Parser
         }
 
         public Boolean Checker() {
-            // if((this.transactionReferenceNumber ?? this.accountIdentification ?? this.messageIndexTotal) == null){ return false;}
-            /// if((this.openingBalance ?? this.closingBalance) == null){ return false;}
             if(this.transactionReferenceNumber == null || this.accountIdentification == null || this.messageIndexTotal == null || this.openingBalance == null || this.closingBalance == null) {
                 return false;
             }
