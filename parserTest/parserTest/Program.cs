@@ -12,13 +12,19 @@ namespace MT940Parser
 {
     class Program
     {
-        const string FILENAME = @"filepath for the mt940";
+        //ADD THE FILEPATH MANUALLY FOR NOW FOR TESTING PURPOSES
+        const string FILENAME = @"MT940_FILEPATH";
         static void Main(string[] args)
         {
+            //RAW MT940 OBJECT
             MT940 mt940 = new MT940(FILENAME);
+            
+            //JSON OBJECT
             var output = JsonSerializer.Serialize(mt940);
-/*            string output = JsonConvert.SerializeObject(mt940);
-*/            Console.WriteLine(output);
+            // string output = JsonConvert.SerializeObject(mt940);
+
+            //TEST
+            Console.WriteLine(output);
 
         }
     }
