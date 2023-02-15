@@ -66,13 +66,13 @@ namespace MT940Parser
                         case "20":
                             transactionReferenceNumber = value;
                             checkCount++;
-                            if(transactionReferenceNumber.Length != 16){error = true;} 
+                            // if(transactionReferenceNumber.Length != 16){error = true;} 
                             break;
 
                         case "25":
                             accountIdentification = value;
                             checkCount++;
-                            if(accountIdentification.Length != 35){error = true;}
+                            // if(accountIdentification.Length != 35){error = true;}
                             break;
 
                         case "28C":
@@ -105,7 +105,7 @@ namespace MT940Parser
                 }
             }
 
-            if(checkCount == 5 && !error) {Console.WriteLine("ERROR MT940!");}
+            if(!(checkCount == 5 && !error)) {Console.WriteLine("ERROR MT940!");}
         }
 
     }
