@@ -20,7 +20,10 @@ namespace MT940Parser
             MT940 mt940 = new MT940(FILENAME);
             
             //JSON OBJECT
-            var output = JsonSerializer.Serialize(mt940);
+            var output = "";
+            if(mt940.valid) {
+            output = JsonSerializer.Serialize(mt940);
+            } else {output = "invalid.";}
             // string output = JsonConvert.SerializeObject(mt940);
 
             //TEST
@@ -31,6 +34,8 @@ namespace MT940Parser
     public class MT940
     {
         const string TAG_PATTERN = @"^:(?'tag'[^:]+):(?'value'.*)";
+
+        const int requiredFields = 5;
 
         public string transactionReferenceNumber { get; set; }  // 20 *
                                                                 // 21
@@ -44,6 +49,7 @@ namespace MT940Parser
                                                                 //64
                                                                 // 65                
                                                                 // 86
+        public Boolean valid = false;
 
         public MT940(string filename)
         {
@@ -105,7 +111,7 @@ namespace MT940Parser
                 }
             }
 
-            if(!(checkCount == 5 && !error)) {Console.WriteLine("ERROR MT940!");}
+            if(!(checkCount == requiredFields && !error)) {valid = true;}
         }
 
     }
