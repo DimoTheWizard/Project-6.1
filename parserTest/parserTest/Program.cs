@@ -106,8 +106,11 @@ namespace MT940Parser
         }
 
         public Boolean Checker() {
-            if((transactionReferenceNumber ?? accountIdentification ?? messageIndexTotal) == null){ return false;}
-            if((openingBalance ?? closingBalance) == null){ return false;}
+            // if((this.transactionReferenceNumber ?? this.accountIdentification ?? this.messageIndexTotal) == null){ return false;}
+            // if((this.openingBalance ?? this.closingBalance) == null){ return false;}
+            if(this.transactionReferenceNumber == null || this.accountIdentification == null || this.messageIndexTotal == null || this.openingBalance == null || this.closingBalance == null) {
+                return false;
+            }
             return true;
         }
 
