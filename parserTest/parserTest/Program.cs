@@ -32,19 +32,26 @@ namespace MT940Parser
     {
         const string TAG_PATTERN = @"^:(?'tag'[^:]+):(?'value'.*)";
 
-        public string senderReference { get; set; }  //code 20
-        public string authorisation { get; set; } // tag 25
-        public string messageIndexTotal { get; set; } //tag 28D
-        public Currency openingBalance { get; set; }  //60F
-        public string firstTransaction { get; set; } //61
-        public string secondTransaction { get; set; } //61
-        public Currency closingBalance { get; set; } //62F
+        public string transactionReferenceNumber { get; set; }  // 20 *
+                                                                // 21
+        public string accountIdentification { get; set; }               // 25 *
+        public string messageIndexTotal { get; set; }           // 28C *
+        public Currency openingBalance { get; set; }            // 60a * 
+        public string firstTransaction { get; set; }            // 61
+        public string secondTransaction { get; set; }           // 61    
+                                                                 // 86                
+        public Currency closingBalance { get; set; }            // 62a *
+                                                                //64
+                                                                // 65                
+                                                                // 86
 
         public MT940(string filename)
         {
             StreamReader reader = new StreamReader(filename);
             string line = "";
             int transactionCount = 0;
+            int checkCount = 0;
+            Boolean error = false;
 
             while ((line = reader.ReadLine()) != null)
             {
@@ -57,19 +64,25 @@ namespace MT940Parser
                     switch (tag)
                     {
                         case "20":
-                            senderReference = value;
+                            transactionReferenceNumber = value;
+                            checkCount++;
+                            if(transactionReferenceNumber.Length != 16){error = true;} 
                             break;
 
                         case "25":
-                            authorisation = value;
+                            accountIdentification = value;
+                            checkCount++;
+                            if(accountIdentification.Length != 35){error = true;}
                             break;
 
                         case "28C":
                             messageIndexTotal = value;
+                            checkCount++;
                             break;
 
                         case "60F":
                             openingBalance = new Currency(value);
+                            checkCount++;
                             break;
                         case "61":
                             if (++transactionCount == 1)
@@ -83,6 +96,7 @@ namespace MT940Parser
                             break;
 
                         case "62F":
+                            checkCount++;
                             closingBalance = new Currency(value);
                             break;
                         default:
@@ -90,6 +104,8 @@ namespace MT940Parser
                     }
                 }
             }
+
+            if(checkCount == 5 && !error) {Console.WriteLine("ERROR MT940!");}
         }
 
     }
