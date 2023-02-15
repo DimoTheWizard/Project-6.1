@@ -106,7 +106,7 @@ namespace MT940Parser
         }
 
         public Boolean Checker() {
-            if((transactionReferenceNumber ?? accountIdentification ?? messageIndexTotal ?? openingBalance ?? closingBalance) == null){ return false;}
+            if(((transactionReferenceNumber ?? accountIdentification ?? messageIndexTotal) || (openingBalance ?? closingBalance)) == null){ return false;}
             return true;
         }
 
