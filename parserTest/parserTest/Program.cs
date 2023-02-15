@@ -49,7 +49,7 @@ namespace MT940Parser
                                                                 //64
                                                                 // 65                
                                                                 // 86
-        public Boolean valid = false;
+        public Boolean valid;
 
         public MT940(string filename)
         {
@@ -58,6 +58,7 @@ namespace MT940Parser
             int transactionCount = 0;
             int checkCount = 0;
             Boolean error = false;
+            this.valid = false;
 
             while ((line = reader.ReadLine()) != null)
             {
@@ -111,7 +112,7 @@ namespace MT940Parser
                 }
             }
 
-            if(!(checkCount == requiredFields && !error)) {valid = true;}
+            if(checkCount == this.requiredFields && !error) {this.valid = true;}
         }
 
     }
