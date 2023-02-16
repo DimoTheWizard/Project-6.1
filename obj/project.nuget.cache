@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dI1HU30AF0hF74j45xKYgLLMNwjOdILEmZi/QZDR8HMCiFhT6vXzOuVelUxssRLo6U+/BaBReSi5IrKpZpIENQ==",
+  "dgSpecHash": "EP/MKWw21uxybjokVo2X3pMxLgeLhq8TQB748a+phOwVyF9aVAhQJmMKZVKclOepNkXVaLajljsNG7SlKUJbDw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dimit\\source\\repos\\Project-6.1\\API.csproj",
+  "projectFilePath": "C:\\Users\\dimit\\Source\\Repos\\Project-6.1\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dimit\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\dimit\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
