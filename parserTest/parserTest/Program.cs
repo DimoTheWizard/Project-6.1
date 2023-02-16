@@ -14,16 +14,29 @@ namespace MT940Parser
     class Program
     {
         //ADD THE FILEPATH MANUALLY FOR NOW FOR TESTING PURPOSES
-        const string FILENAME = @"MT940_FILEPATH";
+        const string FILENAME = @"/Users/DavidHlavacek/Documents/NHL_Stenden/Year2/Period3/IT2A/Project6.1/Project-6.1/parserTest/parserTest/MT940Sample.txt";
         static void Main(string[] args)
         {
             //RAW MT940 OBJECT
             var start = new Raptorious.SharpMt940Lib.Mt940Format.Separator("STARTUMSE");
             var end = new Raptorious.SharpMt940Lib.Mt940Format.Separator("-");
             var genericFomat = new Raptorious.SharpMt940Lib.Mt940Format.GenericFormat(start, end);
-            var parsed = Mt940Parser.Parse(genericFomat, FILENAME, CultureInfo.CurrentCulture);
-            var output = JsonSerializer.Serialize(parsed);
-            
+            ICollection<CustomerStatementMessage> parsed = null;
+            try {
+                parsed = Mt940Parser.Parse(genericFomat, FILENAME, CultureInfo.CurrentCulture);
+            }
+            catch
+            {
+                Console.WriteLine("Invalid.");
+            }
+
+            var output = "";
+            if(Raptorious.SharpMt940Lib.Mt940Parser.valid) {
+                output = JsonSerializer.Serialize(parsed);
+            } else {    
+                output = "Invalid.";
+            }
+                        
             //JSON OBJECT
             // var output = "";
             // if(mt940.Checker()) {

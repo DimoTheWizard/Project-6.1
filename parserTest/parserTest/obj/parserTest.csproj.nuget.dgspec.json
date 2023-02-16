@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\khoud\\source\\repos\\parserTest\\parserTest\\parserTest.csproj": {}
+    "/Users/DavidHlavacek/Documents/NHL_Stenden/Year2/Period3/IT2A/Project6.1/Project-6.1/parserTest/parserTest/parserTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\khoud\\source\\repos\\parserTest\\parserTest\\parserTest.csproj": {
+    "/Users/DavidHlavacek/Documents/NHL_Stenden/Year2/Period3/IT2A/Project6.1/Project-6.1/parserTest/parserTest/parserTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\khoud\\source\\repos\\parserTest\\parserTest\\parserTest.csproj",
+        "projectUniqueName": "/Users/DavidHlavacek/Documents/NHL_Stenden/Year2/Period3/IT2A/Project6.1/Project-6.1/parserTest/parserTest/parserTest.csproj",
         "projectName": "parserTest",
-        "projectPath": "C:\\Users\\khoud\\source\\repos\\parserTest\\parserTest\\parserTest.csproj",
-        "packagesPath": "C:\\Users\\khoud\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\khoud\\source\\repos\\parserTest\\parserTest\\obj\\",
+        "projectPath": "/Users/DavidHlavacek/Documents/NHL_Stenden/Year2/Period3/IT2A/Project6.1/Project-6.1/parserTest/parserTest/parserTest.csproj",
+        "packagesPath": "/Users/DavidHlavacek/.nuget/packages/",
+        "outputPath": "/Users/DavidHlavacek/Documents/NHL_Stenden/Year2/Period3/IT2A/Project6.1/Project-6.1/parserTest/parserTest/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\khoud\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/DavidHlavacek/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.406/RuntimeIdentifierGraph.json"
         }
       }
     }
