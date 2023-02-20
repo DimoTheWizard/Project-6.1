@@ -11,19 +11,20 @@ using Raptorious.SharpMt940Lib;
 
 namespace MT940Parser
 {
-    class Program
+    class Parser
     {
+
+        var jsonObject = null;
         //ADD THE FILEPATH MANUALLY FOR NOW FOR TESTING PURPOSES
-        const string FILENAME = @"/Users/DavidHlavacek/Documents/NHL_Stenden/Year2/Period3/IT2A/Project6.1/Project-6.1/parserTest/parserTest/MT940Sample.txt";
-        static void Main(string[] args)
-        {
+        // const string FILENAME = @"/Users/DavidHlavacek/Documents/NHL_Stenden/Year2/Period3/IT2A/Project6.1/Project-6.1/parserTest/parserTest/MT940Sample.txt";
+        public Parser(string filePath) {
             //RAW MT940 OBJECT
             var start = new Raptorious.SharpMt940Lib.Mt940Format.Separator("STARTUMSE");
             var end = new Raptorious.SharpMt940Lib.Mt940Format.Separator("-");
             var genericFomat = new Raptorious.SharpMt940Lib.Mt940Format.GenericFormat(start, end);
             ICollection<CustomerStatementMessage> parsed = null;
             try {
-                parsed = Mt940Parser.Parse(genericFomat, FILENAME, CultureInfo.CurrentCulture);
+                parsed = Mt940Parser.Parse(genericFomat, filePath, CultureInfo.CurrentCulture);
             }
             catch
             {
@@ -32,11 +33,10 @@ namespace MT940Parser
 
             var output = "";
             if(Raptorious.SharpMt940Lib.Mt940Parser.valid) {
-                output = JsonSerializer.Serialize(parsed);
+                this.jsonObject = JsonSerializer.Serialize(parsed);
             } else {    
-                output = "Invalid.";
-            }
-                        
+                Console.WriteLine("Invalid.");
+            }  
             //JSON OBJECT
             // var output = "";
             // if(mt940.Checker()) {
@@ -47,8 +47,11 @@ namespace MT940Parser
             // string output = JsonConvert.SerializeObject(mt940);
 
             //TEST
-            Console.WriteLine(output);
+        }
 
+        public var getJson() {
+            if(this.jsonObject != null) {return this.jsonObject;}
+            return "Invalid.";
         }
     }   
 }
