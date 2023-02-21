@@ -9,11 +9,11 @@ using System.Text.Json;
 using Raptorious.SharpMt940Lib;
 //ADD NUGET PACKAGE SharpMt940Lib.Core 1.0.2
 
-namespace MT940Parser
+namespace Parser
 {
-    class Parser
+    class API
     {
-        static void Parse(fileName)
+        static bool API(string fileName)
         {
             //RAW MT940 OBJECT
             var start = new Raptorious.SharpMt940Lib.Mt940Format.Separator("STARTUMSE");
