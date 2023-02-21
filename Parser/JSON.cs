@@ -2,14 +2,14 @@ namespace Parser
 {
     class JSON
     {
-        private var json;
+        private object json;
 
-        public void JSON(var json)
+        public JSON(object json)
         {
             this.json = json;
         }
 
-        public var getJson()
+        public object getJson()
         {
             return this.json;
         }

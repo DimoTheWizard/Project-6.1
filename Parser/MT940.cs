@@ -4,7 +4,7 @@ namespace Parser
     {
         private string filePath;
         // private List<string> filePaths = new List<string>;
-        public bool MT940(string filePath)
+        public MT940(string filePath)
         {
             this.filePath = filePath;
         }

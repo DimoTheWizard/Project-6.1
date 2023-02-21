@@ -59,3 +59,4 @@ namespace api
             return collection.Find(new BsonDocument()).ToList();
         }
     }
+}
