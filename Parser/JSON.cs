@@ -9,9 +9,10 @@ namespace Parser
             this.json = json;
         }
 
-        public object getJson()
+        public string getJson()
         {
-            return this.json;
+            return this.json.ToString();
+            //return this.json;
         }
     }
 }

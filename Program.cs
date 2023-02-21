@@ -29,7 +29,7 @@ namespace SportsAccounting
             ParserAPI parser = new ParserAPI(mt940);
             Console.WriteLine(parser.parseMT940_TO_JSON());
             Console.WriteLine(parser.getJSON());
-
+            Console.ReadKey();
         }
     }
         

@@ -46,9 +46,9 @@ namespace Parser
             return false;
         }
 
-        public JSON getJSON() 
+        public string getJSON() 
         {
-            return this.json;
+            return this.json.getJson();
         }
     }   
 }
