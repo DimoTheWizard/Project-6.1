@@ -88,3 +88,13 @@ C:\Users\dimit\Source\Repos\Project-6.1\obj\Debug\net7.0\refint\API.dll
 C:\Users\dimit\Source\Repos\Project-6.1\obj\Debug\net7.0\API.pdb
 C:\Users\dimit\Source\Repos\Project-6.1\obj\Debug\net7.0\API.genruntimeconfig.cache
 C:\Users\dimit\Source\Repos\Project-6.1\obj\Debug\net7.0\ref\API.dll
+C:\Users\Gebruiker\Documents\GitHub\Project-6.1\obj\Debug\net7.0\API.csproj.AssemblyReference.cache
+C:\Users\Gebruiker\Documents\GitHub\Project-6.1\obj\Debug\net7.0\API.dll
+C:\Users\Gebruiker\Documents\GitHub\Project-6.1\obj\Debug\net7.0\refint\API.dll
+C:\Users\Gebruiker\Documents\GitHub\Project-6.1\obj\Debug\net7.0\API.pdb
+C:\Users\Gebruiker\Documents\GitHub\Project-6.1\obj\Debug\net7.0\API.TestApp1.Form1.resources
+C:\Users\Gebruiker\Documents\GitHub\Project-6.1\obj\Debug\net7.0\API.TestApp1.LogIn.resources
+C:\Users\Gebruiker\Documents\GitHub\Project-6.1\obj\Debug\net7.0\API.TestApp1.Properties.Resources.resources
+C:\Users\Gebruiker\Documents\GitHub\Project-6.1\obj\Debug\net7.0\TestApp1.Form1.resources
+C:\Users\Gebruiker\Documents\GitHub\Project-6.1\obj\Debug\net7.0\API.TestApp1.TestApp1.Properties.Resources.resources
+C:\Users\Gebruiker\Documents\GitHub\Project-6.1\obj\Debug\net7.0\API.csproj.GenerateResource.cache
