@@ -17,3 +17,15 @@ C:\Users\User\TestApp1\TestApp1\obj\Debug\net6.0-windows\TestApp1.genruntimeconf
 C:\Users\User\TestApp1\TestApp1\obj\Debug\net6.0-windows\ref\TestApp1.dll
 C:\Users\User\TestApp1\TestApp1\obj\Debug\net6.0-windows\TestApp1.LogIn.resources
 C:\Users\User\TestApp1\TestApp1\obj\Debug\net6.0-windows\TestApp1.Home.resources
+C:\Users\User\Project6.1\Project-6.1\TestApp1\obj\Debug\net6.0-windows\TestApp1.csproj.AssemblyReference.cache
+C:\Users\User\Project6.1\Project-6.1\TestApp1\obj\Debug\net6.0-windows\TestApp1.Home.resources
+C:\Users\User\Project6.1\Project-6.1\TestApp1\obj\Debug\net6.0-windows\TestApp1.LogIn.resources
+C:\Users\User\Project6.1\Project-6.1\TestApp1\obj\Debug\net6.0-windows\TestApp1.Properties.Resources.resources
+C:\Users\User\Project6.1\Project-6.1\TestApp1\obj\Debug\net6.0-windows\TestApp1.csproj.GenerateResource.cache
+C:\Users\User\Project6.1\Project-6.1\TestApp1\obj\Debug\net6.0-windows\TestApp1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Project6.1\Project-6.1\TestApp1\obj\Debug\net6.0-windows\TestApp1.AssemblyInfoInputs.cache
+C:\Users\User\Project6.1\Project-6.1\TestApp1\obj\Debug\net6.0-windows\TestApp1.AssemblyInfo.cs
+C:\Users\User\Project6.1\Project-6.1\TestApp1\obj\Debug\net6.0-windows\TestApp1.csproj.CoreCompileInputs.cache
+C:\Users\User\Project6.1\Project-6.1\TestApp1\obj\Debug\net6.0-windows\TestApp1.dll
+C:\Users\User\Project6.1\Project-6.1\TestApp1\obj\Debug\net6.0-windows\refint\TestApp1.dll
+C:\Users\User\Project6.1\Project-6.1\TestApp1\obj\Debug\net6.0-windows\TestApp1.pdb
