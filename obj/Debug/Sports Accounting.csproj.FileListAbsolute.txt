@@ -1,0 +1,10 @@
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\Sports Accounting.exe.config
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\Sports Accounting.exe
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\Sports Accounting.pdb
+C:\Users\dimit\Source\Repos\Project-6.1\obj\Debug\Sports Accounting.csproj.AssemblyReference.cache
+C:\Users\dimit\Source\Repos\Project-6.1\obj\Debug\Sports Accounting.csproj.SuggestedBindingRedirects.cache
+C:\Users\dimit\Source\Repos\Project-6.1\obj\Debug\Sports_Accounting.Properties.Resources.resources
+C:\Users\dimit\Source\Repos\Project-6.1\obj\Debug\Sports Accounting.csproj.GenerateResource.cache
+C:\Users\dimit\Source\Repos\Project-6.1\obj\Debug\Sports Accounting.csproj.CoreCompileInputs.cache
+C:\Users\dimit\Source\Repos\Project-6.1\obj\Debug\Sports Accounting.exe
+C:\Users\dimit\Source\Repos\Project-6.1\obj\Debug\Sports Accounting.pdb
