@@ -8,3 +8,52 @@ C:\Users\dimit\Source\Repos\Project-6.1\obj\Debug\Sports Accounting.csproj.Gener
 C:\Users\dimit\Source\Repos\Project-6.1\obj\Debug\Sports Accounting.csproj.CoreCompileInputs.cache
 C:\Users\dimit\Source\Repos\Project-6.1\obj\Debug\Sports Accounting.exe
 C:\Users\dimit\Source\Repos\Project-6.1\obj\Debug\Sports Accounting.pdb
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\mongocrypt.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\AWSSDK.Core.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\AWSSDK.SecurityToken.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\DnsClient.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\Microsoft.Win32.Registry.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\MongoDB.Bson.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\MongoDB.Driver.Core.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\MongoDB.Driver.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\MongoDB.Libmongocrypt.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\SharpCompress.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\Snappier.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.Buffers.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.Memory.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.Security.AccessControl.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.Text.Encoding.CodePages.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.Text.Json.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.ValueTuple.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\ZstdSharp.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\AWSSDK.Core.pdb
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\AWSSDK.Core.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\AWSSDK.SecurityToken.pdb
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\AWSSDK.SecurityToken.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\DnsClient.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\Microsoft.Win32.Registry.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\MongoDB.Bson.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\MongoDB.Driver.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\MongoDB.Driver.Core.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\Snappier.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.Buffers.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.Memory.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.Security.AccessControl.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.Text.Encoding.CodePages.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.Text.Json.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\System.ValueTuple.xml
+C:\Users\dimit\Source\Repos\Project-6.1\obj\Debug\Sports Accounting.csproj.CopyComplete
