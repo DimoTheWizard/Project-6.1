@@ -194,6 +194,9 @@
     <Compile Include="Raptorious.SharpMt940Lib\TransactionBalance.cs" />
     <Compile Include="Raptorious.SharpMt940Lib\TransactionDetails.cs" />
     <Compile Include="Raptorious.SharpMt940Lib\ValueConvert.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
