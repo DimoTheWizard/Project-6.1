@@ -59,11 +59,38 @@ namespace api
             catch (Exception ex)
             {
                 // handle any exceptions thrown during get request
-                System.Console.WriteLine($"An error occurred retrieving documents from MongoDB: " + ex.Message);
+                System.Console.WriteLine("An error occurred retrieving documents from MongoDB: " + ex.Message);
                 return null;
             }
         }
 
+        public async Task<List<BsonDocument>> GetAll()
+        {
+            try
+            {
+                // retrieve all BSON documents from MongoDB
+                var cursor = await collection.FindAsync(new BsonDocument());
+
+                var documents = new List<BsonDocument>();
+                while (await cursor.MoveNextAsync())
+                {
+                    // loops through all found documents
+                    var batch = cursor.Current;
+                    foreach (var document in batch)
+                    {
+                        // Add the BSON document to the list
+                        documents.Add(document);
+                    }
+                }
+                return documents;
+            }
+            catch (Exception ex)
+            {
+                // handle exceptions given during get request
+                System.Console.WriteLine("An error occurred retrieving documents from MongoDB: " + ex.Message);
+                return null;
+            }
+        }
 
         //Updates all similar to the filter according to update
         public async Task<bool> Put(BsonDocument original, BsonDocument updated)
@@ -82,7 +109,7 @@ namespace api
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred while updating the document: {ex.Message}");
+                Console.WriteLine("An error occurred while updating the document: " + ex.Message);
                 return false;
             }
         }
