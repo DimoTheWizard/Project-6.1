@@ -12,7 +12,6 @@ namespace Parser
         public string getJson()
         {
             return this.json.ToString();
-            //return this.json;
         }
     }
 }
