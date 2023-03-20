@@ -82,8 +82,17 @@ namespace Sports_Accounting
             }
 
             //delete the document
-            jsonAPI.Delete(documentAdjusted);
-            Console.WriteLine("DELETED DOCUMENT");
+            //jsonAPI.Delete(documentAdjusted);
+            //Console.WriteLine("DELETED DOCUMENT");
+
+            //View all the entries using getAll
+            Console.WriteLine();
+            var allDocs = await jsonAPI.GetAll();
+            Console.WriteLine("RETRIEVED ADJUSTED DOCUMENTS");
+            foreach (var doc in allDocs)
+            {
+                Console.WriteLine(doc.ToJson());
+            }
         }
     }
 }
