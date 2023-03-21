@@ -15,10 +15,10 @@ namespace Sports_Accounting
 {
     public partial class LogIn : Form
     {
-        /*public LogIn()
+        public LogIn()
         {
             InitializeComponent();
-        }*/
+        }
 
             /*private void LoginButton_Click(object sender, EventArgs e)
             {
