@@ -20,7 +20,7 @@ namespace Sports_Accounting
             InitializeComponent();
         }
 
-            private void LoginButton_Click(object sender, EventArgs e)
+            /*private void LoginButton_Click(object sender, EventArgs e)
             {
                 string username = firstinput.Text.Trim();
                 string password = textBox1.Text;
@@ -107,7 +107,7 @@ namespace Sports_Accounting
                 }
 
                 return true;
-            }
+            }*/
     }
 }
 
