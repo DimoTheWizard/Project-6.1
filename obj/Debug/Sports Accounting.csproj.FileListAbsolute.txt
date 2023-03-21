@@ -118,3 +118,4 @@ C:\Users\User\Project-6.1\obj\Debug\Sports Accounting.csproj.CopyComplete
 C:\Users\User\Project-6.1\obj\Debug\Sports Accounting.exe
 C:\Users\User\Project-6.1\obj\Debug\Sports Accounting.pdb
 C:\Users\dimit\Source\Repos\Project-6.1\obj\Debug\Sports_Accounting.LogIn.resources
+C:\Users\User\Project-6.1\obj\Debug\Sports_Accounting.Home.resources
