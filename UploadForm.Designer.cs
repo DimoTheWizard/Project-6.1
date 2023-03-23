@@ -35,7 +35,7 @@
             // 
             // Upload
             // 
-            this.Upload.Location = new System.Drawing.Point(122, 283);
+            this.Upload.Location = new System.Drawing.Point(118, 316);
             this.Upload.Name = "Upload";
             this.Upload.Size = new System.Drawing.Size(100, 30);
             this.Upload.TabIndex = 0;

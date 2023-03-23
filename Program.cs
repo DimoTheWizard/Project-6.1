@@ -2,9 +2,7 @@
 using MongoDB.Bson;
 using Parser;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,7 +18,7 @@ namespace Sports_Accounting
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LogIn());
+            Application.Run(new UploadForm());
         }
         static async Task MainAsync(string[] args)
         {
