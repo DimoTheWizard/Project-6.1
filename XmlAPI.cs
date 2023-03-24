@@ -24,16 +24,18 @@ namespace Sports_Accounting
         {
         }
 
-        public async Task<List<XDocument>> Get(BsonDocument criteria)
+        public async Task<List<XmlDocument>> Get(BsonDocument criteria)
         {
             var BsonDoc = jsonAPI.Get(criteria);
-            return null;
+
+            return XMLConverter(await BsonDoc);
         }
 
-        public async Task<List<XDocument>> GetAll()
+        public async Task<List<XmlDocument>> GetAll()
         {
             var BsonDoc = jsonAPI.GetAll();
-            return null;
+
+            return XMLConverter(await BsonDoc);
         }
 
         public List<XmlDocument> XMLConverter(List<BsonDocument> BsonDoc) 
