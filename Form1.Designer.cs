@@ -64,7 +64,9 @@ namespace WindowsFormsApp1
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.transactionsPage1 = new WindowsFormsApp1.TransactionsPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button3
@@ -412,16 +414,22 @@ namespace WindowsFormsApp1
             this.label2.Size = new System.Drawing.Size(207, 34);
             this.label2.TabIndex = 67;
             this.label2.Text = "Joke goes here";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // transactionsPage1
             // 
-            this.transactionsPage1.Location = new System.Drawing.Point(-2, -2);
+            this.transactionsPage1.Location = new System.Drawing.Point(3, 0);
             this.transactionsPage1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.transactionsPage1.Name = "transactionsPage1";
-            this.transactionsPage1.Size = new System.Drawing.Size(1181, 627);
+            this.transactionsPage1.Size = new System.Drawing.Size(1176, 627);
             this.transactionsPage1.TabIndex = 64;
             this.transactionsPage1.Load += new System.EventHandler(this.transactionsPage1_Load);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Location = new System.Drawing.Point(773, 416);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(322, 113);
+            this.dataGridView1.TabIndex = 0;
             // 
             // Form1
             // 
@@ -429,6 +437,7 @@ namespace WindowsFormsApp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1176, 621);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.transactionsPage1);
@@ -468,6 +477,7 @@ namespace WindowsFormsApp1
             this.Text = "+ $ 555 555.00";
             this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -508,5 +518,6 @@ namespace WindowsFormsApp1
         private TransactionsPage transactionsPage1;
         private Label label1;
         private Label label2;
+        private DataGridView dataGridView1;
     }
 }

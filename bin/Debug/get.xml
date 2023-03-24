@@ -1,0 +1,175 @@
+<?xml version='1.0'?>
+<data>
+    <error>false</error>
+    <amount>10</amount>
+    <jokes>
+        <joke>
+            <category>Misc</category>
+            <type>single</type>
+            <joke>Yo mama is so old, she knew Burger King while he was still a prince.</joke>
+            <flags>
+                <nsfw>false</nsfw>
+                <religious>false</religious>
+                <political>false</political>
+                <racist>false</racist>
+                <sexist>false</sexist>
+                <explicit>false</explicit>
+            </flags>
+            <safe>true</safe>
+            <id>306</id>
+            <lang>en</lang>
+        </joke>
+        <joke>
+            <category>Programming</category>
+            <type>single</type>
+            <joke>"Can I tell you a TCP joke?"
+"Please tell me a TCP joke."
+"OK, I'll tell you a TCP joke."</joke>
+            <flags>
+                <nsfw>false</nsfw>
+                <religious>false</religious>
+                <political>false</political>
+                <racist>false</racist>
+                <sexist>false</sexist>
+                <explicit>false</explicit>
+            </flags>
+            <id>57</id>
+            <safe>true</safe>
+            <lang>en</lang>
+        </joke>
+        <joke>
+            <category>Programming</category>
+            <type>single</type>
+            <joke>I've got a really good UDP joke to tell you but I don’t know if you'll get it.</joke>
+            <flags>
+                <nsfw>false</nsfw>
+                <religious>false</religious>
+                <political>false</political>
+                <racist>false</racist>
+                <sexist>false</sexist>
+                <explicit>false</explicit>
+            </flags>
+            <id>0</id>
+            <safe>true</safe>
+            <lang>en</lang>
+        </joke>
+        <joke>
+            <category>Programming</category>
+            <type>single</type>
+            <joke>Knock knock.
+Who's there?
+Recursion.
+Recursion who?
+Knock knock.</joke>
+            <flags>
+                <nsfw>false</nsfw>
+                <religious>false</religious>
+                <political>false</political>
+                <racist>false</racist>
+                <sexist>false</sexist>
+                <explicit>false</explicit>
+            </flags>
+            <id>180</id>
+            <safe>true</safe>
+            <lang>en</lang>
+        </joke>
+        <joke>
+            <category>Programming</category>
+            <type>single</type>
+            <joke>Debugging: Removing the needles from the haystack.</joke>
+            <flags>
+                <nsfw>false</nsfw>
+                <religious>false</religious>
+                <political>false</political>
+                <racist>false</racist>
+                <sexist>false</sexist>
+                <explicit>false</explicit>
+            </flags>
+            <id>40</id>
+            <safe>true</safe>
+            <lang>en</lang>
+        </joke>
+        <joke>
+            <category>Dark</category>
+            <type>single</type>
+            <joke>My little daughter came to me all excited, saying "Daddy! Daddy! Guess how old I'll be in June!"
+"Oh I don't know princess, why don't you tell me?" I said. She gave me a huge smile and held up four fingers.
+It's now three hours later, police have joined in and she still won't say where she got them.</joke>
+            <flags>
+                <nsfw>false</nsfw>
+                <religious>false</religious>
+                <political>false</political>
+                <racist>false</racist>
+                <sexist>false</sexist>
+                <explicit>false</explicit>
+            </flags>
+            <id>165</id>
+            <safe>false</safe>
+            <lang>en</lang>
+        </joke>
+        <joke>
+            <category>Dark</category>
+            <type>single</type>
+            <joke>My ex had an accident. I told the paramedics the wrong blood type for her. She'll finally experience what rejection is really like.</joke>
+            <flags>
+                <nsfw>false</nsfw>
+                <religious>false</religious>
+                <political>false</political>
+                <racist>false</racist>
+                <sexist>false</sexist>
+                <explicit>false</explicit>
+            </flags>
+            <id>152</id>
+            <safe>false</safe>
+            <lang>en</lang>
+        </joke>
+        <joke>
+            <category>Pun</category>
+            <type>single</type>
+            <joke>Oysters hate to give away their pearls because they are shellfish.</joke>
+            <flags>
+                <nsfw>false</nsfw>
+                <religious>false</religious>
+                <political>false</political>
+                <racist>false</racist>
+                <sexist>false</sexist>
+                <explicit>false</explicit>
+            </flags>
+            <id>90</id>
+            <safe>true</safe>
+            <lang>en</lang>
+        </joke>
+        <joke>
+            <category>Misc</category>
+            <type>single</type>
+            <joke>I visited my friend at his new house. He told me to make myself at home. So I threw him out. I hate having visitors.</joke>
+            <flags>
+                <nsfw>false</nsfw>
+                <religious>false</religious>
+                <political>false</political>
+                <racist>false</racist>
+                <sexist>false</sexist>
+                <explicit>false</explicit>
+            </flags>
+            <safe>true</safe>
+            <id>304</id>
+            <lang>en</lang>
+        </joke>
+        <joke>
+            <category>Programming</category>
+            <type>single</type>
+            <joke>If Bill Gates had a dime for every time Windows crashed ... Oh wait, he does.</joke>
+            <flags>
+                <nsfw>false</nsfw>
+                <religious>false</religious>
+                <political>false</political>
+                <racist>false</racist>
+                <sexist>false</sexist>
+                <explicit>false</explicit>
+            </flags>
+            <id>22</id>
+            <safe>true</safe>
+            <lang>en</lang>
+        </joke>
+    </jokes>
+</data>

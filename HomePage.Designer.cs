@@ -332,7 +332,7 @@ namespace WindowsFormsApp1
             this.button1.BackColor = System.Drawing.Color.DarkBlue;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(800, 531);
+            this.button1.Location = new System.Drawing.Point(799, 559);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(183, 34);
             this.button1.TabIndex = 27;
@@ -343,7 +343,7 @@ namespace WindowsFormsApp1
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.ForeColor = System.Drawing.Color.Gray;
-            this.button2.Location = new System.Drawing.Point(1010, 531);
+            this.button2.Location = new System.Drawing.Point(1009, 559);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(112, 34);
             this.button2.TabIndex = 28;
@@ -374,10 +374,10 @@ namespace WindowsFormsApp1
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox17);
             this.Controls.Add(this.richTextBox5);
             this.Controls.Add(this.richTextBox4);

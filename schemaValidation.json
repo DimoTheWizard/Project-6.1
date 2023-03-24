@@ -1,0 +1,101 @@
+{
+  //"$schema": "https://appliedengdesign.github.io/cnccodes-json-schema/draft/2022-07/schema",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Welcome",
+  "definitions": {
+    "Welcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "error": {
+          "type": "boolean"
+        },
+        "amount": {
+          "type": "integer"
+        },
+        "jokes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Joke"
+          }
+        }
+      },
+      "required": [
+        "amount",
+        "error",
+        "jokes"
+      ],
+      "title": "Welcome"
+    },
+    "Joke": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "joke": {
+          "type": "string"
+        },
+        "flags": {
+          "$ref": "#/definitions/Flags"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "safe": {
+          "type": "boolean"
+        },
+        "lang": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "category",
+        "flags",
+        "id",
+        "joke",
+        "lang",
+        "safe",
+        "type"
+      ],
+      "title": "Joke"
+    },
+    "Flags": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "nsfw": {
+          "type": "boolean"
+        },
+        "religious": {
+          "type": "boolean"
+        },
+        "political": {
+          "type": "boolean"
+        },
+        "racist": {
+          "type": "boolean"
+        },
+        "sexist": {
+          "type": "boolean"
+        },
+        "explicit": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "explicit",
+        "nsfw",
+        "political",
+        "racist",
+        "religious",
+        "sexist"
+      ],
+      "title": "Flags"
+    }
+  }
+}

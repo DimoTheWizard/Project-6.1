@@ -1,0 +1,40 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="data">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="error"/>
+        <xs:element type="xs:byte" name="amount"/>
+        <xs:element name="jokes">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="joke" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:choice maxOccurs="unbounded" minOccurs="0">
+                    <xs:element type="xs:string" name="category"/>
+                    <xs:element type="xs:string" name="type"/>
+                    <xs:element type="xs:string" name="joke"/>
+                    <xs:element name="flags">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="nsfw"/>
+                          <xs:element type="xs:string" name="religious"/>
+                          <xs:element type="xs:string" name="political"/>
+                          <xs:element type="xs:string" name="racist"/>
+                          <xs:element type="xs:string" name="sexist"/>
+                          <xs:element type="xs:string" name="explicit"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:short" name="id"/>
+                    <xs:element type="xs:string" name="safe"/>
+                    <xs:element type="xs:string" name="lang"/>
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
