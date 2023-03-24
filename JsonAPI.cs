@@ -1,4 +1,4 @@
-﻿using MongoDB.Bson;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ namespace api
 {
     public class JsonAPI
     {
-        MongoClient dbClient = null;
+        //MongoClient dbClient = null;
         MongoDB.Driver.IMongoDatabase database = null;
         MongoDB.Driver.IMongoCollection<MongoDB.Bson.BsonDocument> collection = null;
 

@@ -1,4 +1,4 @@
-﻿using Amazon.Auth.AccessControlPolicy;
+using Amazon.Auth.AccessControlPolicy;
 using api;
 using MongoDB.Bson;
 using System;
