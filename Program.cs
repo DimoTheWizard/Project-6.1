@@ -14,7 +14,7 @@ namespace Sports_Accounting
     internal static class Program
     {
         public static void Main(string[] args)
-        {
+         {
             //This is needed to allow await functions to wait instead of causing errors,
             //Have to turn main into an async task aswell so that it functions properly
             Task.Run(async () => await MainAsync(args));

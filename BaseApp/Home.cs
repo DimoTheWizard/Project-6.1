@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sports_Accounting.BaseApp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace Sports_Accounting
         public Home()
         {
             InitializeComponent();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            TransactionDisplay transactionDisplay = new TransactionDisplay();
+            transactionDisplay.Show();
         }
     }
 }
