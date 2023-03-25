@@ -71,9 +71,6 @@
     <Reference Include="SharpCompress, Version=0.30.1.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
       <HintPath>packages\SharpCompress.0.30.1\lib\net461\SharpCompress.dll</HintPath>
     </Reference>
-    <Reference Include="SharpMt940Lib.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\SharpMt940Lib.Core.1.0.2\lib\net461\SharpMt940Lib.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Snappier, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a1b25124e6e13a3a, processorArchitecture=MSIL">
       <HintPath>packages\Snappier.1.0.0\lib\netstandard2.0\Snappier.dll</HintPath>
     </Reference>
@@ -167,18 +164,47 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="BaseApp\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.designer.cs">
+    <Compile Include="BaseApp\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="BaseApp\Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseApp\Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
     <Compile Include="JsonAPI.cs" />
+    <Compile Include="Parser\JSON.cs" />
+    <Compile Include="Parser\MT940.cs" />
+    <Compile Include="Parser\ParserAPI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XmlAPI.cs" />
-    <EmbeddedResource Include="Form1.resx">
+    <Compile Include="Raptorious.SharpMt940Lib\Currency.cs" />
+    <Compile Include="Raptorious.SharpMt940Lib\CustomerStatementMessage.cs" />
+    <Compile Include="Raptorious.SharpMt940Lib\DateParser.cs" />
+    <Compile Include="Raptorious.SharpMt940Lib\DebitCredit.cs" />
+    <Compile Include="Raptorious.SharpMt940Lib\DebitCreditFactory.cs" />
+    <Compile Include="Raptorious.SharpMt940Lib\GlobalSuppressions.cs" />
+    <Compile Include="Raptorious.SharpMt940Lib\Money.cs" />
+    <Compile Include="Raptorious.SharpMt940Lib\Mt940Format\AbnAmro.cs" />
+    <Compile Include="Raptorious.SharpMt940Lib\Mt940Format\GenericFormat.cs" />
+    <Compile Include="Raptorious.SharpMt940Lib\Mt940Format\IMt940Format.cs" />
+    <Compile Include="Raptorious.SharpMt940Lib\Mt940Format\Seperator.cs" />
+    <Compile Include="Raptorious.SharpMt940Lib\Mt940Parser.cs" />
+    <Compile Include="Raptorious.SharpMt940Lib\Parameters.cs" />
+    <Compile Include="Raptorious.SharpMt940Lib\TextParser.cs" />
+    <Compile Include="Raptorious.SharpMt940Lib\Transaction.cs" />
+    <Compile Include="Raptorious.SharpMt940Lib\TransactionBalance.cs" />
+    <Compile Include="Raptorious.SharpMt940Lib\TransactionDetails.cs" />
+    <Compile Include="Raptorious.SharpMt940Lib\ValueConvert.cs" />
+    <EmbeddedResource Include="BaseApp\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseApp\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -201,12 +227,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Raptorious.SharpMt940Lib\Raptorious.SharpMt940Lib.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="mongocrypt.dll" />
+    <Content Include="Parser\ParserUML.png" />
+    <Content Include="Raptorious.SharpMt940Lib\MT940.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="packages\AWSSDK.SecurityToken.3.7.100.14\analyzers\dotnet\cs\AWSSDK.SecurityToken.CodeAnalysis.dll" />
