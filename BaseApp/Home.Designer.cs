@@ -58,7 +58,7 @@
             this.backgroud1.BackColor = System.Drawing.Color.White;
             this.backgroud1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.backgroud1.Location = new System.Drawing.Point(63, 0);
-            this.backgroud1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.backgroud1.Margin = new System.Windows.Forms.Padding(2);
             this.backgroud1.Name = "backgroud1";
             this.backgroud1.Size = new System.Drawing.Size(989, 296);
             this.backgroud1.TabIndex = 0;
@@ -148,7 +148,7 @@
             this.Card.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Card.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Card.Location = new System.Drawing.Point(161, 113);
-            this.Card.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Card.Margin = new System.Windows.Forms.Padding(2);
             this.Card.Name = "Card";
             this.Card.Size = new System.Drawing.Size(149, 94);
             this.Card.TabIndex = 7;
@@ -160,7 +160,7 @@
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(353, 113);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(149, 94);
             this.richTextBox1.TabIndex = 8;
@@ -296,12 +296,13 @@
             this.buttonTransaction.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTransaction.ForeColor = System.Drawing.Color.White;
             this.buttonTransaction.Location = new System.Drawing.Point(613, 451);
-            this.buttonTransaction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonTransaction.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTransaction.Name = "buttonTransaction";
             this.buttonTransaction.Size = new System.Drawing.Size(128, 31);
             this.buttonTransaction.TabIndex = 21;
             this.buttonTransaction.Text = "New transaction";
             this.buttonTransaction.UseVisualStyleBackColor = false;
+            this.buttonTransaction.Click += new System.EventHandler(this.buttonTransaction_Click);
             // 
             // button1
             // 
@@ -309,7 +310,7 @@
             this.button1.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Gray;
             this.button1.Location = new System.Drawing.Point(779, 451);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 31);
             this.button1.TabIndex = 22;
@@ -323,7 +324,7 @@
             this.acccount.Font = new System.Drawing.Font("Circular Std Black", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.acccount.ForeColor = System.Drawing.Color.White;
             this.acccount.Location = new System.Drawing.Point(939, 29);
-            this.acccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.acccount.Margin = new System.Windows.Forms.Padding(2);
             this.acccount.Name = "acccount";
             this.acccount.Size = new System.Drawing.Size(81, 19);
             this.acccount.TabIndex = 27;
@@ -369,7 +370,7 @@
             this.Controls.Add(this.welcomeText);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.backgroud1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Home";
             this.Text = "Home";
             this.ResumeLayout(false);

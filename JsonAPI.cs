@@ -1,7 +1,11 @@
-﻿using MongoDB.Bson;
+﻿using Amazon.Auth.AccessControlPolicy;
+using MongoDB.Bson;
 using MongoDB.Driver;
+using Raptorious.SharpMt940Lib;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace api
@@ -20,6 +24,37 @@ namespace api
             //get the database and the collection we want to use
             database = dbClient.GetDatabase("SportsAccounting");
             collection = database.GetCollection<BsonDocument>("transactions");
+        }
+
+        public BsonDocument FileToBson(string path)
+        {
+            //read the content of the file
+            var mt940Text = File.ReadAllText(path);
+
+            //Create a valid JSON string
+            var jsonFile = "{ \"mt940_content\": \"" + mt940Text.Replace("\"", "\\\"") + "\" }";
+
+            //Parse the JSON string into a BsonDocument
+            var document = BsonDocument.Parse(jsonFile);
+
+            return document;
+        }
+
+        public bool checkMT940(BsonDocument BsonDoc)
+        {
+            var header = new Raptorious.SharpMt940Lib.Mt940Format.Separator("STARTUMSE");
+            var trailer = new Raptorious.SharpMt940Lib.Mt940Format.Separator("-");
+            var genericFomat = new Raptorious.SharpMt940Lib.Mt940Format.GenericFormat(header, trailer);
+            try
+            {
+                //if it successfully parses return true
+                var parsed = Raptorious.SharpMt940Lib.Mt940Parser.ParseData(genericFomat, BsonDoc.GetElement("mt940_content").ToString(), CultureInfo.CurrentCulture);
+                return true;
+            } catch
+            {
+                //if it fails catch and throw false
+                return false;
+            }
         }
 
         //Put a single document into the MongoDB database
