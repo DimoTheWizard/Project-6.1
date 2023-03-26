@@ -1,0 +1,65 @@
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\mongocrypt.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\Sports Accounting.exe.config
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\Sports Accounting.exe
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\Sports Accounting.pdb
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\AWSSDK.Core.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\AWSSDK.SecurityToken.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\DnsClient.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\Microsoft.Win32.Registry.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\MongoDB.Bson.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\MongoDB.Driver.Core.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\MongoDB.Driver.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\MongoDB.Libmongocrypt.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\SharpCompress.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\SharpMt940Lib.Core.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\Snappier.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.Buffers.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.Memory.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.Numerics.Vectors.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.Security.AccessControl.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.Security.Principal.Windows.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.Text.Encoding.CodePages.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.Text.Encodings.Web.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.Text.Json.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.Threading.Tasks.Extensions.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.ValueTuple.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\ZstdSharp.dll
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\AWSSDK.Core.pdb
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\AWSSDK.Core.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\AWSSDK.SecurityToken.pdb
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\AWSSDK.SecurityToken.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\DnsClient.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\Microsoft.Win32.Registry.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\MongoDB.Bson.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\MongoDB.Driver.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\MongoDB.Driver.Core.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\SharpMt940Lib.Core.pdb
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\SharpMt940Lib.Core.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\Snappier.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.Buffers.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.Memory.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.Numerics.Vectors.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.Security.AccessControl.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.Security.Principal.Windows.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.Text.Encoding.CodePages.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.Text.Encodings.Web.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.Text.Json.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.Threading.Tasks.Extensions.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\System.ValueTuple.xml
+C:\Users\dimit\source\repos\Project-6.1\obj\Release\Sports Accounting.csproj.AssemblyReference.cache
+C:\Users\dimit\source\repos\Project-6.1\obj\Release\Sports Accounting.csproj.SuggestedBindingRedirects.cache
+C:\Users\dimit\source\repos\Project-6.1\obj\Release\Sports_Accounting.LogIn.resources
+C:\Users\dimit\source\repos\Project-6.1\obj\Release\Sports_Accounting.Home.resources
+C:\Users\dimit\source\repos\Project-6.1\obj\Release\Sports_Accounting.BaseApp.TransactionDisplay.resources
+C:\Users\dimit\source\repos\Project-6.1\obj\Release\Sports_Accounting.Properties.Resources.resources
+C:\Users\dimit\source\repos\Project-6.1\obj\Release\Sports Accounting.csproj.GenerateResource.cache
+C:\Users\dimit\source\repos\Project-6.1\obj\Release\Sports Accounting.csproj.CoreCompileInputs.cache
+C:\Users\dimit\source\repos\Project-6.1\obj\Release\Sports Accounting.csproj.CopyComplete
+C:\Users\dimit\source\repos\Project-6.1\obj\Release\Sports Accounting.exe
+C:\Users\dimit\source\repos\Project-6.1\obj\Release\Sports Accounting.pdb
