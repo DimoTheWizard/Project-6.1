@@ -1,12 +1,12 @@
 {
-  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$schema": "https://appliedengdesign.github.io/cnccodes-json-schema/draft/2022-07/schema",
   "$ref": "#/definitions/Welcome",
   "definitions": {
     "Welcome": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "transactions": {
+        "transaction": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/Transaction"
@@ -14,7 +14,7 @@
         }
       },
       "required": [
-        "transactions"
+        "transaction"
       ],
       "title": "Welcome"
     },
@@ -22,16 +22,16 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "_id": {
+        "id": {
           "type": "string"
         },
-        "mt940_content": {
+        "mt940content": {
           "type": "string"
         }
       },
       "required": [
-        "_id",
-        "mt940_content"
+        "id",
+        "mt940content"
       ],
       "title": "Transaction"
     }
