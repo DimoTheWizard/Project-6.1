@@ -1,0 +1,46 @@
+﻿CREATE TABLE [dbo].[Rent] (
+  [rent_id] [int] IDENTITY,
+  [amount] [int] NULL,
+  [date] [datetime] NOT NULL,
+  CONSTRAINT [PK_Rent] PRIMARY KEY CLUSTERED ([rent_id])
+)
+ON [PRIMARY]
+GO
+
+GRANT
+  ALTER,
+  DELETE,
+  REFERENCES,
+  TAKE OWNERSHIP,
+  VIEW CHANGE TRACKING,
+  VIEW DEFINITION
+ON [dbo].[Rent] TO [Administrator]
+GO
+
+GRANT
+  CONTROL,
+  INSERT,
+  SELECT,
+  UPDATE
+ON [dbo].[Rent] TO [Administrator] WITH GRANT OPTION
+GO
+
+DENY
+  ALTER,
+  CONTROL,
+  DELETE,
+  INSERT,
+  REFERENCES,
+  SELECT
+ON [dbo].[Rent] TO [User]
+GO
+
+DENY TAKE OWNERSHIP ON [dbo].[Rent] TO [User] CASCADE
+GO
+
+DENY
+  UPDATE,
+  VIEW CHANGE TRACKING,
+  VIEW DEFINITION
+ON [dbo].[Rent] TO [User]
+GO

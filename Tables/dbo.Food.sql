@@ -1,0 +1,47 @@
+﻿CREATE TABLE [dbo].[Food] (
+  [food_id] [int] IDENTITY,
+  [food_name] [nvarchar](50) NOT NULL,
+  CONSTRAINT [PK_Food] PRIMARY KEY CLUSTERED ([food_id])
+)
+ON [PRIMARY]
+GO
+
+GRANT
+  CONTROL,
+  REFERENCES,
+  TAKE OWNERSHIP,
+  VIEW CHANGE TRACKING,
+  VIEW DEFINITION
+ON [dbo].[Food] TO [Administrator]
+GO
+
+GRANT
+  ALTER,
+  DELETE,
+  INSERT,
+  SELECT,
+  UPDATE
+ON [dbo].[Food] TO [Administrator] WITH GRANT OPTION
+GO
+
+GRANT SELECT ON [dbo].[Food] TO [User]
+GO
+
+DENY
+  ALTER,
+  CONTROL,
+  DELETE,
+  INSERT,
+  REFERENCES
+ON [dbo].[Food] TO [User]
+GO
+
+DENY TAKE OWNERSHIP ON [dbo].[Food] TO [User] CASCADE
+GO
+
+DENY
+  UPDATE,
+  VIEW CHANGE TRACKING,
+  VIEW DEFINITION
+ON [dbo].[Food] TO [User]
+GO
