@@ -19,6 +19,7 @@ using System.Xml.Linq;
 using api;
 using MongoDB.Bson.IO;
 using MongoDB.Bson;
+using Newtonsoft.Json;
 
 namespace WindowsFormsApp1
 {
@@ -28,29 +29,21 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
 
-           
+
         }
-     
-    private async void Form1_Load_1(object sender, EventArgs e)
+
+        private async void Form1_Load_1(object sender, EventArgs e)
         {
-            
+
 
             //Refresh the load itself, call function itself
             //Refresh();
+
             transactionsPage1.Hide();
             button4.Hide();
-            //dataGridView1.Hide();
             label2.Hide();
-            //this.JsonApiCall();
-            //this.XMLApiCall();
-            //ValidateJSON();
-            //ValidateXML();
-
-            //DataSet ds = new DataSet();
-            //ds.ReadXml("C:\\Users\\Gebruiker\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\get.xml");
-            //dataGridView1.DataSource = ds.Tables[0];
-
-            ValidateJSON();
+            listView1.Hide();
+            callJson();
         }
 
         public async Task<List<BsonDocument>> getValue()
@@ -65,21 +58,24 @@ namespace WindowsFormsApp1
             transactionsPage1.Hide();
             button4.Hide();
             //dataGridView1.Hide();
+            listView1.Hide();
             label2.Hide();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            
+
             transactionsPage1.BringToFront();
             transactionsPage1.Show();
+            listView1.Show();
+            listView1.BringToFront();
             button4.Show();
             button4.BringToFront();
             //dataGridView1.Show();
             //dataGridView1.BringToFront();
             label2.Show();
             label2.BringToFront();
-            
+
 
 
 
@@ -87,32 +83,11 @@ namespace WindowsFormsApp1
 
         private void transactionsPage2_Load(object sender, EventArgs e)
         {
-            
-        }
-        
-        private void JsonApiCall()
-        {
-            try
-            {
-                using (HttpClient client = new HttpClient())
-                {
-                    var address = new Uri("https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&amount=10");
-                    var result = client.GetAsync(address).Result;
-                    var joke = result.Content.ReadAsAsync<Transactions>().Result;
 
-                    label2.Text = "Joke 1 "+ joke.Jokes[0].Joke + " Joke 2 " + joke.Jokes[1].Joke;
-                    //System.Console.WriteLine(joke.Error);
-                    //System.Console.WriteLine(joke.Amount);
-                    //System.Console.WriteLine(joke.Jokes[0].Joke);
-                }
-            }
-            catch (AggregateException)
-            {
-            }
         }
 
         //Validates JSON using schema provided
-        private async void ValidateJSON()
+        private async void callJson()
         {
             string filepath = "C:\\Users\\Gebruiker\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\get.json";
 
@@ -123,9 +98,9 @@ namespace WindowsFormsApp1
             String bracketL = "{";
             String bracketR = "}";
 
-            string output = String.Format("{0} \"transaction\": {1} {2} ",bracketL, jsonOutputString,bracketR);
+            string output = String.Format("{0} \"transaction\": {1} {2} ", bracketL, jsonOutputString, bracketR);
 
-            
+
             output = output.Replace("_", string.Empty);
             output = output.Replace("ObjectId(", string.Empty);
             output = output.Replace("STARTUMSE", string.Empty);
@@ -139,9 +114,29 @@ namespace WindowsFormsApp1
 
             JSchema schema = JSchema.Parse(System.IO.File.ReadAllText("C:\\Users\\Gebruiker\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\schemaValidation.json"));
             JObject jsonObject = JObject.Parse(System.IO.File.ReadAllText("C:\\Users\\Gebruiker\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\get.json"));
+
+            //DisplayNameAttribute to Screen
+            //Validation ofApi call
+
             if (jsonObject.IsValid(schema))
             {
                 System.Console.WriteLine(jsonObject.IsValid(schema));
+                var serialisedString = output;
+                var transactions = Newtonsoft.Json.JsonConvert.DeserializeObject<Transactions>(output, new JsonSerializerSettings());
+                //IEnumerable<Transactions> transactionsArray = (IEnumerable<Transactions>) transactions;
+
+                DataSet ds = new DataSet();
+                dataGridView1.DataSource = transactions;
+
+                string[] headers;
+
+                foreach (var trans in transactions.Transaction)
+                {
+                    String[] row = { trans.ID, trans.Mt940content};
+                    var listItem = new ListViewItem(row);
+                    listView1.Items.Add(listItem);
+                }
+                //System.Console.WriteLine(transactions.Transaction[0].ID); ;
             }
             else
             {
@@ -149,7 +144,7 @@ namespace WindowsFormsApp1
             };
 
 
-    }
+        }
 
         //Validates xml using schema provided
         private void ValidateXML()
@@ -221,7 +216,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        public static void WriteToXmlFile(string filePath, string objectToWrite, bool append = false) 
+        public static void WriteToXmlFile(string filePath, string objectToWrite, bool append = false)
         {
             TextWriter writer = null;
             try
@@ -243,6 +238,7 @@ namespace WindowsFormsApp1
             button4.Hide();
             //dataGridView1.Hide();
             label2.Hide();
+            listView1.Hide();
         }
 
         private void transactionsPage1_Load(object sender, EventArgs e)
@@ -255,5 +251,24 @@ namespace WindowsFormsApp1
 
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_Load()
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

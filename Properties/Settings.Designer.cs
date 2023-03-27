@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Sports_Accounting.Properties
+namespace WindowsFormsApp1.Properties
 {
 
 
