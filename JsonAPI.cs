@@ -2,6 +2,7 @@
 using MongoDB.Bson;
 using MongoDB.Driver;
 using Raptorious.SharpMt940Lib;
+using Sports_Accounting;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -47,8 +48,15 @@ namespace api
             var genericFomat = new Raptorious.SharpMt940Lib.Mt940Format.GenericFormat(header, trailer);
             try
             {
-                //if it successfully parses return true
+                //if it successfully runs all tests return true
                 var parsed = Raptorious.SharpMt940Lib.Mt940Parser.ParseData(genericFomat, BsonDoc.GetElement("mt940_content").ToString(), CultureInfo.CurrentCulture);
+                XmlAPI xmlAPI = new XmlAPI();
+                List<BsonDocument> document = new List<BsonDocument>();
+                document.Add(BsonDoc);
+                if (xmlAPI.XMLConverter(document) == null)
+                {
+                    return false;
+                }
                 return true;
             } catch
             {

@@ -27,10 +27,7 @@ namespace Sports_Accounting
         }
         static async Task MainAsync(string[] args)
         {
-            XmlAPI xmlAPI = new XmlAPI();
-            JsonAPI jsonAPI = new JsonAPI();
 
-            var xmlDocs = xmlAPI.XMLConverter(await jsonAPI.GetAll());
         }
     }
 }
