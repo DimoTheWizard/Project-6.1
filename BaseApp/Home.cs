@@ -46,12 +46,18 @@ namespace Sports_Accounting
                     {
                         var bsonFile = jsonAPI.FileToBson(filePath);
                         //checks if its valid mt940 and valid json file format
-                        if (!jsonAPI.checkMT940(bsonFile) && !val.validateJson(bsonFile))
+                        try
+                        {
+                            if (!jsonAPI.checkMT940(bsonFile) && !val.validateJson(bsonFile))
+                            {
+                                invalidFile = true;
+                                //if invalid file is found stop checking and report error
+                                break;
+                            }
+                        } catch
                         {
                             invalidFile = true;
-                            //if invalid file is found stop checking and report error
-                            break;
-                        }
+                        }         
                     }
                     if(invalidFile) 
                     {

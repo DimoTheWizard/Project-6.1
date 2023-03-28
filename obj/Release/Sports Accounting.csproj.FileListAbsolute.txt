@@ -63,3 +63,7 @@ C:\Users\dimit\source\repos\Project-6.1\obj\Release\Sports Accounting.csproj.Cor
 C:\Users\dimit\source\repos\Project-6.1\obj\Release\Sports Accounting.csproj.CopyComplete
 C:\Users\dimit\source\repos\Project-6.1\obj\Release\Sports Accounting.exe
 C:\Users\dimit\source\repos\Project-6.1\obj\Release\Sports Accounting.pdb
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Release\Newtonsoft.Json.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Release\Newtonsoft.Json.Schema.dll
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Release\Newtonsoft.Json.xml
+C:\Users\dimit\Source\Repos\Project-6.1\bin\Release\Newtonsoft.Json.Schema.xml
