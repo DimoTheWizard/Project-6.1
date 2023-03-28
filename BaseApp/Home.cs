@@ -40,11 +40,13 @@ namespace Sports_Accounting
                 {
                     //MAKES SURE TO FIRST CHECK ALL FILES AND THEN UPLOAD TO MONGODB
                     JsonAPI jsonAPI = new JsonAPI();
+                    Validator val = new Validator();
                     bool invalidFile = false;
                     foreach(var filePath in dialog.FileNames)
                     {
                         var bsonFile = jsonAPI.FileToBson(filePath);
-                        if (!jsonAPI.checkMT940(bsonFile))
+                        //checks if its valid mt940 and valid json file format
+                        if (!jsonAPI.checkMT940(bsonFile) && !val.validateJson(bsonFile))
                         {
                             invalidFile = true;
                             //if invalid file is found stop checking and report error
