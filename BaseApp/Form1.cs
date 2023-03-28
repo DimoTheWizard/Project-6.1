@@ -18,6 +18,8 @@ namespace Sports_Accounting
         public LogIn()
         {
             InitializeComponent();
+            Validator val = new Validator();
+            val.callJson();
         }
 
         private void buttonLogIn_Click(object sender, EventArgs e)
