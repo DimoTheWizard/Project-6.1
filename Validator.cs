@@ -28,47 +28,20 @@ namespace Sports_Accounting
 
         //Validates JSON using schema provided, populate table 
         //TODO: store in Database
-        public async void callJson()
+        public bool validateJson(BsonDocument BsonDoc)
         {
-            string filepath = "C:\\Users\\dimit\\Source\\Repos\\Project-6.1\\get.json";
-
-            //JsonAPI call to save as string
-            var bsonValue = await getValue();
-            var settings = new JsonWriterSettings { Indent = true };
-            var jsonOutput = bsonValue.ToJson(settings);
-            var jsonOutputString = jsonOutput.ToString();
-            Console.WriteLine(jsonOutputString);
-            
-           //Hardcode change  the api request to fit format of draft 07 for validation
-            String bracketL = "{";
-            String bracketR = "}";
-
-            string output = String.Format("{0} \"transaction\": {1} {2} ", bracketL, jsonOutputString, bracketR);
-
-
-            output = output.Replace("_", string.Empty);
-            output = output.Replace("ObjectId(", string.Empty);
-            output = output.Replace("STARTUMSE", string.Empty);
-
-            output = output.Replace("),", ",");
-
-            //Save file 
-            File.WriteAllText(filepath, output);
-
             //Validate File using draft 07
             JSchema schema = JSchema.Parse(System.IO.File.ReadAllText(@"C:\Users\dimit\Source\Repos\Project-6.1\schemaValidation.json"));
-            JObject jsonObject = JObject.Parse(System.IO.File.ReadAllText(@"C:\\Users\\dimit\\Source\\Repos\\Project-6.1\\get.json"));
+            JObject jsonObject = JObject.Parse(BsonDoc.ToJson());
 
             //if validation passes display to page
             if (jsonObject.IsValid(schema))
             {
-                System.Console.WriteLine(jsonObject.IsValid(schema));
-                var serialisedString = output;
-                var transactions = Newtonsoft.Json.JsonConvert.DeserializeObject<Transactions>(output, new JsonSerializerSettings());
+                return true;
             }
             else
             {
-                System.Console.WriteLine(false);
+                return false;
             };
         }
 
