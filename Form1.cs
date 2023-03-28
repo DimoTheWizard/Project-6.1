@@ -75,10 +75,6 @@ namespace WindowsFormsApp1
             //dataGridView1.BringToFront();
             label2.Show();
             label2.BringToFront();
-
-
-
-
         }
 
         private void transactionsPage2_Load(object sender, EventArgs e)
@@ -86,15 +82,19 @@ namespace WindowsFormsApp1
 
         }
 
-        //Validates JSON using schema provided
+        //Validates JSON using schema provided, populate table 
+        //TODO: store in Database
         private async void callJson()
         {
             string filepath = "C:\\Users\\Gebruiker\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\get.json";
 
+            //JsonAPI call to save as string
             var bsonValue = await getValue();
             var settings = new JsonWriterSettings { Indent = true };
             var jsonOutput = bsonValue.ToJson(settings);
             var jsonOutputString = jsonOutput.ToString();
+            
+           //Hardcode change  the api request to fit format of draft 07 for validation
             String bracketL = "{";
             String bracketR = "}";
 
@@ -107,36 +107,31 @@ namespace WindowsFormsApp1
 
             output = output.Replace("),", ",");
 
-
+            //Save file 
             File.WriteAllText(filepath, output);
 
-            //System.Console.WriteLine(output);
-
+            //Validate File using draft 07
             JSchema schema = JSchema.Parse(System.IO.File.ReadAllText("C:\\Users\\Gebruiker\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\schemaValidation.json"));
             JObject jsonObject = JObject.Parse(System.IO.File.ReadAllText("C:\\Users\\Gebruiker\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\get.json"));
 
-            //DisplayNameAttribute to Screen
-            //Validation ofApi call
-
+            //if validation passes display to page
             if (jsonObject.IsValid(schema))
             {
                 System.Console.WriteLine(jsonObject.IsValid(schema));
                 var serialisedString = output;
                 var transactions = Newtonsoft.Json.JsonConvert.DeserializeObject<Transactions>(output, new JsonSerializerSettings());
-                //IEnumerable<Transactions> transactionsArray = (IEnumerable<Transactions>) transactions;
 
-                DataSet ds = new DataSet();
-                dataGridView1.DataSource = transactions;
 
-                string[] headers;
-
+                //Loop through result to display columns in the Table
                 foreach (var trans in transactions.Transaction)
                 {
+                    //Here we can push each the transaction id to the mssql if it doesn't exist
+                    
+                    //Check WhatsApp Dms on how to simplify ERD
                     String[] row = { trans.ID, trans.Mt940content};
                     var listItem = new ListViewItem(row);
                     listView1.Items.Add(listItem);
                 }
-                //System.Console.WriteLine(transactions.Transaction[0].ID); ;
             }
             else
             {
