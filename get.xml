@@ -1,184 +1,261 @@
-<?xml version='1.0'?>
-<data>
-    <error>false</error>
-    <amount>10</amount>
-    <jokes>
-        <joke>
-            <category>Dark</category>
-            <type>single</type>
-            <joke>I have a fish that can breakdance! Only for 20 seconds though, and only once.</joke>
-            <flags>
-                <nsfw>false</nsfw>
-                <religious>false</religious>
-                <political>false</political>
-                <racist>false</racist>
-                <sexist>false</sexist>
-                <explicit>false</explicit>
-            </flags>
-            <id>237</id>
-            <safe>false</safe>
-            <lang>en</lang>
-        </joke>
-        <joke>
-            <category>Misc</category>
-            <type>single</type>
-            <joke>My husband and I were happy for 20 years. And then we met.</joke>
-            <flags>
-                <nsfw>false</nsfw>
-                <religious>false</religious>
-                <political>false</political>
-                <racist>false</racist>
-                <sexist>false</sexist>
-                <explicit>false</explicit>
-            </flags>
-            <safe>true</safe>
-            <id>273</id>
-            <lang>en</lang>
-        </joke>
-        <joke>
-            <category>Misc</category>
-            <type>single</type>
-            <joke>My wife is really mad at the fact that I have no sense of direction.
-So I packed up my stuff and right.</joke>
-            <flags>
-                <nsfw>false</nsfw>
-                <religious>false</religious>
-                <political>false</political>
-                <racist>false</racist>
-                <sexist>false</sexist>
-                <explicit>false</explicit>
-            </flags>
-            <id>201</id>
-            <safe>true</safe>
-            <lang>en</lang>
-        </joke>
-        <joke>
-            <category>Programming</category>
-            <type>single</type>
-            <joke>Eight bytes walk into a bar.
-The bartender asks, "Can I get you anything?"
-"Yeah," reply the bytes.
-"Make us a double."</joke>
-            <flags>
-                <nsfw>false</nsfw>
-                <religious>false</religious>
-                <political>false</political>
-                <racist>false</racist>
-                <sexist>false</sexist>
-                <explicit>false</explicit>
-            </flags>
-            <id>34</id>
-            <safe>true</safe>
-            <lang>en</lang>
-        </joke>
-        <joke>
-            <category>Programming</category>
-            <type>single</type>
-            <joke>A SQL statement walks into a bar and sees two tables.
-It approaches, and asks "may I join you?"</joke>
-            <flags>
-                <nsfw>false</nsfw>
-                <religious>false</religious>
-                <political>false</political>
-                <racist>false</racist>
-                <sexist>false</sexist>
-                <explicit>false</explicit>
-            </flags>
-            <id>5</id>
-            <safe>true</safe>
-            <lang>en</lang>
-        </joke>
-        <joke>
-            <category>Programming</category>
-            <type>single</type>
-            <joke>How do you tell HTML from HTML5?
-- Try it out in Internet Explorer
-- Did it work?
-- No?
-- It's HTML5.</joke>
-            <flags>
-                <nsfw>false</nsfw>
-                <religious>false</religious>
-                <political>false</political>
-                <racist>false</racist>
-                <sexist>false</sexist>
-                <explicit>false</explicit>
-            </flags>
-            <id>43</id>
-            <safe>true</safe>
-            <lang>en</lang>
-        </joke>
-        <joke>
-            <category>Programming</category>
-            <type>single</type>
-            <joke>Two SQL tables sit at the bar. A query approaches and asks "Can I join you?"</joke>
-            <flags>
-                <nsfw>false</nsfw>
-                <religious>false</religious>
-                <political>false</political>
-                <racist>false</racist>
-                <sexist>false</sexist>
-                <explicit>false</explicit>
-            </flags>
-            <id>221</id>
-            <safe>true</safe>
-            <lang>en</lang>
-        </joke>
-        <joke>
-            <category>Pun</category>
-            <type>single</type>
-            <joke>I was struggling to figure out how lightning works, but then it struck me.</joke>
-            <flags>
-                <nsfw>false</nsfw>
-                <religious>false</religious>
-                <political>false</political>
-                <racist>false</racist>
-                <sexist>false</sexist>
-                <explicit>false</explicit>
-            </flags>
-            <id>220</id>
-            <safe>true</safe>
-            <lang>en</lang>
-        </joke>
-        <joke>
-            <category>Programming</category>
-            <type>single</type>
-            <joke>The six stages of debugging:
-1. That can't happen.
-2. That doesn't happen on my machine.
-3. That shouldn't happen.
-4. Why does that happen?
-5. Oh, I see.
-6. How did that ever work?</joke>
-            <flags>
-                <nsfw>false</nsfw>
-                <religious>false</religious>
-                <political>false</political>
-                <racist>false</racist>
-                <sexist>false</sexist>
-                <explicit>false</explicit>
-            </flags>
-            <id>123</id>
-            <safe>true</safe>
-            <lang>en</lang>
-        </joke>
-        <joke>
-            <category>Dark</category>
-            <type>single</type>
-            <joke>Doctor: "I have some news about your baby."
-Parents: "Don't tell us the gender, we want to keep it a surprise."
-Doctor: "Oh I get it, you're those type of people. Okay, well IT is not breathing."</joke>
-            <flags>
-                <nsfw>false</nsfw>
-                <religious>false</religious>
-                <political>false</political>
-                <racist>false</racist>
-                <sexist>false</sexist>
-                <explicit>false</explicit>
-            </flags>
-            <id>138</id>
-            <safe>false</safe>
-            <lang>en</lang>
-        </joke>
-    </jokes>
-</data>
+<?xml version="1.0" encoding="UTF-8"?>
+<Statements>
+   <Statement>
+      <Account>BPHKPLPK/320000546101</Account>
+      <ClosingAvailableBalance />
+      <ClosingBalance>
+         <Balance>EUR 389159</Balance>
+         <Currency>EUR</Currency>
+         <DebitCredit>Credit</DebitCredit>
+         <EntryDate>10/20/2003 12:00:00 AM</EntryDate>
+      </ClosingBalance>
+      <Description />
+      <ForwardAvailableBalance />
+      <OpeningBalance>
+         <Balance>EUR 500000</Balance>
+         <Currency>EUR</Currency>
+         <DebitCredit>Credit</DebitCredit>
+         <EntryDate>10/2/2003 12:00:00 AM</EntryDate>
+      </OpeningBalance>
+      <RelatedMessage />
+      <SequenceNumber>1</SequenceNumber>
+      <StatementNumber>84</StatementNumber>
+      <TransactionReference>KUSANAGI T.Y.</TransactionReference>
+      <Transactions>
+         <Transaction>
+            <AccountServicingReference />
+            <Amount>EUR 108841</Amount>
+            <DebitCredit>Debit</DebitCredit>
+            <Description>020?00Wyplata/przelew?20DEUTSCHE ELEKTROAPPARATUR?21OBENSTRAS
+SE 4 MUNCHEN?22OCMT/EUR1088,41?23CHGS/SHA/EUR20,00?24FAKTURA 333
+/2003 ZAPLATA ZA?25FABRYKATY DO TUB 200 SZTUK?26GZX 76 I 300 SZT
+UK GZY 77 T?27RANZYSTORY 300 SZTUK BT34SX?28OPORNIKI 500 SZTUK W
+Q2?29232FX?30HYVEDEMM700?31701890012872?38DE09700202701890012872</Description>
+            <Details />
+            <EntryDate>10/20/2003 12:00:00 AM</EntryDate>
+            <FundsCode />
+            <Reference>REF 12345678</Reference>
+            <SupplementaryDetails />
+            <TransactionType>FTRF</TransactionType>
+            <Value>0310201020D1088,41FTRFREF 12345678/2003//8327000090031790
+Transfer</Value>
+            <ValueDate>10/20/2003 12:00:00 AM</ValueDate>
+         </Transaction>
+      </Transactions>
+   </Statement>
+   <Statement>
+      <Account>BPHKPLPK/320000546101</Account>
+      <ClosingAvailableBalance />
+      <ClosingBalance>
+         <Balance>EUR 389159</Balance>
+         <Currency>EUR</Currency>
+         <DebitCredit>Credit</DebitCredit>
+         <EntryDate>10/20/2003 12:00:00 AM</EntryDate>
+      </ClosingBalance>
+      <Description />
+      <ForwardAvailableBalance />
+      <OpeningBalance>
+         <Balance>EUR 500000</Balance>
+         <Currency>EUR</Currency>
+         <DebitCredit>Credit</DebitCredit>
+         <EntryDate>10/2/2003 12:00:00 AM</EntryDate>
+      </OpeningBalance>
+      <RelatedMessage />
+      <SequenceNumber>1</SequenceNumber>
+      <StatementNumber>84</StatementNumber>
+      <TransactionReference>KUSANAGI T.Y.</TransactionReference>
+      <Transactions>
+         <Transaction>
+            <AccountServicingReference />
+            <Amount>EUR 108841</Amount>
+            <DebitCredit>Debit</DebitCredit>
+            <Description>020?00Wyplata/przelew?20DEUTSCHE ELEKTROAPPARATUR?21OBENSTRAS
+SE 4 MUNCHEN?22OCMT/EUR1088,41?23CHGS/SHA/EUR20,00?24FAKTURA 333
+/2003 ZAPLATA ZA?25FABRYKATY DO TUB 200 SZTUK?26GZX 76 I 300 SZT
+UK GZY 77 T?27RANZYSTORY 300 SZTUK BT34SX?28OPORNIKI 500 SZTUK W
+Q2?29232FX?30HYVEDEMM700?31701890012872?38DE09700202701890012872</Description>
+            <Details />
+            <EntryDate>10/20/2003 12:00:00 AM</EntryDate>
+            <FundsCode />
+            <Reference>REF 12345678</Reference>
+            <SupplementaryDetails />
+            <TransactionType>FTRF</TransactionType>
+            <Value>0310201020D1088,41FTRFREF 12345678/2003//8327000090031790
+Transfer</Value>
+            <ValueDate>10/20/2003 12:00:00 AM</ValueDate>
+         </Transaction>
+      </Transactions>
+   </Statement>
+   <Statement>
+      <Account>BPHKPLPK/320000546101</Account>
+      <ClosingAvailableBalance />
+      <ClosingBalance>
+         <Balance>EUR 389159</Balance>
+         <Currency>EUR</Currency>
+         <DebitCredit>Credit</DebitCredit>
+         <EntryDate>10/20/2003 12:00:00 AM</EntryDate>
+      </ClosingBalance>
+      <Description />
+      <ForwardAvailableBalance />
+      <OpeningBalance>
+         <Balance>EUR 500000</Balance>
+         <Currency>EUR</Currency>
+         <DebitCredit>Credit</DebitCredit>
+         <EntryDate>10/2/2003 12:00:00 AM</EntryDate>
+      </OpeningBalance>
+      <RelatedMessage />
+      <SequenceNumber>1</SequenceNumber>
+      <StatementNumber>84</StatementNumber>
+      <TransactionReference>KUSANAGI T.Y.</TransactionReference>
+      <Transactions>
+         <Transaction>
+            <AccountServicingReference />
+            <Amount>EUR 108841</Amount>
+            <DebitCredit>Debit</DebitCredit>
+            <Description>020?00Wyplata/przelew?20DEUTSCHE ELEKTROAPPARATUR?21OBENSTRAS
+SE 4 MUNCHEN?22OCMT/EUR1088,41?23CHGS/SHA/EUR20,00?24FAKTURA 333
+/2003 ZAPLATA ZA?25FABRYKATY DO TUB 200 SZTUK?26GZX 76 I 300 SZT
+UK GZY 77 T?27RANZYSTORY 300 SZTUK BT34SX?28OPORNIKI 500 SZTUK W
+Q2?29232FX?30HYVEDEMM700?31701890012872?38DE09700202701890012872</Description>
+            <Details />
+            <EntryDate>10/20/2003 12:00:00 AM</EntryDate>
+            <FundsCode />
+            <Reference>REF 12345678</Reference>
+            <SupplementaryDetails />
+            <TransactionType>FTRF</TransactionType>
+            <Value>0310201020D1088,41FTRFREF 12345678/2003//8327000090031790
+Transfer</Value>
+            <ValueDate>10/20/2003 12:00:00 AM</ValueDate>
+         </Transaction>
+      </Transactions>
+   </Statement>
+   <Statement>
+      <Account>BPHKPLPK/320000546101</Account>
+      <ClosingAvailableBalance />
+      <ClosingBalance>
+         <Balance>EUR 389159</Balance>
+         <Currency>EUR</Currency>
+         <DebitCredit>Credit</DebitCredit>
+         <EntryDate>10/20/2003 12:00:00 AM</EntryDate>
+      </ClosingBalance>
+      <Description />
+      <ForwardAvailableBalance />
+      <OpeningBalance>
+         <Balance>EUR 500000</Balance>
+         <Currency>EUR</Currency>
+         <DebitCredit>Credit</DebitCredit>
+         <EntryDate>10/2/2003 12:00:00 AM</EntryDate>
+      </OpeningBalance>
+      <RelatedMessage />
+      <SequenceNumber>1</SequenceNumber>
+      <StatementNumber>84</StatementNumber>
+      <TransactionReference>AlTestData D.B.</TransactionReference>
+      <Transactions>
+         <Transaction>
+            <AccountServicingReference />
+            <Amount>EUR 108841</Amount>
+            <DebitCredit>Debit</DebitCredit>
+            <Description>020?00Wyplata/przelew?20DEUTSCHE ELEKTROAPPARATUR?21OBENSTRAS
+SE 4 MUNCHEN?22OCMT/EUR1088,41?23CHGS/SHA/EUR20,00?24FAKTURA 333
+/2003 ZAPLATA ZA?25FABRYKATY DO TUB 200 SZTUK?26GZX 76 I 300 SZT
+UK GZY 77 T?27RANZYSTORY 300 SZTUK BT34SX?28OPORNIKI 500 SZTUK W
+Q2?29232FX?30HYVEDEMM700?31701890012872?38DE09700202701890012872</Description>
+            <Details />
+            <EntryDate>10/20/2003 12:00:00 AM</EntryDate>
+            <FundsCode />
+            <Reference>REF 12345678</Reference>
+            <SupplementaryDetails />
+            <TransactionType>FTRF</TransactionType>
+            <Value>0310201020D1088,41FTRFREF 12345678/2003//8327000090031790
+Transfer</Value>
+            <ValueDate>10/20/2003 12:00:00 AM</ValueDate>
+         </Transaction>
+      </Transactions>
+   </Statement>
+   <Statement>
+      <Account>BPHKPLPK/320000546101</Account>
+      <ClosingAvailableBalance />
+      <ClosingBalance>
+         <Balance>EUR 389159</Balance>
+         <Currency>EUR</Currency>
+         <DebitCredit>Credit</DebitCredit>
+         <EntryDate>10/20/2003 12:00:00 AM</EntryDate>
+      </ClosingBalance>
+      <Description />
+      <ForwardAvailableBalance />
+      <OpeningBalance>
+         <Balance>EUR 500000</Balance>
+         <Currency>EUR</Currency>
+         <DebitCredit>Credit</DebitCredit>
+         <EntryDate>10/2/2003 12:00:00 AM</EntryDate>
+      </OpeningBalance>
+      <RelatedMessage />
+      <SequenceNumber>1</SequenceNumber>
+      <StatementNumber>84</StatementNumber>
+      <TransactionReference>TELEWIZORY S.A.</TransactionReference>
+      <Transactions>
+         <Transaction>
+            <AccountServicingReference />
+            <Amount>EUR 108841</Amount>
+            <DebitCredit>Debit</DebitCredit>
+            <Description>020?00Wyplata/przelew?20DEUTSCHE ELEKTROAPPARATUR?21OBENSTRAS
+SE 4 MUNCHEN?22OCMT/EUR1088,41?23CHGS/SHA/EUR20,00?24FAKTURA 333
+/2003 ZAPLATA ZA?25FABRYKATY DO TUB 200 SZTUK?26GZX 76 I 300 SZT
+UK GZY 77 T?27RANZYSTORY 300 SZTUK BT34SX?28OPORNIKI 500 SZTUK W
+Q2?29232FX?30HYVEDEMM700?31701890012872?38DE09700202701890012872</Description>
+            <Details />
+            <EntryDate>10/20/2003 12:00:00 AM</EntryDate>
+            <FundsCode />
+            <Reference>REF 12345678</Reference>
+            <SupplementaryDetails />
+            <TransactionType>FTRF</TransactionType>
+            <Value>0310201020D1088,41FTRFREF 12345678/2003//8327000090031790
+Transfer</Value>
+            <ValueDate>10/20/2003 12:00:00 AM</ValueDate>
+         </Transaction>
+      </Transactions>
+   </Statement>
+   <Statement>
+      <Account>BPHKPLPK/320000546101</Account>
+      <ClosingAvailableBalance />
+      <ClosingBalance>
+         <Balance>EUR 389159</Balance>
+         <Currency>EUR</Currency>
+         <DebitCredit>Credit</DebitCredit>
+         <EntryDate>10/20/2003 12:00:00 AM</EntryDate>
+      </ClosingBalance>
+      <Description />
+      <ForwardAvailableBalance />
+      <OpeningBalance>
+         <Balance>EUR 500000</Balance>
+         <Currency>EUR</Currency>
+         <DebitCredit>Credit</DebitCredit>
+         <EntryDate>10/2/2003 12:00:00 AM</EntryDate>
+      </OpeningBalance>
+      <RelatedMessage />
+      <SequenceNumber>1</SequenceNumber>
+      <StatementNumber>84</StatementNumber>
+      <TransactionReference>TELEWIZORY S.A.</TransactionReference>
+      <Transactions>
+         <Transaction>
+            <AccountServicingReference />
+            <Amount>EUR 108841</Amount>
+            <DebitCredit>Debit</DebitCredit>
+            <Description>020?00Wyplata/przelew?20DEUTSCHE ELEKTROAPPARATUR?21OBENSTRAS
+SE 4 MUNCHEN?22OCMT/EUR1088,41?23CHGS/SHA/EUR20,00?24FAKTURA 333
+/2003 ZAPLATA ZA?25FABRYKATY DO TUB 200 SZTUK?26GZX 76 I 300 SZT
+UK GZY 77 T?27RANZYSTORY 300 SZTUK BT34SX?28OPORNIKI 500 SZTUK W
+Q2?29232FX?30HYVEDEMM700?31701890012872?38DE09700202701890012872</Description>
+            <Details />
+            <EntryDate>10/20/2003 12:00:00 AM</EntryDate>
+            <FundsCode />
+            <Reference>REF 12345678</Reference>
+            <SupplementaryDetails />
+            <TransactionType>FTRF</TransactionType>
+            <Value>0310201020D1088,41FTRFREF 12345678/2003//8327000090031790
+Transfer</Value>
+            <ValueDate>10/20/2003 12:00:00 AM</ValueDate>
+         </Transaction>
+      </Transactions>
+   </Statement>
+</Statements>

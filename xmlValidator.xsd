@@ -1,34 +1,60 @@
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="data">
+  <xs:element name="Statements">
     <xs:complexType>
       <xs:sequence>
-        <xs:element type="xs:string" name="error"/>
-        <xs:element type="xs:byte" name="amount"/>
-        <xs:element name="jokes">
+        <xs:element name="Statement" maxOccurs="unbounded" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="joke" maxOccurs="unbounded" minOccurs="0">
+              <xs:element type="xs:string" name="Account"/>
+              <xs:element type="xs:string" name="ClosingAvailableBalance"/>
+              <xs:element name="ClosingBalance">
                 <xs:complexType>
-                  <xs:choice maxOccurs="unbounded" minOccurs="0">
-                    <xs:element type="xs:string" name="category"/>
-                    <xs:element type="xs:string" name="type"/>
-                    <xs:element type="xs:string" name="joke"/>
-                    <xs:element name="flags">
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="Balance"/>
+                    <xs:element type="xs:string" name="Currency"/>
+                    <xs:element type="xs:string" name="DebitCredit"/>
+                    <xs:element type="xs:string" name="EntryDate"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="Description"/>
+              <xs:element type="xs:string" name="ForwardAvailableBalance"/>
+              <xs:element name="OpeningBalance">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="Balance"/>
+                    <xs:element type="xs:string" name="Currency"/>
+                    <xs:element type="xs:string" name="DebitCredit"/>
+                    <xs:element type="xs:string" name="EntryDate"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="RelatedMessage"/>
+              <xs:element type="xs:byte" name="SequenceNumber"/>
+              <xs:element type="xs:byte" name="StatementNumber"/>
+              <xs:element type="xs:string" name="TransactionReference"/>
+              <xs:element name="Transactions">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Transaction">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element type="xs:string" name="nsfw"/>
-                          <xs:element type="xs:string" name="religious"/>
-                          <xs:element type="xs:string" name="political"/>
-                          <xs:element type="xs:string" name="racist"/>
-                          <xs:element type="xs:string" name="sexist"/>
-                          <xs:element type="xs:string" name="explicit"/>
+                          <xs:element type="xs:string" name="AccountServicingReference"/>
+                          <xs:element type="xs:string" name="Amount"/>
+                          <xs:element type="xs:string" name="DebitCredit"/>
+                          <xs:element type="xs:string" name="Description"/>
+                          <xs:element type="xs:string" name="Details"/>
+                          <xs:element type="xs:string" name="EntryDate"/>
+                          <xs:element type="xs:string" name="FundsCode"/>
+                          <xs:element type="xs:string" name="Reference"/>
+                          <xs:element type="xs:string" name="SupplementaryDetails"/>
+                          <xs:element type="xs:string" name="TransactionType"/>
+                          <xs:element type="xs:string" name="Value"/>
+                          <xs:element type="xs:string" name="ValueDate"/>
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-                    <xs:element type="xs:short" name="id"/>
-                    <xs:element type="xs:string" name="safe"/>
-                    <xs:element type="xs:string" name="lang"/>
-                  </xs:choice>
+                  </xs:sequence>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>

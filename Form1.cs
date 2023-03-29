@@ -20,6 +20,8 @@ using api;
 using MongoDB.Bson.IO;
 using MongoDB.Bson;
 using Newtonsoft.Json;
+using Sports_Accounting;
+using System.Data.SqlTypes;
 
 namespace WindowsFormsApp1
 {
@@ -44,12 +46,20 @@ namespace WindowsFormsApp1
             label2.Hide();
             listView1.Hide();
             callJson();
+            callXml();
         }
 
-        public async Task<List<BsonDocument>> getValue()
+        public async Task<List<BsonDocument>> getJsonValue()
         {
             JsonAPI jsonAPI = new JsonAPI();
-            var xmlDocs = await jsonAPI.GetAll();
+            var jsonDocs = await jsonAPI.GetAll();
+            return jsonDocs;
+        }
+
+        public async Task<XmlDocument> getXmlValue()
+        {
+            XmlAPI xmlApi = new XmlAPI();
+            var xmlDocs = await xmlApi.GetAll();
             return xmlDocs;
         }
 
@@ -89,12 +99,11 @@ namespace WindowsFormsApp1
             string filepath = "C:\\Users\\Gebruiker\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\get.json";
 
             //JsonAPI call to save as string
-            var bsonValue = await getValue();
+            var bsonValue = await getJsonValue();
             var settings = new JsonWriterSettings { Indent = true };
             var jsonOutput = bsonValue.ToJson(settings);
             var jsonOutputString = jsonOutput.ToString();
             
-           //Hardcode change  the api request to fit format of draft 07 for validation
             String bracketL = "{";
             String bracketR = "}";
 
@@ -137,94 +146,46 @@ namespace WindowsFormsApp1
             {
                 System.Console.WriteLine(false);
             };
-
-
         }
 
-        //Validates xml using schema provided
-        private void ValidateXML()
+
+        //Validates xml using schema provided, populate first page
+        private async void callXml()
         {
+            //Uncomment to pull from APi
             string filepath = "C:\\Users\\Gebruiker\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\get.xml";
+            //var xmlValue = await getXmlValue();
+            //var xmlOutput = xmlValue.OuterXml;
+            //var output = xmlOutput.ToString();
 
-            try
+            //File.WriteAllText(filepath, output);
+
+
+            XmlSchemaSet schema = new XmlSchemaSet();
+            schema.Add("", @"C:\\Users\\Gebruiker\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\xmlValidator.xsd");
+
+            XDocument doc = XDocument.Load(filepath);
+            bool status = false;
+
+            doc.Validate(schema, (s, e) =>
             {
-                using (HttpClient cli = new HttpClient())
-                {
-                    var url = new Uri("https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=xml&type=single&amount=10");
-                    var response = cli.GetAsync(url).Result;
-                    var joke = response.Content.ReadAsStringAsync().Result;
 
-                    File.WriteAllText(filepath, joke);
-                    XmlSchemaSet schema = new XmlSchemaSet();
-                    schema.Add("", @"C:\\Users\\Gebruiker\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\xmlValidator.xsd");
+                System.Console.WriteLine(e.Message);
+                status = true;
+            });
 
-                    XDocument doc = XDocument.Load(filepath);
-                    bool status = false;
-
-                    doc.Validate(schema, (s, e) =>
-                    {
-
-                        System.Console.WriteLine(e.Message);
-                        status = true;
-                    });
-                    if (status)
-                    {
-                        System.Console.WriteLine("Failed");
-                    }
-                    //WriteState code to populate page here
-                    else
-                    {
-                        System.Console.WriteLine("Passed");
-                    }
-                }
-            }
-            catch (AggregateException)
+            if (status)
             {
+                System.Console.WriteLine("Failed");
             }
-        }
-
-        private void XMLApiCall()
-        {
-            string filepath = "C:\\Users\\Gebruiker\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\get.xml";
-            try
+            //WriteState code to populate page here
+            else
             {
-                using (HttpClient cli = new HttpClient())
-                {
-                    var url = new Uri("https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=xml&type=single&amount=10");
-                    var response = cli.GetAsync(url).Result;
-                    var joke = response.Content.ReadAsStringAsync().Result;
-
-                    File.WriteAllText(filepath, joke);
-
-                    //System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(joke.GetType());
-                    //Serize ti file to read
-                    //x.Serialize(Console.Out, joke);
-
-                    //WriteToXmlFile(filepath, joke);
-
-                    //label2.Text = joke.Jokes[0].Joke;
-                    //System.Console.WriteLine(joke);
-                }
+                System.Console.WriteLine("Passed");
             }
-            catch (AggregateException)
-            {
-            }
-        }
 
-        public static void WriteToXmlFile(string filePath, string objectToWrite, bool append = false)
-        {
-            TextWriter writer = null;
-            try
-            {
-                var serializer = new XmlSerializer(objectToWrite.GetType());
-                writer = new StreamWriter(filePath, append);
-                serializer.Serialize(writer, objectToWrite);
-            }
-            finally
-            {
-                if (writer != null)
-                    writer.Close();
-            }
+            //System.Console.WriteLine(output);
+
         }
 
         private void button4_Click(object sender, EventArgs e)
