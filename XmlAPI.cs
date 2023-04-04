@@ -70,12 +70,16 @@ namespace Sports_Accounting
                     XmlNode statementNode = xmlStatement.CreateElement("Statement");
                     statementsNode.AppendChild(statementNode);
                     //ID
+<<<<<<< HEAD
                     string id;
                     if (BsonDoc[0].Contains("_id"))
                     {
                         id = BsonDoc[0].GetValue("_id").ToString();
                     }
                     id = "";
+=======
+                    string id = BsonDoc[0].GetValue("_id").ToString();
+>>>>>>> added proper login functionality and 80 percent of the user panel
                     XmlNode statementID = xmlStatement.CreateElement("ID");
                     statementID.InnerText = id;
                     index++;

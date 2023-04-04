@@ -13,8 +13,13 @@ namespace Sports_Accounting
 
         public static string UserName
         {
+<<<<<<< HEAD
             get { return userName; }
             set { userName = value; }
+=======
+            get { return UserName; }
+            set { UserName = value; }
+>>>>>>> added proper login functionality and 80 percent of the user panel
         }
 
         

@@ -29,7 +29,11 @@ namespace Sports_Accounting.BaseApp
             this.userTableAdapter.Fill(this.databaseDataSet.User);
         }
 
+<<<<<<< HEAD
         private void AddUserButton(object sender, EventArgs e)
+=======
+        private void button1_Click(object sender, EventArgs e)
+>>>>>>> added proper login functionality and 80 percent of the user panel
         {
             string username;
             string password;
@@ -152,6 +156,7 @@ namespace Sports_Accounting.BaseApp
                 connection.Close();
             }
         }
+<<<<<<< HEAD
 
         private void GoBackButton(object sender, EventArgs e)
         {
@@ -159,5 +164,7 @@ namespace Sports_Accounting.BaseApp
             home.Show();
             this.Hide();
         }
+=======
+>>>>>>> added proper login functionality and 80 percent of the user panel
     }
 }

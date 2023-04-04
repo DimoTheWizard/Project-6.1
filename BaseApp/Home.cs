@@ -20,14 +20,21 @@ namespace Sports_Accounting
         {
             InitializeComponent();
 
+<<<<<<< HEAD
             //if the user is a superuser allow them to view the users panel
+=======
+            //if the user is an admin allow them to view the users panel
+>>>>>>> added proper login functionality and 80 percent of the user panel
             if(User.Level == userLevel.SUPERUSER)
             {
                 button1.Visible = true;
             }
+<<<<<<< HEAD
 
             //set welcome to display username
             welcomeText.Text += " " + User.UserName + "!";
+=======
+>>>>>>> added proper login functionality and 80 percent of the user panel
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -94,6 +101,7 @@ namespace Sports_Accounting
         {
             Account account = new Account();
             account.Show();
+<<<<<<< HEAD
             this.Hide();
         }
 
@@ -105,6 +113,8 @@ namespace Sports_Accounting
             User.UserName = string.Empty;
             User.Level = userLevel.GUEST;
             this.Hide();
+=======
+>>>>>>> added proper login functionality and 80 percent of the user panel
         }
     }
 }

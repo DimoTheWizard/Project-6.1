@@ -13,7 +13,10 @@ using System.Xml;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Data.SqlClient;
+<<<<<<< HEAD
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
+=======
+>>>>>>> added proper login functionality and 80 percent of the user panel
 
 namespace Sports_Accounting.BaseApp
 {
@@ -37,7 +40,10 @@ namespace Sports_Accounting.BaseApp
             public string statementNumber { get; set; }
             public string transactionReference { get; set; }
             public string transactionType { get; set; } 
+<<<<<<< HEAD
             public string transactionDate { get; set; }
+=======
+>>>>>>> added proper login functionality and 80 percent of the user panel
 
         }
 
@@ -197,10 +203,16 @@ namespace Sports_Accounting.BaseApp
         {
             string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dimit\\source\\repos\\Project-6.1\\Database.mdf;Integrated Security=True";
 
+<<<<<<< HEAD
             string checkIfExistsQuery = "SELECT COUNT(*) FROM [Transaction] WHERE object_id = @Id";
 
             string query = @"INSERT INTO [Transaction] (account, closing_balance, opening_balance, statement_number, transaction_reference, original_description, transaction_date, object_id)
                              VALUES (@account, @closing_balance, @opening_balance, @statement_number, @transaction_reference, @original_description, @transaction_date, @object_id)";
+=======
+            string checkIfExistsQuery = "SELECT COUNT(*) FROM Transaction WHERE transaction_id = @Id";
+
+            string query = @"INSERT INTO Transaction (transaction_id) VALUES (@transaction_id)";
+>>>>>>> added proper login functionality and 80 percent of the user panel
 
             List<StatementData> data = new List<StatementData>();
             int index = 0;
@@ -218,11 +230,18 @@ namespace Sports_Accounting.BaseApp
                 data[index].statementNumber = statement.Element("StatementNumber").Value;
                 data[index].transactionReference = statement.Element("TransactionReference").Value;
 
+<<<<<<< HEAD
                 //gets the balance and date from the closing balance part of XML
                 foreach (var balance in statement.Descendants("ClosingBalance"))
                 {
                     data[index].closingBalance = balance.Element("Balance").Value;
                     data[index].transactionDate = balance.Element("EntryDate").Value.ToString();
+=======
+                //gets the balance from the closing balance part of XML
+                foreach (var balance in statement.Descendants("ClosingBalance"))
+                {
+                    data[index].closingBalance = balance.Element("Balance").Value;
+>>>>>>> added proper login functionality and 80 percent of the user panel
                 }
 
                 //gets the balance from the opening balance part of XML
@@ -241,7 +260,10 @@ namespace Sports_Accounting.BaseApp
 
                 }
 
+<<<<<<< HEAD
                 //working with the database
+=======
+>>>>>>> added proper login functionality and 80 percent of the user panel
                 try
                 {
                     using (SqlConnection connection = new SqlConnection(connectionString)) // Create a new SQL connection
@@ -251,6 +273,7 @@ namespace Sports_Accounting.BaseApp
                         SqlCommand checkCommand = new SqlCommand(checkIfExistsQuery, connection);
                         checkCommand.Parameters.AddWithValue("@Id", data[index].id);
                         bool exists = ((int)checkCommand.ExecuteScalar() > 0);
+<<<<<<< HEAD
                         //if the field doesnt exist
                         if (!exists)
                         {
@@ -265,6 +288,16 @@ namespace Sports_Accounting.BaseApp
                             command.Parameters.AddWithValue("@object_id", data[index].id);
 
                             int rowsAffected = command.ExecuteNonQuery();
+=======
+                        //if the thing doesnt exist
+                        if (!exists)
+                        {
+                            SqlCommand command = new SqlCommand(query, connection); // Create a new SQL command
+                            command.Parameters.AddWithValue("@transaction_id", data[index].id);
+                            
+                            int rowsAffected = command.ExecuteNonQuery();
+                            Console.WriteLine(rowsAffected + " row(s) inserted.");
+>>>>>>> added proper login functionality and 80 percent of the user panel
                         }
                     }
                 }
@@ -273,7 +306,10 @@ namespace Sports_Accounting.BaseApp
                     Console.WriteLine("Error with database insertion " + ex.Message);
                 }
             }
+<<<<<<< HEAD
             messageBox.Text = "Added new transactions to \n local database";
+=======
+>>>>>>> added proper login functionality and 80 percent of the user panel
         }
     }
 }
