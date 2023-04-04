@@ -62,10 +62,19 @@ namespace Sports_Accounting
                 xmlStatement.AppendChild(statementsNode);
             try
             {
+                //to get ID from the mongoDB
+                int index = 0;
+                
                 foreach (var statement in singleStatements)
                 {
                     XmlNode statementNode = xmlStatement.CreateElement("Statement");
                     statementsNode.AppendChild(statementNode);
+                    //ID
+                    string id = BsonDoc[0].GetValue("_id").ToString();
+                    XmlNode statementID = xmlStatement.CreateElement("ID");
+                    statementID.InnerText = id;
+                    index++;
+                    statementNode.AppendChild(statementID);
                     //Account
                     XmlNode accountNode = xmlStatement.CreateElement("Account");
                     if (statement.Account == null)
@@ -395,7 +404,7 @@ namespace Sports_Accounting
                     }
 
                 }
-            } catch (NullReferenceException ex)
+            } catch
             {
                 return null;
             }

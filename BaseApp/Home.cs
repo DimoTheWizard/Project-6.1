@@ -19,6 +19,12 @@ namespace Sports_Accounting
         public Home()
         {
             InitializeComponent();
+
+            //if the user is an admin allow them to view the users panel
+            if(User.Level == userLevel.SUPERUSER)
+            {
+                button1.Visible = true;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -78,6 +84,12 @@ namespace Sports_Accounting
             t.Start();
             t.Join();
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Account account = new Account();
+            account.Show();
         }
     }
 }
