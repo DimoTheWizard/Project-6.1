@@ -111,17 +111,17 @@ namespace api
         {
             try
             {
-                // retrieve all BSON documents from MongoDB
+                //retrieve all BSON documents from MongoDB
                 var cursor = await collection.FindAsync(new BsonDocument());
 
                 var documents = new List<BsonDocument>();
                 while (await cursor.MoveNextAsync())
                 {
-                    // loops through all found documents
+                    //loops through all found documents
                     var batch = cursor.Current;
                     foreach (var document in batch)
                     {
-                        // Add the BSON document to the list
+                        //Add the BSON document to the list
                         documents.Add(document);
                     }
                 }
@@ -129,7 +129,7 @@ namespace api
             }
             catch (Exception ex)
             {
-                // handle exceptions given during get request
+                //handle exceptions given during get request
                 System.Console.WriteLine("An error occurred retrieving documents from MongoDB: " + ex.Message);
                 return null;
             }
