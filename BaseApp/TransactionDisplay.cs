@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Data.SqlClient;
 
 namespace Sports_Accounting.BaseApp
 {
@@ -19,6 +20,25 @@ namespace Sports_Accounting.BaseApp
     {
         XmlAPI xmlAPI = new XmlAPI();
         XDocument XMLData = new XDocument();
+
+        private class StatementData
+        {
+            public StatementData() { }
+            public string id { get; set; }
+            public string account { get; set; }
+            public string closingAvailableBalance { get; set;}
+            public string closingBalance { get; set;}
+            public string description { get; set;}
+            public string forwardAvailableBalance { get; set;}
+            public string openingBalance { get; set; }
+            public string relatedMessage { get; set; }
+            public string sequenceNumber { get; set; }
+            public string statementNumber { get; set; }
+            public string transactionReference { get; set; }
+            public string transactionType { get; set; } 
+
+        }
+
         public TransactionDisplay()
         {
             InitializeComponent();
@@ -159,6 +179,79 @@ namespace Sports_Accounting.BaseApp
             }
 
             return ds;
+        }
+
+        private void databaseSave_Click(object sender, EventArgs e)
+        {
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dimit\\source\\repos\\Project-6.1\\Database.mdf;Integrated Security=True";
+
+            string checkIfExistsQuery = "SELECT COUNT(*) FROM Transaction WHERE transaction_id = @Id";
+
+            string query = @"INSERT INTO Transaction (transaction_id) VALUES (@transaction_id)";
+
+            List<StatementData> data = new List<StatementData>();
+            int index = 0;
+            foreach (var statement in XMLData.Descendants("Statement"))
+            {
+                StatementData statementData = new StatementData();
+                data.Add(statementData);
+                data[index].id = statement.Element("ID").Value;
+                data[index].account = statement.Element("Account").Value;
+                data[index].closingAvailableBalance = statement.Element("ClosingAvailableBalance").Value;
+                data[index].description = statement.Element("Description").Value;
+                data[index].forwardAvailableBalance = statement.Element("ForwardAvailableBalance").Value;
+                data[index].relatedMessage = statement.Element("RelatedMessage").Value;
+                data[index].sequenceNumber = statement.Element("SequenceNumber").Value;
+                data[index].statementNumber = statement.Element("StatementNumber").Value;
+                data[index].transactionReference = statement.Element("TransactionReference").Value;
+
+                //gets the balance from the closing balance part of XML
+                foreach (var balance in statement.Descendants("ClosingBalance"))
+                {
+                    data[index].closingBalance = balance.Element("Balance").Value;
+                }
+
+                //gets the balance from the opening balance part of XML
+                foreach (var balance in statement.Descendants("OpeningBalance"))
+                {
+                    data[index].openingBalance = balance.Element("Balance").Value;
+                }
+
+                //gets the transaction type of the first transaction
+                foreach (var transaction in statement.Descendants("Transactions"))
+                {
+                    foreach(var transactionData in transaction.Descendants("Transaction"))
+                    {
+                        data[index].transactionType = transactionData.Element("TransactionType").ToString();
+                    }
+
+                }
+
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(connectionString)) // Create a new SQL connection
+                    {
+                        connection.Open();
+                        //check if value with id exists
+                        SqlCommand checkCommand = new SqlCommand(checkIfExistsQuery, connection);
+                        checkCommand.Parameters.AddWithValue("@Id", data[index].id);
+                        bool exists = ((int)checkCommand.ExecuteScalar() > 0);
+                        //if the thing doesnt exist
+                        if (!exists)
+                        {
+                            SqlCommand command = new SqlCommand(query, connection); // Create a new SQL command
+                            command.Parameters.AddWithValue("@transaction_id", data[index].id);
+                            
+                            int rowsAffected = command.ExecuteNonQuery();
+                            Console.WriteLine(rowsAffected + " row(s) inserted.");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error with database insertion " + ex.Message);
+                }
+            }
         }
     }
 }

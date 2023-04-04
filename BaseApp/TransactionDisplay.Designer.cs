@@ -36,6 +36,7 @@
             this.TransactionReference = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.databaseSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.XMLTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -44,9 +45,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(12, 52);
+            this.label1.Location = new System.Drawing.Point(16, 64);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 18);
+            this.label1.Size = new System.Drawing.Size(112, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Transactions";
             // 
@@ -61,9 +63,10 @@
             this.ClosingBalance,
             this.TransactionReference});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 73);
+            this.listView1.Location = new System.Drawing.Point(16, 90);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(400, 352);
+            this.listView1.Size = new System.Drawing.Size(532, 432);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
@@ -87,9 +90,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(453, 52);
+            this.label2.Location = new System.Drawing.Point(566, 64);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 18);
+            this.label2.Size = new System.Drawing.Size(163, 22);
             this.label2.TabIndex = 2;
             this.label2.Text = "Transaction Details";
             // 
@@ -101,21 +105,36 @@
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(456, 73);
+            this.dataGridView1.Location = new System.Drawing.Point(570, 90);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(337, 352);
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(449, 432);
             this.dataGridView1.TabIndex = 4;
+            // 
+            // databaseSave
+            // 
+            this.databaseSave.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold);
+            this.databaseSave.Location = new System.Drawing.Point(1045, 90);
+            this.databaseSave.Name = "databaseSave";
+            this.databaseSave.Size = new System.Drawing.Size(270, 55);
+            this.databaseSave.TabIndex = 5;
+            this.databaseSave.Text = "Save all to databasee";
+            this.databaseSave.UseVisualStyleBackColor = true;
+            this.databaseSave.Click += new System.EventHandler(this.databaseSave_Click);
             // 
             // TransactionDisplay
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(835, 435);
+            this.ClientSize = new System.Drawing.Size(1337, 549);
+            this.Controls.Add(this.databaseSave);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "TransactionDisplay";
             this.Text = "TransactionDisplay";
             this.Load += new System.EventHandler(this.TransactionDisplay_Load);
@@ -136,5 +155,6 @@
         private System.Windows.Forms.ColumnHeader TransactionReference;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button databaseSave;
     }
 }

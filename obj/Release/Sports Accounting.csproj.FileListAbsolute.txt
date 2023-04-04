@@ -67,3 +67,5 @@ C:\Users\dimit\Source\Repos\Project-6.1\bin\Release\Newtonsoft.Json.dll
 C:\Users\dimit\Source\Repos\Project-6.1\bin\Release\Newtonsoft.Json.Schema.dll
 C:\Users\dimit\Source\Repos\Project-6.1\bin\Release\Newtonsoft.Json.xml
 C:\Users\dimit\Source\Repos\Project-6.1\bin\Release\Newtonsoft.Json.Schema.xml
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\Database.mdf
+C:\Users\dimit\source\repos\Project-6.1\bin\Release\Database_log.ldf
