@@ -13,8 +13,8 @@ namespace Sports_Accounting
 
         public static string UserName
         {
-            get { return UserName; }
-            set { UserName = value; }
+            get { return userName; }
+            set { userName = value; }
         }
 
         

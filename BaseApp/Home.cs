@@ -20,11 +20,14 @@ namespace Sports_Accounting
         {
             InitializeComponent();
 
-            //if the user is an admin allow them to view the users panel
+            //if the user is a superuser allow them to view the users panel
             if(User.Level == userLevel.SUPERUSER)
             {
                 button1.Visible = true;
             }
+
+            //set welcome to display username
+            welcomeText.Text += " " + User.UserName + "!";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -51,6 +54,7 @@ namespace Sports_Accounting
                     foreach(var filePath in dialog.FileNames)
                     {
                         var bsonFile = jsonAPI.FileToBson(filePath);
+
                         //checks if its valid mt940 and valid json file format
                         try
                         {
@@ -90,6 +94,17 @@ namespace Sports_Accounting
         {
             Account account = new Account();
             account.Show();
+            this.Hide();
+        }
+
+        private void LogOutButton(object sender, EventArgs e)
+        {
+            //go back to log in page and reset the users data
+            LogIn logIn = new LogIn();
+            logIn.Show();
+            User.UserName = string.Empty;
+            User.Level = userLevel.GUEST;
+            this.Hide();
         }
     }
 }
