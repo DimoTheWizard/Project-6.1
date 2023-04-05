@@ -44,6 +44,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -68,16 +69,16 @@
             this.welcomeText.Location = new System.Drawing.Point(11, 46);
             this.welcomeText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.welcomeText.Name = "welcomeText";
-            this.welcomeText.Size = new System.Drawing.Size(152, 20);
+            this.welcomeText.Size = new System.Drawing.Size(126, 20);
             this.welcomeText.TabIndex = 2;
-            this.welcomeText.Text = "Welcome back,....!";
+            this.welcomeText.Text = "Welcome back,";
             // 
             // monthlySummary
             // 
             this.monthlySummary.AutoSize = true;
             this.monthlySummary.Font = new System.Drawing.Font("Circular Std Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.monthlySummary.ForeColor = System.Drawing.Color.Black;
-            this.monthlySummary.Location = new System.Drawing.Point(39, 328);
+            this.monthlySummary.Location = new System.Drawing.Point(39, 330);
             this.monthlySummary.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.monthlySummary.Name = "monthlySummary";
             this.monthlySummary.Size = new System.Drawing.Size(224, 30);
@@ -89,7 +90,7 @@
             this.income.AutoSize = true;
             this.income.Font = new System.Drawing.Font("Circular Std Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.income.ForeColor = System.Drawing.Color.Black;
-            this.income.Location = new System.Drawing.Point(40, 360);
+            this.income.Location = new System.Drawing.Point(39, 360);
             this.income.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.income.Name = "income";
             this.income.Size = new System.Drawing.Size(86, 27);
@@ -113,7 +114,7 @@
             this.IncomeNum.AutoSize = true;
             this.IncomeNum.Font = new System.Drawing.Font("Circular Std Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IncomeNum.ForeColor = System.Drawing.Color.ForestGreen;
-            this.IncomeNum.Location = new System.Drawing.Point(40, 397);
+            this.IncomeNum.Location = new System.Drawing.Point(41, 397);
             this.IncomeNum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.IncomeNum.Name = "IncomeNum";
             this.IncomeNum.Size = new System.Drawing.Size(63, 24);
@@ -175,7 +176,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Circular Std Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label3.Location = new System.Drawing.Point(296, 397);
+            this.label3.Location = new System.Drawing.Point(297, 397);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 24);
@@ -187,7 +188,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Circular Std Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(296, 428);
+            this.label4.Location = new System.Drawing.Point(295, 428);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 27);
@@ -199,7 +200,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Circular Std Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(296, 360);
+            this.label5.Location = new System.Drawing.Point(295, 360);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(86, 27);
@@ -211,7 +212,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Circular Std Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(295, 328);
+            this.label6.Location = new System.Drawing.Point(295, 330);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(186, 30);
@@ -223,7 +224,7 @@
             this.button1.BackColor = System.Drawing.Color.SlateBlue;
             this.button1.Font = new System.Drawing.Font("Circular Std Black", 11.95F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(825, 14);
+            this.button1.Location = new System.Drawing.Point(724, 14);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(95, 34);
             this.button1.TabIndex = 34;
@@ -244,11 +245,25 @@
             this.button3.Text = "My Account";
             this.button3.UseVisualStyleBackColor = false;
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.SlateBlue;
+            this.button4.Font = new System.Drawing.Font("Circular Std Black", 11.95F, System.Drawing.FontStyle.Bold);
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(825, 14);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(95, 34);
+            this.button4.TabIndex = 36;
+            this.button4.Text = "Log Out";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.LogOutButton);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1052, 549);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
@@ -290,5 +305,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }

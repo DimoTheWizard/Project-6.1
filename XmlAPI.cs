@@ -70,7 +70,12 @@ namespace Sports_Accounting
                     XmlNode statementNode = xmlStatement.CreateElement("Statement");
                     statementsNode.AppendChild(statementNode);
                     //ID
-                    string id = BsonDoc[0].GetValue("_id").ToString();
+                    string id;
+                    if (BsonDoc[0].Contains("_id"))
+                    {
+                        id = BsonDoc[0].GetValue("_id").ToString();
+                    }
+                    id = "";
                     XmlNode statementID = xmlStatement.CreateElement("ID");
                     statementID.InnerText = id;
                     index++;

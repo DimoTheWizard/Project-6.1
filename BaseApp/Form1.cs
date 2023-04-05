@@ -33,16 +33,16 @@ namespace Sports_Accounting
 
             if (TryLogIn(username, password))
             {
-                MessageBox.Show("Login successful!");
+                //do nothing
             }
             else
             {
+                //give error and stop running method
                 MessageBox.Show("Invalid username or password.");
                 return;
             }
 
             //make the user level the userLevel
-            
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -79,6 +79,11 @@ namespace Sports_Accounting
                     }
                 }
             }
+            
+            //Set the user username to the filled in username
+            User.UserName = username;
+
+            //make a home form and hide the login form
             Home form2 = new Home();
             form2.Show();
             this.Hide();
@@ -142,7 +147,6 @@ namespace Sports_Accounting
                         return false;
                     }
                 }
-                return false;
             }
         }
 

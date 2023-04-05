@@ -222,7 +222,6 @@
     <Compile Include="JsonAPI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Transactions.cs" />
     <Compile Include="XmlAPI.cs" />
     <EmbeddedResource Include="BaseApp\Account.resx">
       <DependentUpon>Account.cs</DependentUpon>

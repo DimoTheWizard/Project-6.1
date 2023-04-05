@@ -32,6 +32,11 @@ namespace api
             //read the content of the file
             var mt940Text = File.ReadAllText(path);
 
+            //add the trailer
+            mt940Text += "-";
+
+            Console.WriteLine(mt940Text);
+
             //Create a valid JSON string
             var jsonFile = "{ \"mt940_content\": \"" + mt940Text.Replace("\"", "\\\"") + "\" }";
 
