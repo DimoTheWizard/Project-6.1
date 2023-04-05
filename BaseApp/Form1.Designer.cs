@@ -47,10 +47,14 @@
             this.buttonLogIn.ForeColor = System.Drawing.Color.White;
             this.buttonLogIn.Location = new System.Drawing.Point(272, 406);
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.buttonLogIn.Margin = new System.Windows.Forms.Padding(2);
 =======
             this.buttonLogIn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+            this.buttonLogIn.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             this.buttonLogIn.Name = "buttonLogIn";
             this.buttonLogIn.Size = new System.Drawing.Size(190, 27);
             this.buttonLogIn.TabIndex = 5;
@@ -63,10 +67,14 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(693, 84);
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
 =======
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(292, 335);
             this.pictureBox1.TabIndex = 8;
@@ -128,10 +136,14 @@
             this.firstinput.Font = new System.Drawing.Font("Circular Std Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.firstinput.Location = new System.Drawing.Point(188, 250);
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.firstinput.Margin = new System.Windows.Forms.Padding(2);
 =======
             this.firstinput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+            this.firstinput.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             this.firstinput.Name = "firstinput";
             this.firstinput.Size = new System.Drawing.Size(359, 26);
             this.firstinput.TabIndex = 13;
@@ -142,6 +154,7 @@
             this.textBox1.Font = new System.Drawing.Font("Circular Std Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(188, 336);
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.PasswordChar = '*';
@@ -149,6 +162,11 @@
             this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PasswordChar = '*';
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             this.textBox1.Size = new System.Drawing.Size(359, 26);
             this.textBox1.TabIndex = 14;
             // 
@@ -166,10 +184,14 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonLogIn);
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.Margin = new System.Windows.Forms.Padding(2);
 =======
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+            this.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             this.Name = "LogIn";
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

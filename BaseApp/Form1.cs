@@ -43,7 +43,6 @@ namespace Sports_Accounting
             }
 
             //make the user level the userLevel
-            
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -71,11 +70,16 @@ namespace Sports_Accounting
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error connecting to database: " + ex.Message);
-                }
             }
+            
+            //Set the user username to the filled in username
+            User.UserName = username;
+
+            //make a home form and hide the login form
+            Home form2 = new Home();
+            form2.Show();
+            this.Hide();
+        }
 
                 if (count <= 0)
                 {
@@ -90,11 +94,35 @@ namespace Sports_Accounting
             return pbkdf2.GetBytes(20);
         }
 
-        private bool ByteArrayCompare(byte[] a1, byte[] a2)
-        {
-            // Compare two byte arrays for equality.
-            if (a1.Length != a2.Length)
-            {
+                    SqlDataReader reader = checkPasswordCommand.ExecuteReader();
+
+                    //check if a password was found for the given username
+                    if (reader.HasRows && reader.Read())
+                    {
+                        //retrieve the hashed password from the database
+                        string hashedPasswordFromDatabase = reader.GetString(0);
+
+                        // compare the hashed password with the password entered by the user
+                        if (hashedPasswordFromDatabase == HashString(password))
+                        {
+                            //passwords match
+                            connection.Close();
+                            return true;
+                        }
+                        else
+                        {
+                            //passwords doesnt match
+                            connection.Close();
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        //no password found for the given username
+                        connection.Close();
+                        return false;
+                    }
+                }
                 return false;
             }
 

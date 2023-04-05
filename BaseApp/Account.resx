@@ -121,11 +121,17 @@
     <value>160, 17</value>
   </metadata>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <metadata name="userBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>160, 17</value>
   </metadata>
 =======
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+  <metadata name="userBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>160, 17</value>
+  </metadata>
+>>>>>>> can add transactions to database, fixed login, fixed parsing
   <metadata name="databaseDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

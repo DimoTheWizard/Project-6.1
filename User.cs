@@ -14,12 +14,17 @@ namespace Sports_Accounting
         public static string UserName
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             get { return userName; }
             set { userName = value; }
 =======
             get { return UserName; }
             set { UserName = value; }
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+            get { return userName; }
+            set { userName = value; }
+>>>>>>> can add transactions to database, fixed login, fixed parsing
         }
 
         

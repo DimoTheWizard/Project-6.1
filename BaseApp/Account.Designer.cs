@@ -47,9 +47,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.addMessageBox = new System.Windows.Forms.Label();
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.button4 = new System.Windows.Forms.Button();
 =======
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+            this.button4 = new System.Windows.Forms.Button();
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
@@ -65,10 +69,14 @@
             this.levelDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.userBindingSource;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.dataGridView1.Location = new System.Drawing.Point(12, 68);
 =======
             this.dataGridView1.Location = new System.Drawing.Point(12, 55);
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+            this.dataGridView1.Location = new System.Drawing.Point(12, 68);
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(344, 367);
             this.dataGridView1.TabIndex = 0;
@@ -116,10 +124,14 @@
             this.label1.Font = new System.Drawing.Font("Circular Std Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.label1.Location = new System.Drawing.Point(11, 35);
 =======
             this.label1.Location = new System.Drawing.Point(11, 22);
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+            this.label1.Location = new System.Drawing.Point(11, 35);
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 30);
@@ -132,10 +144,14 @@
             this.label2.Font = new System.Drawing.Font("Circular Std Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.label2.Location = new System.Drawing.Point(389, 68);
 =======
             this.label2.Location = new System.Drawing.Point(404, 22);
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+            this.label2.Location = new System.Drawing.Point(389, 68);
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 30);
@@ -145,10 +161,14 @@
             // usernameBox
             // 
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.usernameBox.Location = new System.Drawing.Point(394, 141);
 =======
             this.usernameBox.Location = new System.Drawing.Point(409, 95);
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+            this.usernameBox.Location = new System.Drawing.Point(394, 141);
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.Size = new System.Drawing.Size(129, 20);
             this.usernameBox.TabIndex = 12;
@@ -156,10 +176,14 @@
             // passwordBox
             // 
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.passwordBox.Location = new System.Drawing.Point(394, 190);
 =======
             this.passwordBox.Location = new System.Drawing.Point(409, 144);
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+            this.passwordBox.Location = new System.Drawing.Point(394, 190);
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.Size = new System.Drawing.Size(129, 20);
             this.passwordBox.TabIndex = 13;
@@ -170,10 +194,14 @@
             this.label3.Font = new System.Drawing.Font("Circular Std Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.label3.Location = new System.Drawing.Point(390, 114);
 =======
             this.label3.Location = new System.Drawing.Point(405, 68);
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+            this.label3.Location = new System.Drawing.Point(390, 114);
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 24);
@@ -186,10 +214,14 @@
             this.label4.Font = new System.Drawing.Font("Circular Std Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.label4.Location = new System.Drawing.Point(390, 164);
 =======
             this.label4.Location = new System.Drawing.Point(405, 118);
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+            this.label4.Location = new System.Drawing.Point(390, 164);
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 24);
@@ -206,10 +238,14 @@
             "Admin",
             "Superuser"});
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.accessListBox.Location = new System.Drawing.Point(394, 243);
 =======
             this.accessListBox.Location = new System.Drawing.Point(409, 197);
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+            this.accessListBox.Location = new System.Drawing.Point(394, 243);
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             this.accessListBox.Name = "accessListBox";
             this.accessListBox.Size = new System.Drawing.Size(80, 52);
             this.accessListBox.TabIndex = 16;
@@ -220,10 +256,14 @@
             this.label5.Font = new System.Drawing.Font("Circular Std Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.label5.Location = new System.Drawing.Point(390, 216);
 =======
             this.label5.Location = new System.Drawing.Point(405, 170);
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+            this.label5.Location = new System.Drawing.Point(390, 216);
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(125, 24);
@@ -234,20 +274,28 @@
             // 
             this.button1.Font = new System.Drawing.Font("Circular Std Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.button1.Location = new System.Drawing.Point(394, 314);
 =======
             this.button1.Location = new System.Drawing.Point(409, 268);
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+            this.button1.Location = new System.Drawing.Point(394, 314);
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 29);
             this.button1.TabIndex = 18;
             this.button1.Text = "Add User";
             this.button1.UseVisualStyleBackColor = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.button1.Click += new System.EventHandler(this.AddUserButton);
 =======
             this.button1.Click += new System.EventHandler(this.button1_Click);
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+            this.button1.Click += new System.EventHandler(this.AddUserButton);
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             // 
             // addMessageBox
             // 
@@ -255,16 +303,23 @@
             this.addMessageBox.Font = new System.Drawing.Font("Circular Std Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addMessageBox.ForeColor = System.Drawing.Color.Black;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.addMessageBox.Location = new System.Drawing.Point(398, 355);
 =======
             this.addMessageBox.Location = new System.Drawing.Point(413, 309);
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+            this.addMessageBox.Location = new System.Drawing.Point(398, 355);
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             this.addMessageBox.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.addMessageBox.Name = "addMessageBox";
             this.addMessageBox.Size = new System.Drawing.Size(0, 20);
             this.addMessageBox.TabIndex = 19;
             // 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.SlateBlue;
@@ -278,17 +333,24 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.GoBackButton);
             // 
+<<<<<<< HEAD
 =======
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             // Account
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.Controls.Add(this.button4);
 =======
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+            this.Controls.Add(this.button4);
+>>>>>>> can add transactions to database, fixed login, fixed parsing
             this.Controls.Add(this.addMessageBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
@@ -331,8 +393,12 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label addMessageBox;
 <<<<<<< HEAD
+<<<<<<< HEAD
         private System.Windows.Forms.Button button4;
 =======
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+        private System.Windows.Forms.Button button4;
+>>>>>>> can add transactions to database, fixed login, fixed parsing
     }
 }

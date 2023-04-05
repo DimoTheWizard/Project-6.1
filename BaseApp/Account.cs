@@ -30,10 +30,14 @@ namespace Sports_Accounting.BaseApp
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         private void AddUserButton(object sender, EventArgs e)
 =======
         private void button1_Click(object sender, EventArgs e)
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+        private void AddUserButton(object sender, EventArgs e)
+>>>>>>> can add transactions to database, fixed login, fixed parsing
         {
             string username;
             string password;
@@ -157,6 +161,9 @@ namespace Sports_Accounting.BaseApp
             }
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> can add transactions to database, fixed login, fixed parsing
 
         private void GoBackButton(object sender, EventArgs e)
         {
@@ -164,7 +171,10 @@ namespace Sports_Accounting.BaseApp
             home.Show();
             this.Hide();
         }
+<<<<<<< HEAD
 =======
 >>>>>>> added proper login functionality and 80 percent of the user panel
+=======
+>>>>>>> can add transactions to database, fixed login, fixed parsing
     }
 }
