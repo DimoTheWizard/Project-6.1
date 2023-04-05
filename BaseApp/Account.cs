@@ -29,7 +29,7 @@ namespace Sports_Accounting.BaseApp
             this.userTableAdapter.Fill(this.databaseDataSet.User);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddUserButton(object sender, EventArgs e)
         {
             string username;
             string password;
@@ -151,6 +151,13 @@ namespace Sports_Accounting.BaseApp
                 dataGridView1.Refresh();
                 connection.Close();
             }
+        }
+
+        private void GoBackButton(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
+            this.Hide();
         }
     }
 }

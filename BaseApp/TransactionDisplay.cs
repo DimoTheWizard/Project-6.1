@@ -13,6 +13,7 @@ using System.Xml;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace Sports_Accounting.BaseApp
 {
@@ -36,12 +37,19 @@ namespace Sports_Accounting.BaseApp
             public string statementNumber { get; set; }
             public string transactionReference { get; set; }
             public string transactionType { get; set; } 
+            public string transactionDate { get; set; }
 
         }
 
         public TransactionDisplay()
         {
             InitializeComponent();
+
+            //if the user is an admin or superuser allow them to view the add to database button
+            if (User.Level == userLevel.SUPERUSER || User.Level == userLevel.ADMIN)
+            {
+                databaseSave.Visible = true;
+            }
         }
 
         //On page load
@@ -95,11 +103,13 @@ namespace Sports_Accounting.BaseApp
                         string sequenceNumber = statement.Element("SequenceNumber").Value;
                         string statementNumber = statement.Element("StatementNumber").Value;
                         string transactionReference = statement.Element("TransactionReference").Value;
+                        string transactionDate = "";
 
                         //gets the balance from the closing balance part of XML
                         foreach (var balance in statement.Descendants("ClosingBalance"))
                         {
                             closingBalance = balance.Element("Balance").Value;
+                            transactionDate = balance.Element("EntryDate").Value;
                         }
 
                         //gets the balance from the opening balance part of XML
@@ -121,8 +131,9 @@ namespace Sports_Accounting.BaseApp
                         table.Columns.Add("Opening Balance", typeof(string));
                         table.Columns.Add("Related Message", typeof(string));
                         table.Columns.Add("Sequence Number", typeof(string));
-                        table.Columns.Add("Statemen tNumber", typeof(string));
+                        table.Columns.Add("Statement Number", typeof(string));
                         table.Columns.Add("Transaction Reference", typeof(string));
+                        table.Columns.Add("Transaction Date", typeof(string));
 
                         table.Rows.Add(new object[] { 
                             account, 
@@ -134,7 +145,8 @@ namespace Sports_Accounting.BaseApp
                             relatedMessage,
                             sequenceNumber,
                             statementNumber,
-                            transactionReference
+                            transactionReference,
+                            transactionDate
                         });
                         
                         table.AcceptChanges();
@@ -185,9 +197,10 @@ namespace Sports_Accounting.BaseApp
         {
             string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dimit\\source\\repos\\Project-6.1\\Database.mdf;Integrated Security=True";
 
-            string checkIfExistsQuery = "SELECT COUNT(*) FROM Transaction WHERE transaction_id = @Id";
+            string checkIfExistsQuery = "SELECT COUNT(*) FROM [Transaction] WHERE object_id = @Id";
 
-            string query = @"INSERT INTO Transaction (transaction_id) VALUES (@transaction_id)";
+            string query = @"INSERT INTO [Transaction] (account, closing_balance, opening_balance, statement_number, transaction_reference, original_description, transaction_date, object_id)
+                             VALUES (@account, @closing_balance, @opening_balance, @statement_number, @transaction_reference, @original_description, @transaction_date, @object_id)";
 
             List<StatementData> data = new List<StatementData>();
             int index = 0;
@@ -205,10 +218,11 @@ namespace Sports_Accounting.BaseApp
                 data[index].statementNumber = statement.Element("StatementNumber").Value;
                 data[index].transactionReference = statement.Element("TransactionReference").Value;
 
-                //gets the balance from the closing balance part of XML
+                //gets the balance and date from the closing balance part of XML
                 foreach (var balance in statement.Descendants("ClosingBalance"))
                 {
                     data[index].closingBalance = balance.Element("Balance").Value;
+                    data[index].transactionDate = balance.Element("EntryDate").Value.ToString();
                 }
 
                 //gets the balance from the opening balance part of XML
@@ -227,6 +241,7 @@ namespace Sports_Accounting.BaseApp
 
                 }
 
+                //working with the database
                 try
                 {
                     using (SqlConnection connection = new SqlConnection(connectionString)) // Create a new SQL connection
@@ -236,14 +251,20 @@ namespace Sports_Accounting.BaseApp
                         SqlCommand checkCommand = new SqlCommand(checkIfExistsQuery, connection);
                         checkCommand.Parameters.AddWithValue("@Id", data[index].id);
                         bool exists = ((int)checkCommand.ExecuteScalar() > 0);
-                        //if the thing doesnt exist
+                        //if the field doesnt exist
                         if (!exists)
                         {
                             SqlCommand command = new SqlCommand(query, connection); // Create a new SQL command
-                            command.Parameters.AddWithValue("@transaction_id", data[index].id);
-                            
+                            command.Parameters.AddWithValue("@account", data[index].account ?? (object)DBNull.Value);
+                            command.Parameters.AddWithValue("@closing_balance", data[index].closingBalance ?? (object)DBNull.Value);
+                            command.Parameters.AddWithValue("@opening_balance", data[index].openingBalance ?? (object)DBNull.Value);
+                            command.Parameters.AddWithValue("@statement_number", data[index].statementNumber ?? (object)DBNull.Value);
+                            command.Parameters.AddWithValue("@transaction_reference", data[index].transactionReference ?? (object)DBNull.Value);
+                            command.Parameters.AddWithValue("@original_description", data[index].description ?? (object)DBNull.Value);
+                            command.Parameters.AddWithValue("@transaction_date", data[index].transactionDate ?? (object)DBNull.Value);
+                            command.Parameters.AddWithValue("@object_id", data[index].id);
+
                             int rowsAffected = command.ExecuteNonQuery();
-                            Console.WriteLine(rowsAffected + " row(s) inserted.");
                         }
                     }
                 }
@@ -252,6 +273,7 @@ namespace Sports_Accounting.BaseApp
                     Console.WriteLine("Error with database insertion " + ex.Message);
                 }
             }
+            messageBox.Text = "Added new transactions to \n local database";
         }
     }
 }
