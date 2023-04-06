@@ -39,6 +39,7 @@
             this.databaseSave = new System.Windows.Forms.Button();
             this.messageBox = new System.Windows.Forms.Label();
             this.searchBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.XMLTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -139,16 +140,27 @@
             // 
             // searchBox
             // 
-            this.searchBox.Location = new System.Drawing.Point(1176, 217);
+            this.searchBox.Location = new System.Drawing.Point(1177, 291);
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(303, 26);
             this.searchBox.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(1184, 247);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(224, 25);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Search for transaction";
             // 
             // TransactionDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1504, 686);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.messageBox);
             this.Controls.Add(this.databaseSave);
@@ -180,5 +192,6 @@
         private System.Windows.Forms.Button databaseSave;
         private System.Windows.Forms.Label messageBox;
         private System.Windows.Forms.TextBox searchBox;
+        private System.Windows.Forms.Label label3;
     }
 }
