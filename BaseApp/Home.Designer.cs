@@ -33,12 +33,12 @@
             this.monthlySummary = new System.Windows.Forms.Label();
             this.income = new System.Windows.Forms.Label();
             this.Expenses = new System.Windows.Forms.Label();
-            this.IncomeNum = new System.Windows.Forms.Label();
-            this.ExpensesNum = new System.Windows.Forms.Label();
+            this.monthlyIncome = new System.Windows.Forms.Label();
+            this.monthlyExpense = new System.Windows.Forms.Label();
             this.buttonTransaction = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.totalExpense = new System.Windows.Forms.Label();
+            this.totalIncome = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -109,29 +109,29 @@
             this.Expenses.TabIndex = 12;
             this.Expenses.Text = "Expenses";
             // 
-            // IncomeNum
+            // monthlyIncome
             // 
-            this.IncomeNum.AutoSize = true;
-            this.IncomeNum.Font = new System.Drawing.Font("Circular Std Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IncomeNum.ForeColor = System.Drawing.Color.ForestGreen;
-            this.IncomeNum.Location = new System.Drawing.Point(41, 397);
-            this.IncomeNum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.IncomeNum.Name = "IncomeNum";
-            this.IncomeNum.Size = new System.Drawing.Size(63, 24);
-            this.IncomeNum.TabIndex = 13;
-            this.IncomeNum.Text = "label3";
+            this.monthlyIncome.AutoSize = true;
+            this.monthlyIncome.Font = new System.Drawing.Font("Circular Std Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monthlyIncome.ForeColor = System.Drawing.Color.ForestGreen;
+            this.monthlyIncome.Location = new System.Drawing.Point(41, 397);
+            this.monthlyIncome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.monthlyIncome.Name = "monthlyIncome";
+            this.monthlyIncome.Size = new System.Drawing.Size(63, 24);
+            this.monthlyIncome.TabIndex = 13;
+            this.monthlyIncome.Text = "label3";
             // 
-            // ExpensesNum
+            // monthlyExpense
             // 
-            this.ExpensesNum.AutoSize = true;
-            this.ExpensesNum.Font = new System.Drawing.Font("Circular Std Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExpensesNum.ForeColor = System.Drawing.Color.Red;
-            this.ExpensesNum.Location = new System.Drawing.Point(40, 465);
-            this.ExpensesNum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.ExpensesNum.Name = "ExpensesNum";
-            this.ExpensesNum.Size = new System.Drawing.Size(63, 24);
-            this.ExpensesNum.TabIndex = 14;
-            this.ExpensesNum.Text = "label3";
+            this.monthlyExpense.AutoSize = true;
+            this.monthlyExpense.Font = new System.Drawing.Font("Circular Std Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monthlyExpense.ForeColor = System.Drawing.Color.Red;
+            this.monthlyExpense.Location = new System.Drawing.Point(40, 465);
+            this.monthlyExpense.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.monthlyExpense.Name = "monthlyExpense";
+            this.monthlyExpense.Size = new System.Drawing.Size(63, 24);
+            this.monthlyExpense.TabIndex = 14;
+            this.monthlyExpense.Text = "label3";
             // 
             // buttonTransaction
             // 
@@ -157,31 +157,31 @@
             this.button2.TabIndex = 28;
             this.button2.Text = "View Transactions";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.showTransactionButton);
             // 
-            // label2
+            // totalExpense
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Circular Std Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(296, 465);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 24);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "label3";
+            this.totalExpense.AutoSize = true;
+            this.totalExpense.Font = new System.Drawing.Font("Circular Std Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalExpense.ForeColor = System.Drawing.Color.Red;
+            this.totalExpense.Location = new System.Drawing.Point(296, 465);
+            this.totalExpense.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.totalExpense.Name = "totalExpense";
+            this.totalExpense.Size = new System.Drawing.Size(63, 24);
+            this.totalExpense.TabIndex = 33;
+            this.totalExpense.Text = "label3";
             // 
-            // label3
+            // totalIncome
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Circular Std Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label3.Location = new System.Drawing.Point(297, 397);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 24);
-            this.label3.TabIndex = 32;
-            this.label3.Text = "label3";
+            this.totalIncome.AutoSize = true;
+            this.totalIncome.Font = new System.Drawing.Font("Circular Std Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalIncome.ForeColor = System.Drawing.Color.ForestGreen;
+            this.totalIncome.Location = new System.Drawing.Point(297, 397);
+            this.totalIncome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.totalIncome.Name = "totalIncome";
+            this.totalIncome.Size = new System.Drawing.Size(63, 24);
+            this.totalIncome.TabIndex = 32;
+            this.totalIncome.Text = "label3";
             // 
             // label4
             // 
@@ -231,7 +231,7 @@
             this.button1.Text = "Accounts";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.showAccountButton);
             // 
             // button3
             // 
@@ -266,15 +266,15 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.totalExpense);
+            this.Controls.Add(this.totalIncome);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonTransaction);
-            this.Controls.Add(this.ExpensesNum);
-            this.Controls.Add(this.IncomeNum);
+            this.Controls.Add(this.monthlyExpense);
+            this.Controls.Add(this.monthlyIncome);
             this.Controls.Add(this.Expenses);
             this.Controls.Add(this.income);
             this.Controls.Add(this.monthlySummary);
@@ -294,12 +294,12 @@
         private System.Windows.Forms.Label monthlySummary;
         private System.Windows.Forms.Label income;
         private System.Windows.Forms.Label Expenses;
-        private System.Windows.Forms.Label IncomeNum;
-        private System.Windows.Forms.Label ExpensesNum;
+        private System.Windows.Forms.Label monthlyIncome;
+        private System.Windows.Forms.Label monthlyExpense;
         private System.Windows.Forms.Button buttonTransaction;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label totalExpense;
+        private System.Windows.Forms.Label totalIncome;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
