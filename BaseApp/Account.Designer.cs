@@ -47,6 +47,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.addMessageBox = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
+            this.deleteUserButton = new System.Windows.Forms.Button();
+            this.deleteUserMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
@@ -65,6 +67,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(344, 367);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.whenDataCellClick);
             // 
             // useridDataGridViewTextBoxColumn
             // 
@@ -226,11 +229,36 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.GoBackButton);
             // 
+            // deleteUserButton
+            // 
+            this.deleteUserButton.Font = new System.Drawing.Font("Circular Std Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteUserButton.Location = new System.Drawing.Point(123, 441);
+            this.deleteUserButton.Name = "deleteUserButton";
+            this.deleteUserButton.Size = new System.Drawing.Size(109, 29);
+            this.deleteUserButton.TabIndex = 38;
+            this.deleteUserButton.Text = "Delete User";
+            this.deleteUserButton.UseVisualStyleBackColor = true;
+            this.deleteUserButton.Visible = false;
+            this.deleteUserButton.Click += new System.EventHandler(this.DeleteUserButton);
+            // 
+            // deleteUserMessage
+            // 
+            this.deleteUserMessage.AutoSize = true;
+            this.deleteUserMessage.Font = new System.Drawing.Font("Circular Std Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteUserMessage.ForeColor = System.Drawing.Color.Black;
+            this.deleteUserMessage.Location = new System.Drawing.Point(256, 445);
+            this.deleteUserMessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.deleteUserMessage.Name = "deleteUserMessage";
+            this.deleteUserMessage.Size = new System.Drawing.Size(0, 24);
+            this.deleteUserMessage.TabIndex = 39;
+            // 
             // Account
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 478);
+            this.Controls.Add(this.deleteUserMessage);
+            this.Controls.Add(this.deleteUserButton);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.addMessageBox);
             this.Controls.Add(this.button1);
@@ -274,5 +302,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label addMessageBox;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button deleteUserButton;
+        private System.Windows.Forms.Label deleteUserMessage;
     }
 }

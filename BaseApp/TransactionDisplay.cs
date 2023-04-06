@@ -14,6 +14,7 @@ using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
+using System.Text.RegularExpressions;
 
 namespace Sports_Accounting.BaseApp
 {
@@ -21,6 +22,10 @@ namespace Sports_Accounting.BaseApp
     {
         XmlAPI xmlAPI = new XmlAPI();
         XDocument XMLData = new XDocument();
+        //string used everywhere in transactionDisplay to access database
+        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dimit\\source\\repos\\Project-6.1\\Database.mdf;Integrated Security=True";
+        string currentWorkingId;
+        ListViewItemSelectionChangedEventArgs itemChangedBuffer;
 
         private class StatementData
         {
@@ -30,6 +35,7 @@ namespace Sports_Accounting.BaseApp
             public string closingAvailableBalance { get; set;}
             public string closingBalance { get; set;}
             public string description { get; set;}
+            public string editedDescription { get; set;}
             public string forwardAvailableBalance { get; set;}
             public string openingBalance { get; set; }
             public string relatedMessage { get; set; }
@@ -84,11 +90,16 @@ namespace Sports_Accounting.BaseApp
             searchBox.TextChanged += SearchBox_TextChanged;
         }
 
-
-        private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        private void listViewDetailed(object sender, ListViewItemSelectionChangedEventArgs e)
         {
+            itemChangedBuffer = e;
             if(e.IsSelected)
             {
+                //display edit description fields
+                editDescriptionField.Visible = true;
+                editDescriptionText.Visible = true;
+                editDescriptionButton.Visible = true;
+
                 //create index number to loop to correct index with
                 int index = 0;
 
@@ -97,10 +108,14 @@ namespace Sports_Accounting.BaseApp
                 {
                     if(index == e.ItemIndex)
                     {
+                        //set class wide id to selected id to allow other methods to work
+                        currentWorkingId = statement.Element("ID").Value;
+
                         string account = statement.Element("Account").Value;
                         string closingAvailableBalance = statement.Element("ClosingAvailableBalance").Value;
                         string closingBalance = "";
                         string description = statement.Element("Description").Value;
+                        string editedDescription = getDescriptionFromDatabase(statement.Element("ID").Value);
                         string forwardAvailableBalance = statement.Element("ForwardAvailableBalance").Value;
                         string openingBalance = "";
                         string relatedMessage = statement.Element("RelatedMessage").Value;
@@ -131,6 +146,7 @@ namespace Sports_Accounting.BaseApp
                         table.Columns.Add("Closing Available Balance", typeof(string));
                         table.Columns.Add("Closing Balance", typeof(string));
                         table.Columns.Add("Description", typeof(string));
+                        table.Columns.Add("Custom Description", typeof(string));
                         table.Columns.Add("Forward Available Balance", typeof(string));
                         table.Columns.Add("Opening Balance", typeof(string));
                         table.Columns.Add("Related Message", typeof(string));
@@ -144,6 +160,7 @@ namespace Sports_Accounting.BaseApp
                             closingAvailableBalance,
                             closingBalance,
                             description,
+                            editedDescription,
                             forwardAvailableBalance,
                             openingBalance,
                             relatedMessage,
@@ -199,8 +216,6 @@ namespace Sports_Accounting.BaseApp
 
         private void databaseSave_Click(object sender, EventArgs e)
         {
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dimit\\source\\repos\\Project-6.1\\Database.mdf;Integrated Security=True";
-
             string checkIfExistsQuery = "SELECT COUNT(*) FROM [Transaction] WHERE object_id = @Id";
 
             string query = @"INSERT INTO [Transaction] (account, closing_balance, opening_balance, statement_number, transaction_reference, original_description, transaction_date, object_id)
@@ -208,6 +223,8 @@ namespace Sports_Accounting.BaseApp
 
             List<StatementData> data = new List<StatementData>();
             int index = 0;
+            
+            //checks all the statemnets one by one adds the ones that dont exist locally and ignores the ones who do.
             foreach (var statement in XMLData.Descendants("Statement"))
             {
                 StatementData statementData = new StatementData();
@@ -255,7 +272,7 @@ namespace Sports_Accounting.BaseApp
                         SqlCommand checkCommand = new SqlCommand(checkIfExistsQuery, connection);
                         checkCommand.Parameters.AddWithValue("@Id", data[index].id);
                         bool exists = ((int)checkCommand.ExecuteScalar() > 0);
-                        //if the field doesnt exist
+                        //if the field doesnt exist add to database
                         if (!exists)
                         {
                             SqlCommand command = new SqlCommand(query, connection); // Create a new SQL command
@@ -276,37 +293,105 @@ namespace Sports_Accounting.BaseApp
                 {
                     Console.WriteLine("Error with database insertion " + ex.Message);
                 }
+                index++;
             }
             messageBox.Text = "Added new transactions to \n local database";
         }
-        
 
-        private void SearchBox_TextChanged(object sender, EventArgs e)
+        private void editDescription(object sender, EventArgs e)
         {
-            string query = searchBox.Text.ToLower().Trim();
-            if (string.IsNullOrEmpty(query))
+            //check if description is bigger than 50 characters
+            if(editDescriptionField.Text.Length > 50)
             {
-                foreach (ListViewItem item in listView1.Items)
-                {
-                    item.ForeColor = SystemColors.ControlText;
-                }
+                editDescriptionMessage.Text = "description must be under 50 characters";
+                return;
             }
-            else
+
+            //check if description doesnt have special characters
+            string regex = "^[a-zA-Z0-9 ]+$";
+
+            if (!Regex.IsMatch(editDescriptionField.Text, regex))
             {
-                foreach (ListViewItem item in listView1.Items)
+                //input string contains special characters
+                editDescriptionMessage.Text = "description must not contain special characters";
+                return;
+            }
+
+            //checks passed, now add to database add to database
+            UpdateModifiedDescription(currentWorkingId, editDescriptionField.Text);
+
+            //refresh transaction details to show edited description
+            listViewDetailed(sender, itemChangedBuffer);
+        }
+
+        //quickly gets the adjusted description from the database or give nothing if not there
+        public string getDescriptionFromDatabase(string id)
+        {
+            //query to select the modified_description field for the object with the given id
+            string query = "SELECT modified_description FROM [Transaction] WHERE object_id = @id";
+
+            //create a new SqlConnection object with the connection string
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                //create a new SqlCommand object with the query and connection
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    bool match = false;
-                    foreach (ListViewItem.ListViewSubItem subitem in item.SubItems)
+                    //add a parameter for the id value
+                    command.Parameters.AddWithValue("@id", id);
+
+                    //open the database connection
+                    connection.Open();
+
+                    //execute the query and get the modified_description field value
+                    object result = command.ExecuteScalar();
+
+                    //check if the result is null or empty
+                    if (result == null || result == DBNull.Value || string.IsNullOrWhiteSpace(result.ToString()))
                     {
-                        if (subitem.Text.ToLower().Contains(query))
-                        {
-                            match = true;
-                            break;
-                        }
+                        connection.Close();
+                        return null;
                     }
-                    item.ForeColor = match ? SystemColors.ControlText : SystemColors.GrayText;
+                    else
+                    {
+                        connection.Close();
+                        return result.ToString();
+                    }
                 }
             }
+        }
+
+        public void UpdateModifiedDescription(string id, string description)
+        {
+            //query to update the modified_description field for the object with the given id
+            string query = "UPDATE [Transaction] SET modified_description = @description WHERE object_id = @id";
+
+            //create a new SqlConnection object with the connection string
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                //create a new SqlCommand object with the query and connection
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    //add parameters for the id and description values
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters.AddWithValue("@description", description);
+
+                    //open the database connection
+                    connection.Open();
+
+                    //execute the query to update the modified_description field
+                    command.ExecuteNonQuery();
+
+                    //close connection
+                    connection.Close();
+                }
+            }
+        }
+
+        private void backToHomeButton(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
+            this.Hide();
         }
     }
 }

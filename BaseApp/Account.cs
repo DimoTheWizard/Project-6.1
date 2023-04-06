@@ -12,12 +12,14 @@ using MongoDB.Driver.Core.Configuration;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Data.SqlClient;
 using System.Xml.Linq;
+using System.Data.Common;
 
 namespace Sports_Accounting.BaseApp
 {
     public partial class Account : Form
     {
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\dimit\source\repos\Project-6.1\Database.mdf;Integrated Security=True";
+        DataGridViewCellEventArgs clickedCell;
 
         public Account()
         {
@@ -158,6 +160,53 @@ namespace Sports_Accounting.BaseApp
             Home home = new Home();
             home.Show();
             this.Hide();
+        }
+
+        private void whenDataCellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            clickedCell = e;
+            deleteUserButton.Visible = true;
+        }
+
+        private void DeleteUserButton(object sender, EventArgs e)
+        {
+            var id = dataGridView1.Rows[clickedCell.RowIndex].Cells[0].Value;
+            if((int)id != 19) //dont delete the only user than can make users
+            {
+                string query = "DELETE FROM [User] WHERE user_id = @user_id";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@user_id", id);
+                        command.ExecuteNonQuery();
+
+                        //refresh the datagridview
+                        SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                        dataAdapter.SelectCommand = new SqlCommand("SELECT user_id, username, level FROM [User]", connection);
+
+                        // Create a new instance of the DataTable
+                        DataTable myTable = new DataTable("User");
+
+                        // Fill the DataTable with the initial data
+                        dataAdapter.Fill(myTable);
+
+                        // Set the DataGridView's DataSource property to the User table in the DataSet
+                        dataGridView1.DataSource = myTable;
+
+                        // Refresh the DataGridView to display the initial data
+                        dataGridView1.Refresh();
+
+                        connection.Close();
+                    }
+                }
+            } else
+            {
+                deleteUserMessage.Text = "Cannot delete the only user that makes users";
+            }
+            deleteUserMessage.Text = "Deleted User";
         }
     }
 }

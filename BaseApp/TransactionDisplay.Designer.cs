@@ -38,7 +38,11 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.databaseSave = new System.Windows.Forms.Button();
             this.messageBox = new System.Windows.Forms.Label();
-            this.searchBox = new System.Windows.Forms.TextBox();
+            this.editDescriptionText = new System.Windows.Forms.Label();
+            this.editDescriptionField = new System.Windows.Forms.TextBox();
+            this.editDescriptionButton = new System.Windows.Forms.Button();
+            this.editDescriptionMessage = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.XMLTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -71,7 +75,7 @@
             this.listView1.Size = new System.Drawing.Size(598, 539);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
+            this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listViewDetailed);
             // 
             // Account
             // 
@@ -137,19 +141,73 @@
             this.messageBox.Size = new System.Drawing.Size(0, 25);
             this.messageBox.TabIndex = 6;
             // 
-            // searchBox
+            // editDescriptionText
             // 
-            this.searchBox.Location = new System.Drawing.Point(1176, 217);
-            this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(303, 26);
-            this.searchBox.TabIndex = 7;
+            this.editDescriptionText.AutoSize = true;
+            this.editDescriptionText.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold);
+            this.editDescriptionText.Location = new System.Drawing.Point(425, 440);
+            this.editDescriptionText.Name = "editDescriptionText";
+            this.editDescriptionText.Size = new System.Drawing.Size(114, 18);
+            this.editDescriptionText.TabIndex = 7;
+            this.editDescriptionText.Text = "Edit Description";
+            this.editDescriptionText.Visible = false;
+            // 
+            // editDescriptionField
+            // 
+            this.editDescriptionField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.editDescriptionField.Font = new System.Drawing.Font("Circular Std Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editDescriptionField.Location = new System.Drawing.Point(428, 469);
+            this.editDescriptionField.Margin = new System.Windows.Forms.Padding(2);
+            this.editDescriptionField.Name = "editDescriptionField";
+            this.editDescriptionField.Size = new System.Drawing.Size(359, 26);
+            this.editDescriptionField.TabIndex = 14;
+            this.editDescriptionField.Visible = false;
+            // 
+            // editDescriptionButton
+            // 
+            this.editDescriptionButton.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold);
+            this.editDescriptionButton.Location = new System.Drawing.Point(798, 469);
+            this.editDescriptionButton.Margin = new System.Windows.Forms.Padding(2);
+            this.editDescriptionButton.Name = "editDescriptionButton";
+            this.editDescriptionButton.Size = new System.Drawing.Size(77, 26);
+            this.editDescriptionButton.TabIndex = 15;
+            this.editDescriptionButton.Text = "Edit";
+            this.editDescriptionButton.UseVisualStyleBackColor = true;
+            this.editDescriptionButton.Visible = false;
+            this.editDescriptionButton.Click += new System.EventHandler(this.editDescription);
+            // 
+            // editDescriptionMessage
+            // 
+            this.editDescriptionMessage.AutoSize = true;
+            this.editDescriptionMessage.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold);
+            this.editDescriptionMessage.Location = new System.Drawing.Point(425, 497);
+            this.editDescriptionMessage.Name = "editDescriptionMessage";
+            this.editDescriptionMessage.Size = new System.Drawing.Size(0, 18);
+            this.editDescriptionMessage.TabIndex = 16;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.SlateBlue;
+            this.button4.Font = new System.Drawing.Font("Circular Std Black", 11.95F, System.Drawing.FontStyle.Bold);
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(904, 12);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(95, 34);
+            this.button4.TabIndex = 38;
+            this.button4.Text = "Go Back";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.backToHomeButton);
             // 
             // TransactionDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1504, 686);
-            this.Controls.Add(this.searchBox);
+            this.ClientSize = new System.Drawing.Size(1011, 550);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.editDescriptionMessage);
+            this.Controls.Add(this.editDescriptionButton);
+            this.Controls.Add(this.editDescriptionField);
+            this.Controls.Add(this.editDescriptionText);
             this.Controls.Add(this.messageBox);
             this.Controls.Add(this.databaseSave);
             this.Controls.Add(this.dataGridView1);
@@ -179,6 +237,10 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button databaseSave;
         private System.Windows.Forms.Label messageBox;
-        private System.Windows.Forms.TextBox searchBox;
+        private System.Windows.Forms.Label editDescriptionText;
+        private System.Windows.Forms.TextBox editDescriptionField;
+        private System.Windows.Forms.Button editDescriptionButton;
+        private System.Windows.Forms.Label editDescriptionMessage;
+        private System.Windows.Forms.Button button4;
     }
 }
