@@ -308,24 +308,30 @@ namespace Sports_Accounting.BaseApp
                 }
             }
         }
-        private async void Search_Click(object sender, EventArgs e)
+        /*private async void Search_Click(object sender, EventArgs e)
         {
             string searchTerm = txtSearch.Text;
             string apiUrl = "" + searchTerm;
 
             using ()
             {
-                
+                 response = await 
 
                 if (response.IsSuccessStatusCode)
                 {
-                    
+                    string responseData = await response.Content.ReadAsStringAsync();
+
+                    // Deserialize the response data to a list of transaction objects
+                    List<Transaction> transactions = JsonConvert.DeserializeObject<List<Transaction>(responseData);
+
+                    // Bind the list of transactions to the datagridview
+                    dgvTransactions.DataSource = transactions;
                 }
                 else
                 {
                     MessageBox.Show("Error retrieving transaction data from the API.");
                 }
             }
-        }
+        }*/
     }
 }
