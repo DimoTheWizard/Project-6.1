@@ -393,5 +393,33 @@ namespace Sports_Accounting.BaseApp
             home.Show();
             this.Hide();
         }
+
+        private void SearchBox_TextChanged(object sender, EventArgs e)
+        {
+            string query = searchBox.Text.ToLower().Trim();
+            if (string.IsNullOrEmpty(query))
+            {
+                foreach (ListViewItem item in listView1.Items)
+                {
+                    item.ForeColor = SystemColors.ControlText;
+                }
+            }
+            else
+            {
+                foreach (ListViewItem item in listView1.Items)
+                {
+                    bool match = false;
+                    foreach (ListViewItem.ListViewSubItem subitem in item.SubItems)
+                    {
+                        if (subitem.Text.ToLower().Contains(query))
+                        {
+                            match = true;
+                            break;
+                        }
+                    }
+                    item.ForeColor = match ? SystemColors.ControlText : SystemColors.GrayText;
+                }
+            }
+        }
     }
 }

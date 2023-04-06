@@ -15,7 +15,7 @@ namespace Sports_Accounting
 {
     public partial class LogIn : Form
     {
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\User\Project-6.1\Database.mdf;Integrated Security=True";
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\dimit\Source\Repos\Project-6.1\Database.mdf;Integrated Security=True";
         public LogIn()
         {
             InitializeComponent();
