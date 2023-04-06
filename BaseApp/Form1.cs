@@ -55,19 +55,27 @@ namespace Sports_Accounting
 
                 SqlDataReader reader = command.ExecuteReader();
 
-                    if (reader.Read())
+                //check if a password was found for the given username
+                if (reader.HasRows && reader.Read())
+                {
+                    //retrieve the level from the database
+                    string level = reader.GetString(0);
+
+                    //sets the user level to the respective level of the user
+                    switch (level)
                     {
-            
-                        byte[] salt = (byte[])reader["Salt"];
-                        byte[] expectedHash = (byte[])reader["PasswordHash"];
-                        int iterations = (int)reader["Iterations"];
-
-                        byte[] passwordHash = HashPassword(password, salt, iterations);
-
-                        if (ByteArrayCompare(passwordHash, expectedHash))
-                        {
-                            return true;
-                        }
+                        case "[superuser]":
+                            User.Level = userLevel.SUPERUSER;
+                            break;
+                        case "[admin]":
+                            User.Level = userLevel.ADMIN;
+                            break;
+                        case "[guest]":
+                            User.Level = userLevel.GUEST;
+                            break;
+                        default:
+                            User.Level = userLevel.GUEST;
+                            break;
                     }
                 }
             }
@@ -80,6 +88,21 @@ namespace Sports_Accounting
             form2.Show();
             this.Hide();
         }
+
+        //makes a connection with the database and check whether the username and password match
+        //an existing user
+        private Boolean TryLogIn(string username, string password)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                //checks if the username exists
+                string query = "SELECT COUNT(*) FROM [User] WHERE username = @username";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@username", username);
+
+                int count = (int)command.ExecuteScalar();
 
                 if (count <= 0)
                 {
@@ -94,35 +117,11 @@ namespace Sports_Accounting
             return pbkdf2.GetBytes(20);
         }
 
-                    SqlDataReader reader = checkPasswordCommand.ExecuteReader();
-
-                    //check if a password was found for the given username
-                    if (reader.HasRows && reader.Read())
-                    {
-                        //retrieve the hashed password from the database
-                        string hashedPasswordFromDatabase = reader.GetString(0);
-
-                        // compare the hashed password with the password entered by the user
-                        if (hashedPasswordFromDatabase == HashString(password))
-                        {
-                            //passwords match
-                            connection.Close();
-                            return true;
-                        }
-                        else
-                        {
-                            //passwords doesnt match
-                            connection.Close();
-                            return false;
-                        }
-                    }
-                    else
-                    {
-                        //no password found for the given username
-                        connection.Close();
-                        return false;
-                    }
-                }
+        private bool ByteArrayCompare(byte[] a1, byte[] a2)
+        {
+            // Compare two byte arrays for equality.
+            if (a1.Length != a2.Length)
+            {
                 return false;
             }
 

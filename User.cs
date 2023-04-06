@@ -15,6 +15,7 @@ namespace Sports_Accounting
         {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             get { return userName; }
             set { userName = value; }
 =======
@@ -25,6 +26,10 @@ namespace Sports_Accounting
             get { return userName; }
             set { userName = value; }
 >>>>>>> can add transactions to database, fixed login, fixed parsing
+=======
+            get { return userName; }
+            set { userName = value; }
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
         }
 
         

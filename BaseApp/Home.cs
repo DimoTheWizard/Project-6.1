@@ -22,6 +22,7 @@ namespace Sports_Accounting
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             //if the user is a superuser allow them to view the users panel
 =======
             //if the user is an admin allow them to view the users panel
@@ -29,10 +30,14 @@ namespace Sports_Accounting
 =======
             //if the user is a superuser allow them to view the users panel
 >>>>>>> can add transactions to database, fixed login, fixed parsing
+=======
+            //if the user is a superuser allow them to view the users panel
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
             if(User.Level == userLevel.SUPERUSER)
             {
                 button1.Visible = true;
             }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -45,6 +50,11 @@ namespace Sports_Accounting
             //set welcome to display username
             welcomeText.Text += " " + User.UserName + "!";
 >>>>>>> can add transactions to database, fixed login, fixed parsing
+=======
+
+            //set welcome to display username
+            welcomeText.Text += " " + User.UserName + "!";
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -113,8 +123,11 @@ namespace Sports_Accounting
             account.Show();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> can add transactions to database, fixed login, fixed parsing
+=======
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
             this.Hide();
         }
 
@@ -127,10 +140,13 @@ namespace Sports_Accounting
             User.Level = userLevel.GUEST;
             this.Hide();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> added proper login functionality and 80 percent of the user panel
 =======
 >>>>>>> can add transactions to database, fixed login, fixed parsing
+=======
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
         }
     }
 }

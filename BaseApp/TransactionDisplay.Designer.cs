@@ -39,12 +39,16 @@
             this.databaseSave = new System.Windows.Forms.Button();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.messageBox = new System.Windows.Forms.Label();
 =======
 >>>>>>> added proper login functionality and 80 percent of the user panel
 =======
             this.messageBox = new System.Windows.Forms.Label();
 >>>>>>> can add transactions to database, fixed login, fixed parsing
+=======
+            this.messageBox = new System.Windows.Forms.Label();
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
             ((System.ComponentModel.ISupportInitialize)(this.XMLTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -98,6 +102,7 @@
             this.label2.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.label2.Location = new System.Drawing.Point(424, 52);
 =======
             this.label2.Location = new System.Drawing.Point(566, 64);
@@ -106,6 +111,9 @@
 =======
             this.label2.Location = new System.Drawing.Point(424, 52);
 >>>>>>> can add transactions to database, fixed login, fixed parsing
+=======
+            this.label2.Location = new System.Drawing.Point(424, 52);
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(135, 18);
             this.label2.TabIndex = 2;
@@ -121,11 +129,15 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
             this.dataGridView1.Location = new System.Drawing.Point(428, 73);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(337, 351);
+<<<<<<< HEAD
 =======
             this.dataGridView1.Location = new System.Drawing.Point(570, 90);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -141,6 +153,8 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(337, 351);
 >>>>>>> can add transactions to database, fixed login, fixed parsing
+=======
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
             this.dataGridView1.TabIndex = 4;
             // 
             // databaseSave
@@ -148,6 +162,9 @@
             this.databaseSave.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
             this.databaseSave.Location = new System.Drawing.Point(784, 73);
             this.databaseSave.Margin = new System.Windows.Forms.Padding(2);
             this.databaseSave.Name = "databaseSave";
@@ -167,6 +184,7 @@
             this.messageBox.Size = new System.Drawing.Size(0, 18);
             this.messageBox.TabIndex = 6;
             // 
+<<<<<<< HEAD
 =======
             this.databaseSave.Location = new System.Drawing.Point(1045, 90);
 =======
@@ -194,10 +212,13 @@
             this.messageBox.TabIndex = 6;
             // 
 >>>>>>> can add transactions to database, fixed login, fixed parsing
+=======
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
             // TransactionDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1003, 446);
@@ -209,6 +230,10 @@
             this.ClientSize = new System.Drawing.Size(1003, 446);
             this.Controls.Add(this.messageBox);
 >>>>>>> can add transactions to database, fixed login, fixed parsing
+=======
+            this.ClientSize = new System.Drawing.Size(1003, 446);
+            this.Controls.Add(this.messageBox);
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
             this.Controls.Add(this.databaseSave);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
@@ -237,11 +262,15 @@
         private System.Windows.Forms.Button databaseSave;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         private System.Windows.Forms.Label messageBox;
 =======
 >>>>>>> added proper login functionality and 80 percent of the user panel
 =======
         private System.Windows.Forms.Label messageBox;
 >>>>>>> can add transactions to database, fixed login, fixed parsing
+=======
+        private System.Windows.Forms.Label messageBox;
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
     }
 }

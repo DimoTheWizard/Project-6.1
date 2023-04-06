@@ -72,8 +72,11 @@ namespace Sports_Accounting
                     //ID
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> can add transactions to database, fixed login, fixed parsing
+=======
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
                     string id;
                     if (BsonDoc[0].Contains("_id"))
                     {
@@ -81,11 +84,14 @@ namespace Sports_Accounting
                     }
                     id = "";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                     string id = BsonDoc[0].GetValue("_id").ToString();
 >>>>>>> added proper login functionality and 80 percent of the user panel
 =======
 >>>>>>> can add transactions to database, fixed login, fixed parsing
+=======
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
                     XmlNode statementID = xmlStatement.CreateElement("ID");
                     statementID.InnerText = id;
                     index++;

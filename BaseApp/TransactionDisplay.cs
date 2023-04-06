@@ -15,12 +15,16 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Data.SqlClient;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 =======
 >>>>>>> added proper login functionality and 80 percent of the user panel
 =======
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 >>>>>>> can add transactions to database, fixed login, fixed parsing
+=======
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
 
 namespace Sports_Accounting.BaseApp
 {
@@ -46,12 +50,16 @@ namespace Sports_Accounting.BaseApp
             public string transactionType { get; set; } 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             public string transactionDate { get; set; }
 =======
 >>>>>>> added proper login functionality and 80 percent of the user panel
 =======
             public string transactionDate { get; set; }
 >>>>>>> can add transactions to database, fixed login, fixed parsing
+=======
+            public string transactionDate { get; set; }
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
 
         }
 
@@ -213,10 +221,14 @@ namespace Sports_Accounting.BaseApp
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
             string checkIfExistsQuery = "SELECT COUNT(*) FROM [Transaction] WHERE object_id = @Id";
 
             string query = @"INSERT INTO [Transaction] (account, closing_balance, opening_balance, statement_number, transaction_reference, original_description, transaction_date, object_id)
                              VALUES (@account, @closing_balance, @opening_balance, @statement_number, @transaction_reference, @original_description, @transaction_date, @object_id)";
+<<<<<<< HEAD
 =======
             string checkIfExistsQuery = "SELECT COUNT(*) FROM Transaction WHERE transaction_id = @Id";
 
@@ -228,6 +240,8 @@ namespace Sports_Accounting.BaseApp
             string query = @"INSERT INTO [Transaction] (account, closing_balance, opening_balance, statement_number, transaction_reference, original_description, transaction_date, object_id)
                              VALUES (@account, @closing_balance, @opening_balance, @statement_number, @transaction_reference, @original_description, @transaction_date, @object_id)";
 >>>>>>> can add transactions to database, fixed login, fixed parsing
+=======
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
 
             List<StatementData> data = new List<StatementData>();
             int index = 0;
@@ -247,11 +261,15 @@ namespace Sports_Accounting.BaseApp
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
                 //gets the balance and date from the closing balance part of XML
                 foreach (var balance in statement.Descendants("ClosingBalance"))
                 {
                     data[index].closingBalance = balance.Element("Balance").Value;
                     data[index].transactionDate = balance.Element("EntryDate").Value.ToString();
+<<<<<<< HEAD
 =======
                 //gets the balance from the closing balance part of XML
                 foreach (var balance in statement.Descendants("ClosingBalance"))
@@ -265,6 +283,8 @@ namespace Sports_Accounting.BaseApp
                     data[index].closingBalance = balance.Element("Balance").Value;
                     data[index].transactionDate = balance.Element("EntryDate").Value.ToString();
 >>>>>>> can add transactions to database, fixed login, fixed parsing
+=======
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
                 }
 
                 //gets the balance from the opening balance part of XML
@@ -285,12 +305,16 @@ namespace Sports_Accounting.BaseApp
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 //working with the database
 =======
 >>>>>>> added proper login functionality and 80 percent of the user panel
 =======
                 //working with the database
 >>>>>>> can add transactions to database, fixed login, fixed parsing
+=======
+                //working with the database
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
                 try
                 {
                     using (SqlConnection connection = new SqlConnection(connectionString)) // Create a new SQL connection
@@ -302,6 +326,9 @@ namespace Sports_Accounting.BaseApp
                         bool exists = ((int)checkCommand.ExecuteScalar() > 0);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
                         //if the field doesnt exist
                         if (!exists)
                         {
@@ -316,6 +343,7 @@ namespace Sports_Accounting.BaseApp
                             command.Parameters.AddWithValue("@object_id", data[index].id);
 
                             int rowsAffected = command.ExecuteNonQuery();
+<<<<<<< HEAD
 =======
                         //if the thing doesnt exist
 =======
@@ -339,6 +367,8 @@ namespace Sports_Accounting.BaseApp
 >>>>>>> added proper login functionality and 80 percent of the user panel
 =======
 >>>>>>> can add transactions to database, fixed login, fixed parsing
+=======
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
                         }
                     }
                 }
@@ -349,12 +379,16 @@ namespace Sports_Accounting.BaseApp
             }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             messageBox.Text = "Added new transactions to \n local database";
 =======
 >>>>>>> added proper login functionality and 80 percent of the user panel
 =======
             messageBox.Text = "Added new transactions to \n local database";
 >>>>>>> can add transactions to database, fixed login, fixed parsing
+=======
+            messageBox.Text = "Added new transactions to \n local database";
+>>>>>>> 254ac816fdbac4fff73dff91f20d1dc36dfce5db
         }
     }
 }
