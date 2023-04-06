@@ -81,7 +81,7 @@ namespace Sports_Accounting.BaseApp
             listView1.View = View.Details;
 
             // Set up the search box
-            searchBox.TextChanged += SearchBox_TextChanged;
+            txtSearch.TextChanged += SearchBox_TextChanged;
         }
 
 
@@ -283,7 +283,7 @@ namespace Sports_Accounting.BaseApp
 
         private void SearchBox_TextChanged(object sender, EventArgs e)
         {
-            string query = searchBox.Text.ToLower().Trim();
+            string query = txtSearch.Text.ToLower().Trim();
             if (string.IsNullOrEmpty(query))
             {
                 foreach (ListViewItem item in listView1.Items)
@@ -305,6 +305,25 @@ namespace Sports_Accounting.BaseApp
                         }
                     }
                     item.ForeColor = match ? SystemColors.ControlText : SystemColors.GrayText;
+                }
+            }
+        }
+        private async void Search_Click(object sender, EventArgs e)
+        {
+            string searchTerm = txtSearch.Text;
+            string apiUrl = "" + searchTerm;
+
+            using ()
+            {
+                
+
+                if (response.IsSuccessStatusCode)
+                {
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Error retrieving transaction data from the API.");
                 }
             }
         }

@@ -38,17 +38,20 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.databaseSave = new System.Windows.Forms.Button();
             this.messageBox = new System.Windows.Forms.Label();
-            this.searchBox = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.search = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.XMLTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(18, 80);
+            this.label1.Location = new System.Drawing.Point(13, 380);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(132, 25);
@@ -66,10 +69,10 @@
             this.ClosingBalance,
             this.TransactionReference});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(18, 112);
+            this.listView1.Location = new System.Drawing.Point(18, 432);
             this.listView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(598, 539);
+            this.listView1.Size = new System.Drawing.Size(598, 219);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
@@ -93,7 +96,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(636, 80);
+            this.label2.Location = new System.Drawing.Point(637, 380);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(194, 25);
@@ -108,18 +111,18 @@
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(642, 112);
+            this.dataGridView1.Location = new System.Drawing.Point(642, 432);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(506, 540);
+            this.dataGridView1.Size = new System.Drawing.Size(506, 220);
             this.dataGridView1.TabIndex = 4;
             // 
             // databaseSave
             // 
             this.databaseSave.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold);
-            this.databaseSave.Location = new System.Drawing.Point(1176, 112);
+            this.databaseSave.Location = new System.Drawing.Point(1177, 432);
             this.databaseSave.Name = "databaseSave";
             this.databaseSave.Size = new System.Drawing.Size(303, 69);
             this.databaseSave.TabIndex = 5;
@@ -138,30 +141,52 @@
             this.messageBox.Size = new System.Drawing.Size(0, 25);
             this.messageBox.TabIndex = 6;
             // 
-            // searchBox
+            // txtSearch
             // 
-            this.searchBox.Location = new System.Drawing.Point(1177, 291);
-            this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(303, 26);
-            this.searchBox.TabIndex = 7;
+            this.txtSearch.Location = new System.Drawing.Point(281, 86);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(465, 26);
+            this.txtSearch.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(1184, 247);
+            this.label3.Location = new System.Drawing.Point(276, 26);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(224, 25);
             this.label3.TabIndex = 8;
             this.label3.Text = "Search for transaction";
+            // 
+            // search
+            // 
+            this.search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.search.Location = new System.Drawing.Point(786, 78);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(280, 41);
+            this.search.TabIndex = 9;
+            this.search.Text = "Search for transaction";
+            this.search.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(281, 137);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 62;
+            this.dataGridView2.RowTemplate.Height = 28;
+            this.dataGridView2.Size = new System.Drawing.Size(785, 218);
+            this.dataGridView2.TabIndex = 10;
             // 
             // TransactionDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1504, 686);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.search);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.searchBox);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.messageBox);
             this.Controls.Add(this.databaseSave);
             this.Controls.Add(this.dataGridView1);
@@ -174,6 +199,7 @@
             this.Load += new System.EventHandler(this.TransactionDisplay_Load);
             ((System.ComponentModel.ISupportInitialize)(this.XMLTransactions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,7 +217,9 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button databaseSave;
         private System.Windows.Forms.Label messageBox;
-        private System.Windows.Forms.TextBox searchBox;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button search;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
