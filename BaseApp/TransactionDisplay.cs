@@ -1,4 +1,4 @@
-﻿using Amazon.Auth.AccessControlPolicy;
+using Amazon.Auth.AccessControlPolicy;
 using MongoDB.Driver.Core.Events;
 using System;
 using System.Collections.Generic;
@@ -35,7 +35,6 @@ namespace Sports_Accounting.BaseApp
             public string closingAvailableBalance { get; set;}
             public string closingBalance { get; set;}
             public string description { get; set;}
-            public string editedDescription { get; set;}
             public string forwardAvailableBalance { get; set;}
             public string openingBalance { get; set; }
             public string relatedMessage { get; set; }
@@ -44,7 +43,7 @@ namespace Sports_Accounting.BaseApp
             public string transactionReference { get; set; }
             public string transactionType { get; set; } 
             public string transactionDate { get; set; }
-
+            public string category { get; set; }
         }
 
         public TransactionDisplay()
@@ -58,6 +57,43 @@ namespace Sports_Accounting.BaseApp
             }
         }
 
+        //If empty show dat as usual, on search check data entry against pulled calues
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+            listView1.Items.Clear();
+
+            string searchTerm = txtSearch.Text;
+
+            //add xml to create list items
+            foreach (var statement in XMLData.Descendants("Statement"))
+            {
+
+                if (statement.Element("Account").Value.StartsWith(searchTerm))
+                {
+                    //System.Console.WriteLine(statement.Element("Account").Value);
+                    string account1 = statement.Element("Account").Value;
+                    string closingBalance1 = "";
+                    string transactionReference1 = statement.Element("TransactionReference").Value;
+
+                    //gets the balance from the closing balance part of XML
+                    foreach (var balance in statement.Descendants("ClosingBalance"))
+                    {
+                        closingBalance1 = balance.Element("Balance").Value;
+                    }
+                    ListViewItem item1 = new ListViewItem(new string[]
+                    {
+                    account1,
+                    closingBalance1,
+                    transactionReference1
+                    });
+                    listView1.Items.Add(item1);
+                }
+
+            }
+            listView1.View = View.Details;
+        }
+
         //On page load
         private async void TransactionDisplay_Load(object sender, EventArgs e)
         {
@@ -68,6 +104,7 @@ namespace Sports_Accounting.BaseApp
                 MessageBox.Show("XML could not be loaded");
                 return;
             }*/
+
             XmlDocument data = await xmlAPI.GetAll();
             XMLData = XDocument.Parse(data.OuterXml);
 
@@ -79,7 +116,7 @@ namespace Sports_Accounting.BaseApp
                 string transactionReference = statement.Element("TransactionReference").Value;
 
                 //gets the balance from the closing balance part of XML
-                foreach(var balance in statement.Descendants("ClosingBalance"))
+                foreach (var balance in statement.Descendants("ClosingBalance"))
                 {
                     closingBalance = balance.Element("Balance").Value;
                 }
@@ -93,14 +130,12 @@ namespace Sports_Accounting.BaseApp
             }
             listView1.View = View.Details;
 
-            // Set up the search box
-            searchBox.TextChanged += SearchBox_TextChanged;
         }
 
         private void listViewDetailed(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             itemChangedBuffer = e;
-            if(e.IsSelected)
+            if (e.IsSelected)
             {
                 //display edit description fields
                 editDescriptionField.Visible = true;
@@ -130,6 +165,7 @@ namespace Sports_Accounting.BaseApp
                         string statementNumber = statement.Element("StatementNumber").Value;
                         string transactionReference = statement.Element("TransactionReference").Value;
                         string transactionDate = "";
+                        string category = "";
 
                         //gets the balance from the closing balance part of XML
                         foreach (var balance in statement.Descendants("ClosingBalance"))
@@ -161,9 +197,10 @@ namespace Sports_Accounting.BaseApp
                         table.Columns.Add("Statement Number", typeof(string));
                         table.Columns.Add("Transaction Reference", typeof(string));
                         table.Columns.Add("Transaction Date", typeof(string));
+                        table.Columns.Add("Category", typeof(string));
 
-                        table.Rows.Add(new object[] { 
-                            account, 
+                        table.Rows.Add(new object[] {
+                            account,
                             closingAvailableBalance,
                             closingBalance,
                             description,
@@ -174,7 +211,8 @@ namespace Sports_Accounting.BaseApp
                             sequenceNumber,
                             statementNumber,
                             transactionReference,
-                            transactionDate
+                            transactionDate,
+                            category
                         });
                         
                         table.AcceptChanges();
@@ -223,15 +261,15 @@ namespace Sports_Accounting.BaseApp
 
         private void databaseSave_Click(object sender, EventArgs e)
         {
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dimit\\source\\repos\\Project-6.1\\Database.mdf;Integrated Security=True";
+
             string checkIfExistsQuery = "SELECT COUNT(*) FROM [Transaction] WHERE object_id = @Id";
 
-            string query = @"INSERT INTO [Transaction] (account, closing_balance, opening_balance, statement_number, transaction_reference, original_description, transaction_date, object_id)
-                             VALUES (@account, @closing_balance, @opening_balance, @statement_number, @transaction_reference, @original_description, @transaction_date, @object_id)";
+            string query = @"INSERT INTO [Transaction] (account, closing_balance, opening_balance, statement_number, transaction_reference, original_description, transaction_date,category, object_id)
+                             VALUES (@account, @closing_balance, @opening_balance, @statement_number, @transaction_reference, @original_description, @transaction_date,@category, @object_id)";
 
             List<StatementData> data = new List<StatementData>();
             int index = 0;
-            
-            //checks all the statemnets one by one adds the ones that dont exist locally and ignores the ones who do.
             foreach (var statement in XMLData.Descendants("Statement"))
             {
                 StatementData statementData = new StatementData();
@@ -244,6 +282,7 @@ namespace Sports_Accounting.BaseApp
                 data[index].relatedMessage = statement.Element("RelatedMessage").Value;
                 data[index].sequenceNumber = statement.Element("SequenceNumber").Value;
                 data[index].statementNumber = statement.Element("StatementNumber").Value;
+                data[index].category = comboBox1.Text;
                 data[index].transactionReference = statement.Element("TransactionReference").Value;
 
                 //gets the balance and date from the closing balance part of XML
@@ -279,7 +318,7 @@ namespace Sports_Accounting.BaseApp
                         SqlCommand checkCommand = new SqlCommand(checkIfExistsQuery, connection);
                         checkCommand.Parameters.AddWithValue("@Id", data[index].id);
                         bool exists = ((int)checkCommand.ExecuteScalar() > 0);
-                        //if the field doesnt exist add to database
+                        //if the field doesnt exist
                         if (!exists)
                         {
                             SqlCommand command = new SqlCommand(query, connection); // Create a new SQL command
@@ -290,6 +329,7 @@ namespace Sports_Accounting.BaseApp
                             command.Parameters.AddWithValue("@transaction_reference", data[index].transactionReference ?? (object)DBNull.Value);
                             command.Parameters.AddWithValue("@original_description", data[index].description ?? (object)DBNull.Value);
                             command.Parameters.AddWithValue("@transaction_date", data[index].transactionDate ?? (object)DBNull.Value);
+                            command.Parameters.AddWithValue("@category", data[index].category);
                             command.Parameters.AddWithValue("@object_id", data[index].id);
 
                             int rowsAffected = command.ExecuteNonQuery();
@@ -300,7 +340,6 @@ namespace Sports_Accounting.BaseApp
                 {
                     Console.WriteLine("Error with database insertion " + ex.Message);
                 }
-                index++;
             }
             messageBox.Text = "Added new transactions to \n local database";
         }
@@ -308,7 +347,7 @@ namespace Sports_Accounting.BaseApp
         private void editDescription(object sender, EventArgs e)
         {
             //check if description is bigger than 50 characters
-            if(editDescriptionField.Text.Length > 50)
+            if (editDescriptionField.Text.Length > 50)
             {
                 editDescriptionMessage.Text = "description must be under 50 characters";
                 return;
@@ -394,39 +433,22 @@ namespace Sports_Accounting.BaseApp
             }
         }
 
-        private void backToHomeButton(object sender, EventArgs e)
+        private void GoBackButton(object sender, EventArgs e)
         {
             Home home = new Home();
             home.Show();
             this.Hide();
         }
 
-        private void SearchBox_TextChanged(object sender, EventArgs e)
+        private void label4_Click(object sender, EventArgs e)
         {
-            string query = searchBox.Text.ToLower().Trim();
-            if (string.IsNullOrEmpty(query))
-            {
-                foreach (ListViewItem item in listView1.Items)
-                {
-                    item.ForeColor = SystemColors.ControlText;
-                }
-            }
-            else
-            {
-                foreach (ListViewItem item in listView1.Items)
-                {
-                    bool match = false;
-                    foreach (ListViewItem.ListViewSubItem subitem in item.SubItems)
-                    {
-                        if (subitem.Text.ToLower().Contains(query))
-                        {
-                            match = true;
-                            break;
-                        }
-                    }
-                    item.ForeColor = match ? SystemColors.ControlText : SystemColors.GrayText;
-                }
-            }
+
+        }
+
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

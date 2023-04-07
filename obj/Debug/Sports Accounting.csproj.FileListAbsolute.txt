@@ -129,7 +129,6 @@ C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\Newtonsoft.Json.Schema.dll
 C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\Newtonsoft.Json.xml
 C:\Users\dimit\Source\Repos\Project-6.1\bin\Debug\Newtonsoft.Json.Schema.xml
 C:\Users\dimit\source\repos\Project-6.1\bin\Debug\Database.mdf
-C:\Users\dimit\source\repos\Project-6.1\bin\Debug\Database_log.ldf
 C:\Users\dimit\source\repos\Project-6.1\obj\Debug\Sports_Accounting.BaseApp.Account.resources
 C:\Users\User\Project-6.1\bin\Debug\Database.mdf
 C:\Users\User\Project-6.1\bin\Debug\Database_log.ldf
@@ -142,3 +141,4 @@ C:\Users\User\Project-6.1\bin\Debug\SharpMt940Lib.Core.pdb
 C:\Users\User\Project-6.1\bin\Debug\SharpMt940Lib.Core.xml
 C:\Users\User\Project-6.1\obj\Debug\Sports_Accounting.BaseApp.Account.resources
 C:\Users\User\Project-6.1\obj\Debug\Sports_Accounting.BaseApp.TransactionDisplay.resources
+C:\Users\dimit\source\repos\Project-6.1\bin\Debug\Database_log.ldf
