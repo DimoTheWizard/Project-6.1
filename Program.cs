@@ -19,8 +19,6 @@ namespace Sports_Accounting
             //Have to turn main into an async task aswell so that it functions properly
             Task.Run(async () => await MainAsync(args));
 
-
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LogIn());

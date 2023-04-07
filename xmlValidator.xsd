@@ -1,0 +1,70 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           attributeFormDefault="unqualified"
+           elementFormDefault="qualified">
+
+	<xs:element name="Statements">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Statement" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ID" type="xs:string"/>
+							<xs:element name="Account" type="xs:string"/>
+							<xs:element name="ClosingAvailableBalance" type="xs:string"/>
+							<xs:element name="ClosingBalance">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Balance" type="xs:string"/>
+										<xs:element name="Currency" type="xs:string"/>
+										<xs:element name="DebitCredit" type="xs:string"/>
+										<xs:element name="EntryDate" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Description" type="xs:string"/>
+							<xs:element name="ForwardAvailableBalance" type="xs:string"/>
+							<xs:element name="OpeningBalance">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Balance" type="xs:string"/>
+										<xs:element name="Currency" type="xs:string"/>
+										<xs:element name="DebitCredit" type="xs:string"/>
+										<xs:element name="EntryDate" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="RelatedMessage" type="xs:string"/>
+							<xs:element name="SequenceNumber" type="xs:string"/>
+							<xs:element name="StatementNumber" type="xs:string"/>
+							<xs:element name="TransactionReference" type="xs:string"/>
+							<xs:element name="Transactions">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Transaction" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="AccountServicingReference" type="xs:string"/>
+													<xs:element name="Amount" type="xs:string"/>
+													<xs:element name="DebitCredit" type="xs:string"/>
+													<xs:element name="Description" type="xs:string"/>
+													<xs:element name="Details" type="xs:string"/>
+													<xs:element name="EntryDate" type="xs:string"/>
+													<xs:element name="FundsCode" type="xs:string"/>
+													<xs:element name="Reference" type="xs:string"/>
+													<xs:element name="SupplementaryDetails" type="xs:string"/>
+													<xs:element name="TransactionType" type="xs:string"/>
+													<xs:element name="Value" type="xs:string"/>
+													<xs:element name="ValueDate" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

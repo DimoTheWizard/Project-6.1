@@ -61,6 +61,13 @@ namespace Sports_Accounting.BaseApp
         //On page load
         private async void TransactionDisplay_Load(object sender, EventArgs e)
         {
+            /* ISSUES WITH SCHEMA
+            
+            if (!xmlAPI.checkXML(data))
+            {
+                MessageBox.Show("XML could not be loaded");
+                return;
+            }*/
             XmlDocument data = await xmlAPI.GetAll();
             XMLData = XDocument.Parse(data.OuterXml);
 

@@ -1,11 +1,12 @@
 ﻿using api;
 using MongoDB.Bson;
 using Raptorious.SharpMt940Lib;
-using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Linq;
+using System.Xml.Schema;
 
 namespace Sports_Accounting
 {
@@ -76,7 +77,7 @@ namespace Sports_Accounting
                         id = BsonDoc[index].GetValue("_id").ToString();
                     } else
                     {
-                        id = "";
+                        id = string.Empty;
                     }
                     XmlNode statementID = xmlStatement.CreateElement("ID");
                     statementID.InnerText = id;
@@ -86,7 +87,7 @@ namespace Sports_Accounting
                     XmlNode accountNode = xmlStatement.CreateElement("Account");
                     if (statement.Account == null)
                     {
-                        accountNode.InnerText = "";
+                        accountNode.InnerText = string.Empty;
                     }
                     else
                     {
@@ -97,7 +98,7 @@ namespace Sports_Accounting
                     XmlNode closingAvailableBalance = xmlStatement.CreateElement("ClosingAvailableBalance");
                     if (statement.ClosingAvailableBalance == null)
                     {
-                        closingAvailableBalance.InnerText = "";
+                        closingAvailableBalance.InnerText = string.Empty;
                     }
                     else
                     {
@@ -111,7 +112,7 @@ namespace Sports_Accounting
                     XmlNode closingBalanceBalance = xmlStatement.CreateElement("Balance");
                     if (statement.ClosingBalance.Balance == null)
                     {
-                        closingBalanceBalance.InnerText = "";
+                        closingBalanceBalance.InnerText = string.Empty;
                     }
                     else
                     {
@@ -122,7 +123,7 @@ namespace Sports_Accounting
                     XmlNode currency = xmlStatement.CreateElement("Currency");
                     if (statement.ClosingBalance.Currency == null)
                     {
-                        currency.InnerText = "";
+                        currency.InnerText = string.Empty;
                     }
                     else
                     {
@@ -137,7 +138,7 @@ namespace Sports_Accounting
                     XmlNode closingBalanceEntryDate = xmlStatement.CreateElement("EntryDate");
                     if (statement.ClosingBalance.EntryDate == null)
                     {
-                        closingBalanceEntryDate.InnerText = "";
+                        closingBalanceEntryDate.InnerText = string.Empty;
                     }
                     else
                     {
@@ -148,7 +149,7 @@ namespace Sports_Accounting
                     XmlNode description = xmlStatement.CreateElement("Description");
                     if (statement.Description == null)
                     {
-                        description.InnerText = "";
+                        description.InnerText = string.Empty;
                     }
                     else
                     {
@@ -159,7 +160,7 @@ namespace Sports_Accounting
                     XmlNode forwardAvailableBalance = xmlStatement.CreateElement("ForwardAvailableBalance");
                     if (statement.ForwardAvailableBalance == null)
                     {
-                        forwardAvailableBalance.InnerText = "";
+                        forwardAvailableBalance.InnerText = string.Empty;
                     }
                     else
                     {
@@ -173,7 +174,7 @@ namespace Sports_Accounting
                     XmlNode openingBalanceBalance = xmlStatement.CreateElement("Balance");
                     if (statement.OpeningBalance.Balance == null)
                     {
-                        openingBalanceBalance.InnerText = "";
+                        openingBalanceBalance.InnerText = string.Empty;
                     }
                     else
                     {
@@ -184,7 +185,7 @@ namespace Sports_Accounting
                     XmlNode openingBalanceCurrency = xmlStatement.CreateElement("Currency");
                     if (statement.OpeningBalance.Currency == null)
                     {
-                        openingBalanceCurrency.InnerText = "";
+                        openingBalanceCurrency.InnerText = string.Empty;
                     }
                     else
                     {
@@ -199,7 +200,7 @@ namespace Sports_Accounting
                     XmlNode openingBalanceEntryDate = xmlStatement.CreateElement("EntryDate");
                     if (statement.OpeningBalance.EntryDate == null)
                     {
-                        openingBalanceEntryDate.InnerText = "";
+                        openingBalanceEntryDate.InnerText = string.Empty;
                     }
                     else
                     {
@@ -210,7 +211,7 @@ namespace Sports_Accounting
                     XmlNode relatedMessage = xmlStatement.CreateElement("RelatedMessage");
                     if (statement.RelatedMessage == null)
                     {
-                        relatedMessage.InnerText = "";
+                        relatedMessage.InnerText = string.Empty;
                     }
                     else
                     {
@@ -221,7 +222,7 @@ namespace Sports_Accounting
                     XmlNode sequenceNumber = xmlStatement.CreateElement("SequenceNumber");
                     if (statement.SequenceNumber == 0)
                     {
-                        sequenceNumber.InnerText = "";
+                        sequenceNumber.InnerText = string.Empty;
                     }
                     else
                     {
@@ -232,7 +233,7 @@ namespace Sports_Accounting
                     XmlNode statementNumber = xmlStatement.CreateElement("StatementNumber");
                     if (statement.StatementNumber == 0)
                     {
-                        statementNumber.InnerText = "";
+                        statementNumber.InnerText = string.Empty;
                     }
                     else
                     {
@@ -243,7 +244,7 @@ namespace Sports_Accounting
                     XmlNode transactionReference = xmlStatement.CreateElement("TransactionReference");
                     if (statement.TransactionReference == null)
                     {
-                        transactionReference.InnerText = "";
+                        transactionReference.InnerText = string.Empty;
                     }
                     else
                     {
@@ -262,7 +263,7 @@ namespace Sports_Accounting
                         XmlNode accountServicingReference = xmlStatement.CreateElement("AccountServicingReference");
                         if (trans.AccountServicingReference == null)
                         {
-                            accountServicingReference.InnerText = "";
+                            accountServicingReference.InnerText = string.Empty;
                         }
                         else
                         {
@@ -273,7 +274,7 @@ namespace Sports_Accounting
                         XmlNode amount = xmlStatement.CreateElement("Amount");
                         if (trans.Amount == null)
                         {
-                            amount.InnerText = "";
+                            amount.InnerText = string.Empty;
                         }
                         else
                         {
@@ -288,7 +289,7 @@ namespace Sports_Accounting
                         XmlNode transactionDescription = xmlStatement.CreateElement("Description");
                         if (trans.Description == null)
                         {
-                            transactionDescription.InnerText = "";
+                            transactionDescription.InnerText = string.Empty;
                         }
                         else
                         {
@@ -302,7 +303,7 @@ namespace Sports_Accounting
                         XmlNode account = xmlStatement.CreateElement("Account");
                         if (trans.Details.Account == null)
                         {
-                            account.InnerText = "";
+                            account.InnerText = string.Empty;
                         }
                         else
                         {
@@ -313,7 +314,7 @@ namespace Sports_Accounting
                         XmlNode detailsDescription = xmlStatement.CreateElement("Description");
                         if (trans.Details.Description == null)
                         {
-                            detailsDescription.InnerText = "";
+                            detailsDescription.InnerText = string.Empty;
                         }
                         else
                         {
@@ -324,7 +325,7 @@ namespace Sports_Accounting
                         XmlNode name = xmlStatement.CreateElement("Name");
                         if (trans.Details.Name == null)
                         {
-                            name.InnerText = "";
+                            name.InnerText = string.Empty;
                         }
                         else
                         {
@@ -335,7 +336,7 @@ namespace Sports_Accounting
                         XmlNode entryDate = xmlStatement.CreateElement("EntryDate");
                         if (trans.EntryDate == null)
                         {
-                            entryDate.InnerText = "";
+                            entryDate.InnerText = string.Empty;
                         }
                         else
                         {
@@ -346,7 +347,7 @@ namespace Sports_Accounting
                         XmlNode fundsCode = xmlStatement.CreateElement("FundsCode");
                         if (trans.FundsCode == null)
                         {
-                            fundsCode.InnerText = "";
+                            fundsCode.InnerText = string.Empty;
                         }
                         else
                         {
@@ -357,7 +358,7 @@ namespace Sports_Accounting
                         XmlNode reference = xmlStatement.CreateElement("Reference");
                         if (trans.Reference == null)
                         {
-                            reference.InnerText = "";
+                            reference.InnerText = string.Empty;
                         }
                         else
                         {
@@ -368,7 +369,7 @@ namespace Sports_Accounting
                         XmlNode supplementaryDetails = xmlStatement.CreateElement("SupplementaryDetails");
                         if (trans.SupplementaryDetails == null)
                         {
-                            supplementaryDetails.InnerText = "";
+                            supplementaryDetails.InnerText = string.Empty;
                         }
                         else
                         {
@@ -379,7 +380,7 @@ namespace Sports_Accounting
                         XmlNode transactionType = xmlStatement.CreateElement("TransactionType");
                         if (trans.TransactionType == null)
                         {
-                            transactionType.InnerText = "";
+                            transactionType.InnerText = string.Empty;
                         }
                         else
                         {
@@ -390,7 +391,7 @@ namespace Sports_Accounting
                         XmlNode value = xmlStatement.CreateElement("Value");
                         if (trans.Value == null)
                         {
-                            value.InnerText = "";
+                            value.InnerText = string.Empty;
                         }
                         else
                         {
@@ -401,7 +402,7 @@ namespace Sports_Accounting
                         XmlNode valueDate = xmlStatement.CreateElement("ValueDate");
                         if (trans.ValueDate == null)
                         {
-                            valueDate.InnerText = "";
+                            valueDate.InnerText = string.Empty;
                         }
                         else
                         {
@@ -416,6 +417,32 @@ namespace Sports_Accounting
                 return null;
             }
             return xmlStatement;
+        }
+
+        //Validates xml using schema provided, populate first page
+        public bool checkXML(XmlDocument document)
+        {
+            //Uncomment to pull from APi
+            //string filepath = "C:\Users\Gebruiker\source\repos\WindowsFormsApp1\WindowsFormsApp1\get.xml";
+            //var xmlValue = await getXmlValue();
+            //var xmlOutput = xmlValue.OuterXml;
+            //var output = xmlOutput.ToString();
+
+            //File.WriteAllText(filepath, output);
+
+            XmlSchemaSet schema = new XmlSchemaSet();
+            schema.Add("", @"C:\\Users\\dimit\\Source\\Repos\\Project-6.1\\xmlValidator.xsd");
+
+            XDocument doc = XDocument.Parse(document.OuterXml);
+            bool status = false;
+
+            doc.Validate(schema, (s, e) =>
+            {
+                System.Console.WriteLine(e.Message);
+                status = true;
+            });
+
+            return status;
         }
     }
 }
