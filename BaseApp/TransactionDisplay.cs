@@ -56,6 +56,42 @@ namespace Sports_Accounting.BaseApp
             }
         }
 
+        //If empty show dat as usual, on search check data entry against pulled calues
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+
+            string searchTerm = txtSearch.Text;
+
+            //add xml to create list items
+            foreach (var statement in XMLData.Descendants("Statement"))
+            {
+
+                if (statement.Element("Account").Value.StartsWith(searchTerm))
+                {
+                    //System.Console.WriteLine(statement.Element("Account").Value);
+                    string account1 = statement.Element("Account").Value;
+                    string closingBalance1 = "";
+                    string transactionReference1 = statement.Element("TransactionReference").Value;
+
+                    //gets the balance from the closing balance part of XML
+                    foreach (var balance in statement.Descendants("ClosingBalance"))
+                    {
+                        closingBalance1 = balance.Element("Balance").Value;
+                    }
+                    ListViewItem item1 = new ListViewItem(new string[]
+                    {
+                    account1,
+                    closingBalance1,
+                    transactionReference1
+                    });
+                    listView1.Items.Add(item1);
+                }
+
+            }
+            listView1.View = View.Details;
+        }
+
         //On page load
         private async void TransactionDisplay_Load(object sender, EventArgs e)
         {
@@ -284,39 +320,6 @@ namespace Sports_Accounting.BaseApp
         
 
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-            listView2.Items.Clear();
-
-            string searchTerm = txtSearch.Text;
-
-            //add xml to create list items
-            foreach (var statement in XMLData.Descendants("Statement"))
-            {
-                
-                if (statement.Element("Account").Value.StartsWith(searchTerm))
-                {
-                    System.Console.WriteLine(statement.Element("Account").Value);
-                    string account1 = statement.Element("Account").Value;
-                    string closingBalance1 = "";
-                    string transactionReference1 = statement.Element("TransactionReference").Value;
-
-                    //gets the balance from the closing balance part of XML
-                    foreach (var balance in statement.Descendants("ClosingBalance"))
-                    {
-                        closingBalance1 = balance.Element("Balance").Value;
-                    }
-                    ListViewItem item1 = new ListViewItem(new string[]
-                    {
-                    account1,
-                    closingBalance1,
-                    transactionReference1
-                    });
-                    listView2.Items.Add(item1);
-                }
-
-            }
-            listView2.View = View.Details;
-        }
+       
     }
 }

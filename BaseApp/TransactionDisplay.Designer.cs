@@ -40,10 +40,6 @@ namespace Sports_Accounting.BaseApp
             this.messageBox = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.Account1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ClosingBalance1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.TransactionReference1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.XMLTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +48,7 @@ namespace Sports_Accounting.BaseApp
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(9, 247);
+            this.label1.Location = new System.Drawing.Point(9, 142);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 18);
             this.label1.TabIndex = 0;
@@ -69,7 +65,7 @@ namespace Sports_Accounting.BaseApp
             this.ClosingBalance,
             this.TransactionReference});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 281);
+            this.listView1.Location = new System.Drawing.Point(12, 176);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(400, 144);
             this.listView1.TabIndex = 1;
@@ -95,7 +91,7 @@ namespace Sports_Accounting.BaseApp
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(425, 247);
+            this.label2.Location = new System.Drawing.Point(425, 142);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(135, 18);
             this.label2.TabIndex = 2;
@@ -109,7 +105,7 @@ namespace Sports_Accounting.BaseApp
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(428, 281);
+            this.dataGridView1.Location = new System.Drawing.Point(428, 176);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -119,7 +115,7 @@ namespace Sports_Accounting.BaseApp
             // databaseSave
             // 
             this.databaseSave.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold);
-            this.databaseSave.Location = new System.Drawing.Point(785, 281);
+            this.databaseSave.Location = new System.Drawing.Point(785, 176);
             this.databaseSave.Margin = new System.Windows.Forms.Padding(2);
             this.databaseSave.Name = "databaseSave";
             this.databaseSave.Size = new System.Drawing.Size(202, 45);
@@ -140,10 +136,10 @@ namespace Sports_Accounting.BaseApp
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(187, 36);
+            this.txtSearch.Location = new System.Drawing.Point(11, 65);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(524, 20);
+            this.txtSearch.Size = new System.Drawing.Size(401, 20);
             this.txtSearch.TabIndex = 7;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -151,47 +147,18 @@ namespace Sports_Accounting.BaseApp
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(184, 17);
+            this.label3.Location = new System.Drawing.Point(11, 25);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(170, 17);
             this.label3.TabIndex = 8;
             this.label3.Text = "Search for transaction";
             // 
-            // listView2
-            // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Account1,
-            this.ClosingBalance1,
-            this.TransactionReference1});
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(187, 61);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(524, 173);
-            this.listView2.TabIndex = 10;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            // 
-            // Account1
-            // 
-            this.Account1.Text = "Account";
-            this.Account1.Width = 174;
-            // 
-            // ClosingBalance1
-            // 
-            this.ClosingBalance1.Text = "ClosingBalance";
-            this.ClosingBalance1.Width = 174;
-            // 
-            // TransactionReference1
-            // 
-            this.TransactionReference1.Text = "TransactionReference";
-            this.TransactionReference1.Width = 174;
-            // 
             // TransactionDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1003, 446);
-            this.Controls.Add(this.listView2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.messageBox);
@@ -224,9 +191,5 @@ namespace Sports_Accounting.BaseApp
         private System.Windows.Forms.Label messageBox;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.ColumnHeader Account1;
-        private System.Windows.Forms.ColumnHeader ClosingBalance1;
-        private System.Windows.Forms.ColumnHeader TransactionReference1;
     }
 }
