@@ -1,4 +1,4 @@
-﻿using Amazon.Auth.AccessControlPolicy;
+using Amazon.Auth.AccessControlPolicy;
 using MongoDB.Driver.Core.Events;
 using System;
 using System.Collections.Generic;
@@ -39,6 +39,10 @@ namespace Sports_Accounting.BaseApp
             public string transactionType { get; set; } 
             public string transactionDate { get; set; }
 
+            public string account1 { get; set; }
+            public string closingBalance1 { get; set; }
+            public string transactionReference1 { get; set; }
+
         }
 
         public TransactionDisplay()
@@ -66,7 +70,7 @@ namespace Sports_Accounting.BaseApp
                 string transactionReference = statement.Element("TransactionReference").Value;
 
                 //gets the balance from the closing balance part of XML
-                foreach(var balance in statement.Descendants("ClosingBalance"))
+                foreach (var balance in statement.Descendants("ClosingBalance"))
                 {
                     closingBalance = balance.Element("Balance").Value;
                 }
@@ -80,8 +84,6 @@ namespace Sports_Accounting.BaseApp
             }
             listView1.View = View.Details;
 
-            // Set up the search box
-            txtSearch.TextChanged += SearchBox_TextChanged;
         }
 
 
@@ -281,57 +283,40 @@ namespace Sports_Accounting.BaseApp
         }
         
 
-        private void SearchBox_TextChanged(object sender, EventArgs e)
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            string query = txtSearch.Text.ToLower().Trim();
-            if (string.IsNullOrEmpty(query))
-            {
-                foreach (ListViewItem item in listView1.Items)
-                {
-                    item.ForeColor = SystemColors.ControlText;
-                }
-            }
-            else
-            {
-                foreach (ListViewItem item in listView1.Items)
-                {
-                    bool match = false;
-                    foreach (ListViewItem.ListViewSubItem subitem in item.SubItems)
-                    {
-                        if (subitem.Text.ToLower().Contains(query))
-                        {
-                            match = true;
-                            break;
-                        }
-                    }
-                    item.ForeColor = match ? SystemColors.ControlText : SystemColors.GrayText;
-                }
-            }
-        }
-        /*private async void Search_Click(object sender, EventArgs e)
-        {
+            listView2.Items.Clear();
+
             string searchTerm = txtSearch.Text;
-            string apiUrl = "" + searchTerm;
 
-            using ()
+            //add xml to create list items
+            foreach (var statement in XMLData.Descendants("Statement"))
             {
-                 response = await 
-
-                if (response.IsSuccessStatusCode)
+                
+                if (statement.Element("Account").Value.StartsWith(searchTerm))
                 {
-                    string responseData = await response.Content.ReadAsStringAsync();
+                    System.Console.WriteLine(statement.Element("Account").Value);
+                    string account1 = statement.Element("Account").Value;
+                    string closingBalance1 = "";
+                    string transactionReference1 = statement.Element("TransactionReference").Value;
 
-                    // Deserialize the response data to a list of transaction objects
-                    List<Transaction> transactions = JsonConvert.DeserializeObject<List<Transaction>(responseData);
+                    //gets the balance from the closing balance part of XML
+                    foreach (var balance in statement.Descendants("ClosingBalance"))
+                    {
+                        closingBalance1 = balance.Element("Balance").Value;
+                    }
+                    ListViewItem item1 = new ListViewItem(new string[]
+                    {
+                    account1,
+                    closingBalance1,
+                    transactionReference1
+                    });
+                    listView2.Items.Add(item1);
+                }
 
-                    // Bind the list of transactions to the datagridview
-                    dgvTransactions.DataSource = transactions;
-                }
-                else
-                {
-                    MessageBox.Show("Error retrieving transaction data from the API.");
-                }
             }
-        }*/
+            listView2.View = View.Details;
+        }
     }
 }

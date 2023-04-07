@@ -1,4 +1,4 @@
-﻿namespace Sports_Accounting.BaseApp
+namespace Sports_Accounting.BaseApp
 {
     partial class TransactionDisplay
     {
@@ -40,21 +40,21 @@
             this.messageBox = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.search = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.Account1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ClosingBalance1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TransactionReference1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.XMLTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(13, 380);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(9, 247);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 25);
+            this.label1.Size = new System.Drawing.Size(93, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Transactions";
             // 
@@ -69,10 +69,9 @@
             this.ClosingBalance,
             this.TransactionReference});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(18, 432);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.listView1.Location = new System.Drawing.Point(12, 281);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(598, 219);
+            this.listView1.Size = new System.Drawing.Size(400, 144);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
@@ -96,10 +95,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(637, 380);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(425, 247);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(194, 25);
+            this.label2.Size = new System.Drawing.Size(135, 18);
             this.label2.TabIndex = 2;
             this.label2.Text = "Transaction Details";
             // 
@@ -111,20 +109,20 @@
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(642, 432);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridView1.Location = new System.Drawing.Point(428, 281);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(506, 220);
+            this.dataGridView1.Size = new System.Drawing.Size(337, 143);
             this.dataGridView1.TabIndex = 4;
             // 
             // databaseSave
             // 
             this.databaseSave.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold);
-            this.databaseSave.Location = new System.Drawing.Point(1177, 432);
+            this.databaseSave.Location = new System.Drawing.Point(785, 281);
+            this.databaseSave.Margin = new System.Windows.Forms.Padding(2);
             this.databaseSave.Name = "databaseSave";
-            this.databaseSave.Size = new System.Drawing.Size(303, 69);
+            this.databaseSave.Size = new System.Drawing.Size(202, 45);
             this.databaseSave.TabIndex = 5;
             this.databaseSave.Text = "Save all to databasee";
             this.databaseSave.UseVisualStyleBackColor = true;
@@ -135,56 +133,65 @@
             // 
             this.messageBox.AutoSize = true;
             this.messageBox.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold);
-            this.messageBox.Location = new System.Drawing.Point(1172, 200);
-            this.messageBox.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.messageBox.Location = new System.Drawing.Point(781, 130);
             this.messageBox.Name = "messageBox";
-            this.messageBox.Size = new System.Drawing.Size(0, 25);
+            this.messageBox.Size = new System.Drawing.Size(0, 18);
             this.messageBox.TabIndex = 6;
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(281, 86);
+            this.txtSearch.Location = new System.Drawing.Point(187, 36);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(465, 26);
+            this.txtSearch.Size = new System.Drawing.Size(524, 20);
             this.txtSearch.TabIndex = 7;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(276, 26);
+            this.label3.Location = new System.Drawing.Point(184, 17);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(224, 25);
+            this.label3.Size = new System.Drawing.Size(170, 17);
             this.label3.TabIndex = 8;
             this.label3.Text = "Search for transaction";
             // 
-            // search
+            // listView2
             // 
-            this.search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.search.Location = new System.Drawing.Point(786, 78);
-            this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(280, 41);
-            this.search.TabIndex = 9;
-            this.search.Text = "Search for transaction";
-            this.search.UseVisualStyleBackColor = true;
+            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Account1,
+            this.ClosingBalance1,
+            this.TransactionReference1});
+            this.listView2.HideSelection = false;
+            this.listView2.Location = new System.Drawing.Point(187, 61);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(524, 173);
+            this.listView2.TabIndex = 10;
+            this.listView2.UseCompatibleStateImageBehavior = false;
             // 
-            // dataGridView2
+            // Account1
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(281, 137);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 62;
-            this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(785, 218);
-            this.dataGridView2.TabIndex = 10;
+            this.Account1.Text = "Account";
+            this.Account1.Width = 174;
+            // 
+            // ClosingBalance1
+            // 
+            this.ClosingBalance1.Text = "ClosingBalance";
+            this.ClosingBalance1.Width = 174;
+            // 
+            // TransactionReference1
+            // 
+            this.TransactionReference1.Text = "TransactionReference";
+            this.TransactionReference1.Width = 174;
             // 
             // TransactionDisplay
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1504, 686);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.search);
+            this.ClientSize = new System.Drawing.Size(1003, 446);
+            this.Controls.Add(this.listView2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.messageBox);
@@ -193,13 +200,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "TransactionDisplay";
             this.Text = "TransactionDisplay";
             this.Load += new System.EventHandler(this.TransactionDisplay_Load);
             ((System.ComponentModel.ISupportInitialize)(this.XMLTransactions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,7 +224,9 @@
         private System.Windows.Forms.Label messageBox;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button search;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ColumnHeader Account1;
+        private System.Windows.Forms.ColumnHeader ClosingBalance1;
+        private System.Windows.Forms.ColumnHeader TransactionReference1;
     }
 }
