@@ -38,11 +38,7 @@ namespace Sports_Accounting.BaseApp
             public string transactionReference { get; set; }
             public string transactionType { get; set; } 
             public string transactionDate { get; set; }
-
-            public string account1 { get; set; }
-            public string closingBalance1 { get; set; }
-            public string transactionReference1 { get; set; }
-
+            public string category { get; set; }
         }
 
         public TransactionDisplay()
@@ -146,6 +142,7 @@ namespace Sports_Accounting.BaseApp
                         string statementNumber = statement.Element("StatementNumber").Value;
                         string transactionReference = statement.Element("TransactionReference").Value;
                         string transactionDate = "";
+                        string category = "";
 
                         //gets the balance from the closing balance part of XML
                         foreach (var balance in statement.Descendants("ClosingBalance"))
@@ -176,9 +173,10 @@ namespace Sports_Accounting.BaseApp
                         table.Columns.Add("Statement Number", typeof(string));
                         table.Columns.Add("Transaction Reference", typeof(string));
                         table.Columns.Add("Transaction Date", typeof(string));
+                        table.Columns.Add("Category", typeof(string));
 
-                        table.Rows.Add(new object[] { 
-                            account, 
+                        table.Rows.Add(new object[] {
+                            account,
                             closingAvailableBalance,
                             closingBalance,
                             description,
@@ -188,7 +186,8 @@ namespace Sports_Accounting.BaseApp
                             sequenceNumber,
                             statementNumber,
                             transactionReference,
-                            transactionDate
+                            transactionDate,
+                            category
                         });
                         
                         table.AcceptChanges();
@@ -237,12 +236,12 @@ namespace Sports_Accounting.BaseApp
 
         private void databaseSave_Click(object sender, EventArgs e)
         {
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dimit\\source\\repos\\Project-6.1\\Database.mdf;Integrated Security=True";
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Gebruiker\\Documents\\GitHub\\Project-6.1\\Database.mdf;Integrated Security=True";
 
             string checkIfExistsQuery = "SELECT COUNT(*) FROM [Transaction] WHERE object_id = @Id";
 
-            string query = @"INSERT INTO [Transaction] (account, closing_balance, opening_balance, statement_number, transaction_reference, original_description, transaction_date, object_id)
-                             VALUES (@account, @closing_balance, @opening_balance, @statement_number, @transaction_reference, @original_description, @transaction_date, @object_id)";
+            string query = @"INSERT INTO [Transaction] (account, closing_balance, opening_balance, statement_number, transaction_reference, original_description, transaction_date,category, object_id)
+                             VALUES (@account, @closing_balance, @opening_balance, @statement_number, @transaction_reference, @original_description, @transaction_date,@category, @object_id)";
 
             List<StatementData> data = new List<StatementData>();
             int index = 0;
@@ -258,6 +257,7 @@ namespace Sports_Accounting.BaseApp
                 data[index].relatedMessage = statement.Element("RelatedMessage").Value;
                 data[index].sequenceNumber = statement.Element("SequenceNumber").Value;
                 data[index].statementNumber = statement.Element("StatementNumber").Value;
+                data[index].category = comboBox1.Text;
                 data[index].transactionReference = statement.Element("TransactionReference").Value;
 
                 //gets the balance and date from the closing balance part of XML
@@ -304,6 +304,7 @@ namespace Sports_Accounting.BaseApp
                             command.Parameters.AddWithValue("@transaction_reference", data[index].transactionReference ?? (object)DBNull.Value);
                             command.Parameters.AddWithValue("@original_description", data[index].description ?? (object)DBNull.Value);
                             command.Parameters.AddWithValue("@transaction_date", data[index].transactionDate ?? (object)DBNull.Value);
+                            command.Parameters.AddWithValue("@category", data[index].category);
                             command.Parameters.AddWithValue("@object_id", data[index].id);
 
                             int rowsAffected = command.ExecuteNonQuery();
@@ -317,9 +318,16 @@ namespace Sports_Accounting.BaseApp
             }
             messageBox.Text = "Added new transactions to \n local database";
         }
-        
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
 
 
-       
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

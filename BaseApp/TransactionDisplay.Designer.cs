@@ -40,6 +40,8 @@ namespace Sports_Accounting.BaseApp
             this.messageBox = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.XMLTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -115,7 +117,7 @@ namespace Sports_Accounting.BaseApp
             // databaseSave
             // 
             this.databaseSave.Font = new System.Drawing.Font("Circular Std Black", 10F, System.Drawing.FontStyle.Bold);
-            this.databaseSave.Location = new System.Drawing.Point(785, 176);
+            this.databaseSave.Location = new System.Drawing.Point(790, 274);
             this.databaseSave.Margin = new System.Windows.Forms.Padding(2);
             this.databaseSave.Name = "databaseSave";
             this.databaseSave.Size = new System.Drawing.Size(202, 45);
@@ -154,11 +156,36 @@ namespace Sports_Accounting.BaseApp
             this.label3.TabIndex = 8;
             this.label3.Text = "Search for transaction";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Pin",
+            "Card"});
+            this.comboBox1.Location = new System.Drawing.Point(790, 212);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(160, 21);
+            this.comboBox1.TabIndex = 9;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(787, 186);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(95, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Select Cost Center";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
             // TransactionDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1003, 446);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.messageBox);
@@ -191,5 +218,7 @@ namespace Sports_Accounting.BaseApp
         private System.Windows.Forms.Label messageBox;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label4;
     }
 }
