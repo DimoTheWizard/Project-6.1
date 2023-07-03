@@ -214,3 +214,6 @@ C:\Users\Gebruiker\Documents\GitHub\Project-6.1\obj\Debug\Sports Accounting.cspr
 C:\Users\Gebruiker\Documents\GitHub\Project-6.1\obj\Debug\Sports Accounting.csproj.CopyComplete
 C:\Users\Gebruiker\Documents\GitHub\Project-6.1\obj\Debug\Sports Accounting.exe
 C:\Users\Gebruiker\Documents\GitHub\Project-6.1\obj\Debug\Sports Accounting.pdb
+C:\Users\Gebruiker\Documents\GitHub\Project-6.1\bin\Debug\MimeTypesMap.dll
+C:\Users\Gebruiker\Documents\GitHub\Project-6.1\bin\Debug\SimpleHTTP.dll
+C:\Users\Gebruiker\Documents\GitHub\Project-6.1\bin\Debug\SimpleHTTP.xml

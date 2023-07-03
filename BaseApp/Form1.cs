@@ -25,6 +25,7 @@ namespace Sports_Accounting
 
         public LogIn() 
         {
+            HttpApi httpApi = new HttpApi();
             InitializeComponent();
             databasePath = AppDomain.CurrentDomain.BaseDirectory + "Database.mdf";
             connectionString = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0};Integrated Security=True", databasePath);
