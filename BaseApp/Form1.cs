@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,16 +9,25 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
-
+using System.IO;
 
 namespace Sports_Accounting
 {
     public partial class LogIn : Form
     {
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\dimit\Source\Repos\Project-6.1\Database.mdf;Integrated Security=True";
-        public LogIn()
+
+        //private string databasePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Database.mdf");
+
+
+        private string databasePath;
+
+        private string connectionString;
+
+        public LogIn() 
         {
             InitializeComponent();
+            databasePath = AppDomain.CurrentDomain.BaseDirectory + "Database.mdf";
+            connectionString = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0};Integrated Security=True", databasePath);
         }
 
         private void buttonLogIn_Click(object sender, EventArgs e)
@@ -165,4 +174,3 @@ namespace Sports_Accounting
 }
 
 
- 

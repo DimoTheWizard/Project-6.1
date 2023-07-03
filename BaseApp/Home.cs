@@ -1,4 +1,4 @@
-﻿using Sports_Accounting.BaseApp;
+using Sports_Accounting.BaseApp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,15 +19,20 @@ namespace Sports_Accounting
 {
     public partial class Home : Form
     {
-        //connection string
-        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dimit\\Source\\Repos\\Project-6.1\\Database.mdf;Integrated Security=True";
+        private string databasePath;
 
+        private string connectionString;
+
+
+        
         public Home()
         {
             InitializeComponent();
+            databasePath = AppDomain.CurrentDomain.BaseDirectory + "Database.mdf";
+            connectionString = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0};Integrated Security=True", databasePath);
 
             //if the user is a superuser allow them to view the users panel
-            if(User.Level == userLevel.SUPERUSER)
+            if (User.Level == userLevel.SUPERUSER)
             {
                 button1.Visible = true;
             }

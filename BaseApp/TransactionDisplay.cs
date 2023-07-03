@@ -15,15 +15,19 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace Sports_Accounting.BaseApp
 {
     public partial class TransactionDisplay : Form
     {
+        
         XmlAPI xmlAPI = new XmlAPI();
         XDocument XMLData = new XDocument();
-        //string used everywhere in transactionDisplay to access database
-        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dimit\\source\\repos\\Project-6.1\\Database.mdf;Integrated Security=True";
+
+        //connection string
+
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ""Database.mdf"");Integrated Security=True";
         string currentWorkingId;
         ListViewItemSelectionChangedEventArgs itemChangedBuffer;
 

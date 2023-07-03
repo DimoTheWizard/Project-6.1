@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
@@ -16,6 +16,7 @@ namespace Sports_Accounting
 {
     public class Validator
     {
+        private string JsonSchemapath = AppDomain.CurrentDomain.BaseDirectory + "schemaValidation.json";
         public Validator(){}
 
         //gets all from the json api
@@ -31,7 +32,8 @@ namespace Sports_Accounting
         public bool validateJson(BsonDocument BsonDoc)
         {
             //Validate File using draft 07
-            JSchema schema = JSchema.Parse(System.IO.File.ReadAllText(@"C:\Users\dimit\Source\Repos\Project-6.1\schemaValidation.json"));
+            //JSchema schema = JSchema.Parse(System.IO.File.ReadAllText(@"C:\Users\dimit\Source\Repos\Project-6.1\schemaValidation.json"));
+            JSchema schema = JSchema.Parse(System.IO.File.ReadAllText(JsonSchemapath));
             JObject jsonObject = JObject.Parse(BsonDoc.ToJson());
 
             //if validation passes display to page
@@ -87,33 +89,33 @@ namespace Sports_Accounting
         //    }
         //}
 
-        private void XMLApiCall()
-        {
-            string filepath = "C:\\Users\\Gebruiker\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\get.xml";
-            try
-            {
-                using (HttpClient cli = new HttpClient())
-                {
-                    var url = new Uri("https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=xml&type=single&amount=10");
-                    var response = cli.GetAsync(url).Result;
-                    var joke = response.Content.ReadAsStringAsync().Result;
+        //private void XMLApiCall()
+        //{
+        //    string filepath = "C:\\Users\\Gebruiker\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\get.xml";
+        //    try
+        //    {
+        //        using (HttpClient cli = new HttpClient())
+        //        {
+        //            var url = new Uri("https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=xml&type=single&amount=10");
+        //            var response = cli.GetAsync(url).Result;
+        //            var joke = response.Content.ReadAsStringAsync().Result;
 
-                    File.WriteAllText(filepath, joke);
+        //            File.WriteAllText(filepath, joke);
 
-                    //System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(joke.GetType());
-                    //Serize ti file to read
-                    //x.Serialize(Console.Out, joke);
+        //            //System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(joke.GetType());
+        //            //Serize ti file to read
+        //            //x.Serialize(Console.Out, joke);
 
-                    //WriteToXmlFile(filepath, joke);
+        //            //WriteToXmlFile(filepath, joke);
 
-                    //label2.Text = joke.Jokes[0].Joke;
-                    //System.Console.WriteLine(joke);
-                }
-            }
-            catch (AggregateException)
-            {
-            }
-        }
+        //            //label2.Text = joke.Jokes[0].Joke;
+        //            //System.Console.WriteLine(joke);
+        //        }
+        //    }
+        //    catch (AggregateException)
+        //    {
+        //    }
+        //}
 
         public static void WriteToXmlFile(string filePath, string objectToWrite, bool append = false)
         {
