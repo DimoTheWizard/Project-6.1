@@ -14,12 +14,6 @@ namespace Sports_Accounting
 {
     internal class HttpApi
     {
-        private HttpListener listener= new HttpListener(); 
-
-        HttpListenerContext context ;
-
-        HttpListenerRequest request;
-        HttpListenerResponse response;
 
         public HttpApi()
         {
