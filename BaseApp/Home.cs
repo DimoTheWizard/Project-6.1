@@ -22,14 +22,11 @@ namespace Sports_Accounting
         private string databasePath;
 
         private string connectionString;
-
-
         
         public Home()
         {
             InitializeComponent();
-            databasePath = AppDomain.CurrentDomain.BaseDirectory + "Database.mdf";
-            connectionString = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0};Integrated Security=True", databasePath);
+            connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True";
 
             //if the user is a superuser allow them to view the users panel
             if (User.Level == userLevel.SUPERUSER)
@@ -60,7 +57,7 @@ namespace Sports_Accounting
 
         [STAThread]
         private void buttonTransaction_Click(object sender, EventArgs e)
-        {
+            {
             //need to run method on a seperate thread
             Thread t = new Thread((ThreadStart)(() => {
                 OpenFileDialog dialog = new OpenFileDialog();
@@ -80,7 +77,7 @@ namespace Sports_Accounting
                         //checks if its valid mt940 and valid json file format
                         try
                         {
-                            if (!jsonAPI.checkMT940(bsonFile) && !val.validateJson(bsonFile))
+                            if (jsonAPI.checkMT940(bsonFile) && !val.validateJson(bsonFile))
                             {
                                 invalidFile = true;
                                 //if invalid file is found stop checking and report error
@@ -89,9 +86,9 @@ namespace Sports_Accounting
                         } catch
                         {
                             invalidFile = true;
-                        }         
+                        }  
                     }
-                    if(invalidFile) 
+                    if(invalidFile)
                     {
                         MessageBox.Show("File is not valid mt940 document, No files have been uploaded to the database.", "ERROR");
                     } else
@@ -105,7 +102,7 @@ namespace Sports_Accounting
                 }
             }));
 
-            // Run your code from a thread that joins the STA Thread
+            //un your code from a thread that joins the STA Thread
             t.SetApartmentState(ApartmentState.STA);
             t.Start();
             t.Join();

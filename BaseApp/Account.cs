@@ -13,22 +13,46 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Data.SqlClient;
 using System.Xml.Linq;
 using System.Data.Common;
+using System.Reflection.Emit;
 
 namespace Sports_Accounting.BaseApp
 {
     public partial class Account : Form
     {
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\dimit\source\repos\Project-6.1\Database.mdf;Integrated Security=True";
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True";
         DataGridViewCellEventArgs clickedCell;
 
         public Account()
         {
             InitializeComponent();
+            this.userTableAdapter.Fill(this.databaseDataSet.User);
+            //add the new user to the database
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                //refresh the datagridview
+                SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                dataAdapter.SelectCommand = new SqlCommand("SELECT user_id, username, level FROM [User]", connection);
+
+                //Create a new instance of the DataTable
+                DataTable myTable = new DataTable("User");
+
+                //Fill the DataTable with the initial data
+                dataAdapter.Fill(myTable);
+
+                //Set the DataGridView's DataSource property to the User table in the DataSet
+                dataGridView1.DataSource = myTable;
+
+                //Refresh the DataGridView to display the initial data
+                dataGridView1.Refresh();
+                connection.Close();
+            }
         }
 
         private void Account_Load(object sender, EventArgs e)
         {
             this.userTableAdapter.Fill(this.databaseDataSet.User);
+
         }
 
         private void AddUserButton(object sender, EventArgs e)
@@ -131,7 +155,6 @@ namespace Sports_Accounting.BaseApp
                 command.Parameters.AddWithValue("@password", password);
                 command.Parameters.AddWithValue("@level", "[" + level + "]");
                 command.ExecuteNonQuery();
-                
 
                 //gives notification of successful addition
                 addMessageBox.Text = "Successfully added!";
@@ -140,16 +163,16 @@ namespace Sports_Accounting.BaseApp
                 SqlDataAdapter dataAdapter = new SqlDataAdapter();
                 dataAdapter.SelectCommand = new SqlCommand("SELECT user_id, username, level FROM [User]", connection);
 
-                // Create a new instance of the DataTable
+                //Create a new instance of the DataTable
                 DataTable myTable = new DataTable("User");
 
-                // Fill the DataTable with the initial data
+                //Fill the DataTable with the initial data
                 dataAdapter.Fill(myTable);
 
-                // Set the DataGridView's DataSource property to the User table in the DataSet
+                //Set the DataGridView's DataSource property to the User table in the DataSet
                 dataGridView1.DataSource = myTable;
 
-                // Refresh the DataGridView to display the initial data
+                //Refresh the DataGridView to display the initial data
                 dataGridView1.Refresh();
                 connection.Close();
             }
@@ -171,40 +194,41 @@ namespace Sports_Accounting.BaseApp
         private void DeleteUserButton(object sender, EventArgs e)
         {
             var id = dataGridView1.Rows[clickedCell.RowIndex].Cells[0].Value;
-            if((int)id != 19) //dont delete the only user than can make users
+            string query = "DELETE FROM [User] WHERE user_id = @user_id";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "DELETE FROM [User] WHERE user_id = @user_id";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    command.Parameters.AddWithValue("@user_id", id);
+                    command.ExecuteNonQuery();
+
+                    //refresh the datagridview
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                    dataAdapter.SelectCommand = new SqlCommand("SELECT user_id, username, level FROM [User]", connection);
+
+                    //Create a new instance of the DataTable
+                    DataTable myTable = new DataTable("User");
+
+                    //Fill the DataTable with the initial data
+                    dataAdapter.Fill(myTable);
+
+                    //Set the DataGridView's DataSource property to the User table in the DataSet
+                    dataGridView1.DataSource = myTable;
+
+                    //Refresh the DataGridView to display the initial data
+                    dataGridView1.Refresh();
+                    connection.Close();
+
+                    //check if the user deleted isnt current user
+                    if ((int)id == User.userID)
                     {
-                        command.Parameters.AddWithValue("@user_id", id);
-                        command.ExecuteNonQuery();
-
-                        //refresh the datagridview
-                        SqlDataAdapter dataAdapter = new SqlDataAdapter();
-                        dataAdapter.SelectCommand = new SqlCommand("SELECT user_id, username, level FROM [User]", connection);
-
-                        // Create a new instance of the DataTable
-                        DataTable myTable = new DataTable("User");
-
-                        // Fill the DataTable with the initial data
-                        dataAdapter.Fill(myTable);
-
-                        // Set the DataGridView's DataSource property to the User table in the DataSet
-                        dataGridView1.DataSource = myTable;
-
-                        // Refresh the DataGridView to display the initial data
-                        dataGridView1.Refresh();
-
-                        connection.Close();
+                        LogIn login = new LogIn();
+                        login.Show();
+                        this.Hide();
                     }
                 }
-            } else
-            {
-                deleteUserMessage.Text = "Cannot delete the only user that makes users";
             }
             deleteUserMessage.Text = "Deleted User";
         }

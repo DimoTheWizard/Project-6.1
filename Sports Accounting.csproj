@@ -274,6 +274,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="schemaValidation.json" />
     <None Include="xmlValidator.xsd">
       <SubType>Designer</SubType>
     </None>

@@ -27,7 +27,7 @@ namespace Sports_Accounting.BaseApp
 
         //connection string
 
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ""Database.mdf"");Integrated Security=True";
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True";
         string currentWorkingId;
         ListViewItemSelectionChangedEventArgs itemChangedBuffer;
 

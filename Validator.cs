@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using Newtonsoft.Json.Schema;
-using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Linq; 
 using api;
 using MongoDB.Bson.IO;
 using MongoDB.Bson;
 using Newtonsoft.Json;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace Sports_Accounting
 {
@@ -31,13 +33,18 @@ namespace Sports_Accounting
         //TODO: store in Database
         public bool validateJson(BsonDocument BsonDoc)
         {
-            //Validate File using draft 07
-            //JSchema schema = JSchema.Parse(System.IO.File.ReadAllText(@"C:\Users\dimit\Source\Repos\Project-6.1\schemaValidation.json"));
             JSchema schema = JSchema.Parse(System.IO.File.ReadAllText(JsonSchemapath));
-            JObject jsonObject = JObject.Parse(BsonDoc.ToJson());
+            XmlAPI xml = new XmlAPI();
+            List<BsonDocument> bsonDocs = new List<BsonDocument>();
+            bsonDocs.Add(BsonDoc);
+            XmlDocument xmlDocs = xml.XMLConverter(bsonDocs);
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xmlDocs.OuterXml);
+
+            string json = Newtonsoft.Json.JsonConvert.SerializeXmlNode(doc);
 
             //if validation passes display to page
-            if (jsonObject.IsValid(schema))
+            if (JObject.Parse(json).IsValid(schema))
             {
                 return true;
             }

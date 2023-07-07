@@ -1,39 +1,174 @@
 {
-  "$schema": "https://appliedengdesign.github.io/cnccodes-json-schema/draft/2022-07/schema",
-  "$ref": "#/definitions/Welcome",
-  "definitions": {
-    "Welcome": {
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Generated schema for Root",
+  "type": "object",
+  "properties": {
+    "Statements": {
       "type": "object",
-      "additionalProperties": false,
       "properties": {
-        "transaction": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Transaction"
-          }
+        "Statement": {
+          "type": "object",
+          "properties": {
+            "ID": {
+              "type": "string"
+            },
+            "Account": {
+              "type": "string"
+            },
+            "ClosingAvailableBalance": {
+              "type": "string"
+            },
+            "ClosingBalance": {
+              "type": "object",
+              "properties": {
+                "Balance": {
+                  "type": "string"
+                },
+                "Currency": {
+                  "type": "string"
+                },
+                "DebitCredit": {
+                  "type": "string"
+                },
+                "EntryDate": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Balance",
+                "Currency",
+                "DebitCredit",
+                "EntryDate"
+              ]
+            },
+            "Description": {
+              "type": "string"
+            },
+            "ForwardAvailableBalance": {
+              "type": "string"
+            },
+            "OpeningBalance": {
+              "type": "object",
+              "properties": {
+                "Balance": {
+                  "type": "string"
+                },
+                "Currency": {
+                  "type": "string"
+                },
+                "DebitCredit": {
+                  "type": "string"
+                },
+                "EntryDate": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Balance",
+                "Currency",
+                "DebitCredit",
+                "EntryDate"
+              ]
+            },
+            "RelatedMessage": {
+              "type": "string"
+            },
+            "SequenceNumber": {
+              "type": "string"
+            },
+            "StatementNumber": {
+              "type": "string"
+            },
+            "TransactionReference": {
+              "type": "string"
+            },
+            "Transactions": {
+              "type": "object",
+              "properties": {
+                "Transaction": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "AccountServicingReference": {
+                        "type": "string"
+                      },
+                      "Amount": {
+                        "type": "string"
+                      },
+                      "DebitCredit": {
+                        "type": "string"
+                      },
+                      "Description": {
+                        "type": "string"
+                      },
+                      "Details": {},
+                      "EntryDate": {
+                        "type": "string"
+                      },
+                      "FundsCode": {
+                        "type": "string"
+                      },
+                      "Reference": {
+                        "type": "string"
+                      },
+                      "SupplementaryDetails": {
+                        "type": "string"
+                      },
+                      "TransactionType": {
+                        "type": "string"
+                      },
+                      "Value": {
+                        "type": "string"
+                      },
+                      "ValueDate": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "AccountServicingReference",
+                      "Amount",
+                      "DebitCredit",
+                      "Description",
+                      "Details",
+                      "EntryDate",
+                      "FundsCode",
+                      "Reference",
+                      "SupplementaryDetails",
+                      "TransactionType",
+                      "Value",
+                      "ValueDate"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "Transaction"
+              ]
+            }
+          },
+          "required": [
+            "ID",
+            "Account",
+            "ClosingAvailableBalance",
+            "ClosingBalance",
+            "Description",
+            "ForwardAvailableBalance",
+            "OpeningBalance",
+            "RelatedMessage",
+            "SequenceNumber",
+            "StatementNumber",
+            "TransactionReference",
+            "Transactions"
+          ]
         }
       },
       "required": [
-        "transaction"
-      ],
-      "title": "Welcome"
-    },
-    "Transaction": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "mt940content": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "mt940content"
-      ],
-      "title": "Transaction"
+        "Statement"
+      ]
     }
-  }
+  },
+  "required": [
+    "Statements"
+  ]
 }

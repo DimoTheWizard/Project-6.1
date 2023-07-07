@@ -57,10 +57,10 @@ namespace Sports_Accounting
                 }
             }
 
-                //Bank Statement
-                XmlDocument xmlStatement = new XmlDocument();
-                XmlNode statementsNode = xmlStatement.CreateElement("Statements");
-                xmlStatement.AppendChild(statementsNode);
+            //Bank Statement
+            XmlDocument xmlStatement = new XmlDocument();
+            XmlNode statementsNode = xmlStatement.CreateElement("Statements");
+            xmlStatement.AppendChild(statementsNode);
             try
             {
                 //to get ID from the mongoDB
