@@ -416,33 +416,16 @@ namespace Sports_Accounting
             {
                 return null;
             }
-            return xmlStatement;
-        }
 
-        //Validates xml using schema provided, populate first page
-        public bool checkXML(XmlDocument document)
-        {
-            //Uncomment to pull from APi
-            //string filepath = "C:\Users\Gebruiker\source\repos\WindowsFormsApp1\WindowsFormsApp1\get.xml";
-            //var xmlValue = await getXmlValue();
-            //var xmlOutput = xmlValue.OuterXml;
-            //var output = xmlOutput.ToString();
-
-            //File.WriteAllText(filepath, output);
-
-            XmlSchemaSet schema = new XmlSchemaSet();
-            schema.Add("", @"C:\\Users\\dimit\\Source\\Repos\\Project-6.1\\xmlValidator.xsd");
-
-            XDocument doc = XDocument.Parse(document.OuterXml);
-            bool status = false;
-
-            doc.Validate(schema, (s, e) =>
+            //run the xml through the xml validator
+            Validator val = new Validator();
+            if (val.validateXml(xmlStatement.InnerXml))
             {
-                System.Console.WriteLine(e.Message);
-                status = true;
-            });
-
-            return status;
+                return xmlStatement;
+            } else
+            {
+                return null;
+            }
         }
     }
 }

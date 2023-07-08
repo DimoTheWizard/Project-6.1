@@ -13,6 +13,8 @@ using MongoDB.Bson;
 using Newtonsoft.Json;
 using System.Xml;
 using System.Xml.Linq;
+using System.Xml.Schema;
+using System.Data.SqlTypes;
 
 namespace Sports_Accounting
 {
@@ -29,8 +31,7 @@ namespace Sports_Accounting
             return xmlDocs;
         }
 
-        //Validates JSON using schema provided, populate table 
-        //TODO: store in Database
+        //Validates JSON using schema provided
         public bool validateJson(BsonDocument BsonDoc)
         {
             JSchema schema = JSchema.Parse(System.IO.File.ReadAllText(JsonSchemapath));
@@ -54,90 +55,42 @@ namespace Sports_Accounting
             };
         }
 
-        ////Validates xml using schema provided
-        //private void ValidateXML()
-        //{
-        //    string filepath = "C:\\Users\\Gebruiker\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\get.xml";
-
-        //    try
-        //    {
-        //        using (HttpClient cli = new HttpClient())
-        //        {
-        //            var url = new Uri("https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=xml&type=single&amount=10");
-        //            var response = cli.GetAsync(url).Result;
-        //            var joke = response.Content.ReadAsStringAsync().Result;
-
-        //            File.WriteAllText(filepath, joke);
-        //            XmlSchemaSet schema = new XmlSchemaSet();
-        //            schema.Add("", @"C:\\Users\\Gebruiker\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\xmlValidator.xsd");
-
-        //            XDocument doc = XDocument.Load(filepath);
-        //            bool status = false;
-
-        //            doc.Validate(schema, (s, e) =>
-        //            {
-
-        //                System.Console.WriteLine(e.Message);
-        //                status = true;
-        //            });
-        //            if (status)
-        //            {
-        //                System.Console.WriteLine("Failed");
-        //            }
-        //            //WriteState code to populate page here
-        //            else
-        //            {
-        //                System.Console.WriteLine("Passed");
-        //            }
-        //        }
-        //    }
-        //    catch (AggregateException)
-        //    {
-        //    }
-        //}
-
-        //private void XMLApiCall()
-        //{
-        //    string filepath = "C:\\Users\\Gebruiker\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\get.xml";
-        //    try
-        //    {
-        //        using (HttpClient cli = new HttpClient())
-        //        {
-        //            var url = new Uri("https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=xml&type=single&amount=10");
-        //            var response = cli.GetAsync(url).Result;
-        //            var joke = response.Content.ReadAsStringAsync().Result;
-
-        //            File.WriteAllText(filepath, joke);
-
-        //            //System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(joke.GetType());
-        //            //Serize ti file to read
-        //            //x.Serialize(Console.Out, joke);
-
-        //            //WriteToXmlFile(filepath, joke);
-
-        //            //label2.Text = joke.Jokes[0].Joke;
-        //            //System.Console.WriteLine(joke);
-        //        }
-        //    }
-        //    catch (AggregateException)
-        //    {
-        //    }
-        //}
-
-        public static void WriteToXmlFile(string filePath, string objectToWrite, bool append = false)
+        //Validates XML using Schema
+        public bool validateXml(string xml)
         {
-            TextWriter writer = null;
             try
             {
-                var serializer = new XmlSerializer(objectToWrite.GetType());
-                writer = new StreamWriter(filePath, append);
-                serializer.Serialize(writer, objectToWrite);
+                //Create the XmlSchemaSet with XSD string
+                XmlSchemaSet schemaSet = new XmlSchemaSet();
+
+                schemaSet.Add(null, AppDomain.CurrentDomain.BaseDirectory + "xmlValidator.xsd");
+
+                //Make reader settings with validation schema
+                XmlReaderSettings settings = new XmlReaderSettings();
+                settings.ValidationType = ValidationType.Schema;
+                settings.Schemas = schemaSet;
+                settings.ValidationEventHandler += ValidationEventHandler;
+
+                //Make the reader with xml string
+                XmlReader reader = XmlReader.Create(new StringReader(xml), settings);
+
+                //Reads the xml until its false AKA invalid
+                while (reader.Read()) { }
+
+                return true;
             }
-            finally
+            catch (Exception ex)
             {
-                if (writer != null)
-                    writer.Close();
+                return false;
             }
+        }
+
+        static void ValidationEventHandler(object sender, System.Xml.Schema.ValidationEventArgs e)
+        {
+            if (e.Severity == XmlSeverityType.Error)
+                Console.WriteLine("Error: " + e.Message);
+            else
+                Console.WriteLine("Warning: " + e.Message);
         }
     }
 }

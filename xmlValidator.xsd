@@ -1,60 +1,59 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           attributeFormDefault="unqualified"
-           elementFormDefault="qualified">
-
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xs:element name="Statements">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="Statement" minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="Statement">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="ID" type="xs:string"/>
-							<xs:element name="Account" type="xs:string"/>
-							<xs:element name="ClosingAvailableBalance" type="xs:string"/>
+							<xs:element name="ID" />
+							<xs:element name="Account" type="xs:string" />
+							<xs:element name="ClosingAvailableBalance" type="xs:string" />
 							<xs:element name="ClosingBalance">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="Balance" type="xs:string"/>
-										<xs:element name="Currency" type="xs:string"/>
-										<xs:element name="DebitCredit" type="xs:string"/>
-										<xs:element name="EntryDate" type="xs:string"/>
+										<xs:element name="Balance" type="xs:string" />
+										<xs:element name="Currency" type="xs:string" />
+										<xs:element name="DebitCredit" type="xs:string" />
+										<xs:element name="EntryDate" type="xs:string" />
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
-							<xs:element name="Description" type="xs:string"/>
-							<xs:element name="ForwardAvailableBalance" type="xs:string"/>
+							<xs:element name="Description" type="xs:string" />
+							<xs:element name="ForwardAvailableBalance" type="xs:string" />
 							<xs:element name="OpeningBalance">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="Balance" type="xs:string"/>
-										<xs:element name="Currency" type="xs:string"/>
-										<xs:element name="DebitCredit" type="xs:string"/>
-										<xs:element name="EntryDate" type="xs:string"/>
+										<xs:element name="Balance" type="xs:string" />
+										<xs:element name="Currency" type="xs:string" />
+										<xs:element name="DebitCredit" type="xs:string" />
+										<xs:element name="EntryDate" type="xs:string" />
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
-							<xs:element name="RelatedMessage" type="xs:string"/>
-							<xs:element name="SequenceNumber" type="xs:string"/>
-							<xs:element name="StatementNumber" type="xs:string"/>
-							<xs:element name="TransactionReference" type="xs:string"/>
+							<xs:element name="RelatedMessage" />
+							<xs:element name="SequenceNumber" />
+							<xs:element name="StatementNumber" type="xs:unsignedShort" />
+							<xs:element name="TransactionReference" type="xs:string" />
 							<xs:element name="Transactions">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="Transaction" minOccurs="0" maxOccurs="unbounded">
+										<xs:element maxOccurs="unbounded" name="Transaction">
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="AccountServicingReference" type="xs:string"/>
-													<xs:element name="Amount" type="xs:string"/>
-													<xs:element name="DebitCredit" type="xs:string"/>
-													<xs:element name="Description" type="xs:string"/>
-													<xs:element name="Details" type="xs:string"/>
-													<xs:element name="EntryDate" type="xs:string"/>
-													<xs:element name="FundsCode" type="xs:string"/>
-													<xs:element name="Reference" type="xs:string"/>
-													<xs:element name="SupplementaryDetails" type="xs:string"/>
-													<xs:element name="TransactionType" type="xs:string"/>
-													<xs:element name="Value" type="xs:string"/>
-													<xs:element name="ValueDate" type="xs:string"/>
+													<xs:element name="AccountServicingReference" type="xs:unsignedShort" />
+													<xs:element name="Amount" type="xs:string" />
+													<xs:element name="DebitCredit" type="xs:string" />
+													<xs:element name="Description" type="xs:string" />
+													<xs:element name="Details" />
+													<xs:element name="EntryDate" type="xs:string" />
+													<xs:element name="FundsCode" />
+													<xs:element name="Reference" type="xs:string" />
+													<xs:element name="SupplementaryDetails" />
+													<xs:element name="TransactionType" type="xs:string" />
+													<xs:element name="Value" type="xs:string" />
+													<xs:element name="ValueDate" type="xs:string" />
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
