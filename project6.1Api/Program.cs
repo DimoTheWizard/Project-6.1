@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-//builder.Services.AddControllers();
+builder.Services.AddControllers().AddXmlSerializerFormatters();
 builder.Services.AddControllers(options =>
 {
     options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
@@ -34,6 +34,7 @@ if (app.Environment.IsDevelopment())
 //sqlitedb.InitializeDatabase();
 
 //db faker
+//sqlitedb.TransactionFaker();
 //sqlitedb.TransactionFaker();
 
 app.UseHttpsRedirection();

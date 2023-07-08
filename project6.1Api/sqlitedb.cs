@@ -93,7 +93,6 @@ namespace project6._1Api.Entities
             }
         }
 
-
         public static string[] GetTransactionXml()
         {
             XDocument xmlDocument = new XDocument();

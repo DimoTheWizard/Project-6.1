@@ -20,8 +20,7 @@ namespace project6._1Api.Entities
         {
         }
 
-        public virtual DbSet<Transaction> Transactions { get; set; }
+        public virtual DbSet<Transactions> Transactions { get; set; }
 
-         
     }
 }

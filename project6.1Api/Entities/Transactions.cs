@@ -1,34 +1,36 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
-namespace project6._1Api.Model
+namespace project6._1Api.Entities
 {
-    public class TransactionModel
+    public partial class Transactions
     {
-        [Key]
+        public Transactions() { 
+        
+        }
+
         public string Id { get; set; }
 
-        [Required]
         public string Account { get; set; }
-        [Required]
+     
         public string ClosingAvailableBalance { get; set; }
-        [Required]
+     
         public string ClosingBalance { get; set; }
         public string Description { get; set; }
-        [Required]
+     
         public string ForwardAvailableBalance { get; set; }
-        [Required]
         public string OpeningBalance { get; set; }
         public string RelatedMessage { get; set; }
-        [Required]
+     
         public string SequenceNumber { get; set; }
-        [Required]
+     
         public string StatementNumber { get; set; }
-        [Required]
+     
         public string TransactionReference { get; set; }
-        [Required]
+     
         public string TransactionType { get; set; }
-        [Required]
+     
         public string TransactionDate { get; set; }
-        
     }
+
 }
